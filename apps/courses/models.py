@@ -51,7 +51,7 @@ class Course(models.Model):
     )
 
     class Meta:
-        db_table = 'course'
+        db_table = 'courses'
         verbose_name = _('Курс')
         verbose_name_plural = _('Курсы')
 
@@ -73,7 +73,7 @@ class Category(MPTTModel):
     )
 
     class Meta:
-        db_table = 'category'
+        db_table = 'categories'
         verbose_name = _('Категория')
         verbose_name_plural = _('Категории')
 

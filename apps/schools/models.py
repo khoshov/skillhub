@@ -13,7 +13,7 @@ class School(models.Model):
     )
 
     class Meta:
-        db_table = 'school'
+        db_table = 'schools'
         verbose_name = _('Школа')
         verbose_name_plural = _('Школы')
 
