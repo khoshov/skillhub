@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_filters',
     'mptt',
     'rest_framework',
+    'graphene_django',
 
     # Project apps
     'courses.apps.CoursesConfig',
@@ -144,3 +145,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+GRAPHENE = {
+    "SCHEMA": "config.schema.schema"
+}
