@@ -5,7 +5,7 @@ from graphene_django.types import DjangoObjectType
 from schools.models import School
 
 
-class SchoolType(DjangoObjectType):
+class SchoolNode(DjangoObjectType):
     class Meta:
         model = School
         interfaces = (Node,)
@@ -13,5 +13,5 @@ class SchoolType(DjangoObjectType):
 
 
 class Query(object):
-    school = Node.Field(SchoolType)
-    all_schools = DjangoFilterConnectionField(SchoolType)
+    school = Node.Field(SchoolNode)
+    all_schools = DjangoFilterConnectionField(SchoolNode)

@@ -5,7 +5,7 @@ from graphene_django.types import DjangoObjectType
 from courses.models import Course, Category, CourseCategory
 
 
-class CategoryType(DjangoObjectType):
+class CategoryNode(DjangoObjectType):
     class Meta:
         model = Category
         interfaces = (Node,)
@@ -15,7 +15,7 @@ class CategoryType(DjangoObjectType):
         }
 
 
-class CourseCategoryType(DjangoObjectType):
+class CourseCategoryNode(DjangoObjectType):
     class Meta:
         model = CourseCategory
         interfaces = (Node,)
@@ -25,7 +25,7 @@ class CourseCategoryType(DjangoObjectType):
         }
 
 
-class CourseType(DjangoObjectType):
+class CourseNode(DjangoObjectType):
     class Meta:
         model = Course
         interfaces = (Node,)
@@ -42,5 +42,12 @@ class CourseType(DjangoObjectType):
 
 
 class Query(object):
-    course = Node.Field(CourseType)
-    all_courses = DjangoFilterConnectionField(CourseType)
+    course = Node.Field(CourseNode)
+    all_courses = DjangoFilterConnectionField(CourseNode)
+
+    category = Node.Field(CategoryNode)
+    all_categories = DjangoFilterConnectionField(CategoryNode)
+
+    course_category = Node.Field(CourseCategoryNode)
+    all_course_categories = DjangoFilterConnectionField(CourseCategoryNode)
+
