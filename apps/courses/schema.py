@@ -2,10 +2,30 @@ from graphene import Node
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
 
-from courses.models import Course
+from courses.models import Course, Category, CourseCategory
 
 
-class CourseNode(DjangoObjectType):
+class CategoryType(DjangoObjectType):
+    class Meta:
+        model = Category
+        interfaces = (Node,)
+        filter_fields = {
+            "name": ["icontains", "exact"],
+            "parent": ["exact"],
+        }
+
+
+class CourseCategoryType(DjangoObjectType):
+    class Meta:
+        model = CourseCategory
+        interfaces = (Node,)
+        filter_fields = {
+            "course": ["exact"],
+            "category": ["exact"],
+        }
+
+
+class CourseType(DjangoObjectType):
     class Meta:
         model = Course
         interfaces = (Node,)
@@ -20,6 +40,7 @@ class CourseNode(DjangoObjectType):
             "certificate": ["exact"],
         }
 
+
 class Query(object):
-    course = Node.Field(CourseNode)
-    all_courses = DjangoFilterConnectionField(CourseNode)
+    course = Node.Field(CourseType)
+    all_courses = DjangoFilterConnectionField(CourseType)
