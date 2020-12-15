@@ -9,17 +9,16 @@ class CourseNode(DjangoObjectType):
     class Meta:
         model = Course
         interfaces = (Node,)
-        filter_fields = [
-            'name',
-            'category',
-            'school' ,
-            'type',
-            'price',
-            'duration',
-            'start_date',
-            'certificate',
-        ]
-
+        filter_fields = {
+            "name": ["icontains", "exact"],
+            "category": ["exact"],
+            "school": ["exact"],
+            "type": ["exact"],
+            "price": ["gt", "lt", "exact"],
+            "duration": ["exact"],
+            "start_date": ["gt", "lt", "exact"],
+            "certificate": ["exact"],
+        }
 
 class Query(object):
     course = Node.Field(CourseNode)
