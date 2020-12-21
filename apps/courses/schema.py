@@ -11,7 +11,7 @@ class CategoryNode(DjangoObjectType):
         interfaces = (Node,)
         filter_fields = {
             "name": ["icontains", "exact"],
-            "parent": ["exact"],
+            "parent": ["exact", "isnull"],
         }
 
 
