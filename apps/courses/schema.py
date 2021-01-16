@@ -1,3 +1,4 @@
+import graphene
 from graphene import Node
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
@@ -49,5 +50,11 @@ class Query(object):
     all_categories = DjangoFilterConnectionField(CategoryNode)
 
     course_category = Node.Field(CourseCategoryNode)
-    all_course_categories = DjangoFilterConnectionField(CourseCategoryNode)
+    all_course_categories = DjangoFilterConnectionField(
+        CourseCategoryNode,
+        root_category=graphene.String()
+    )
 
+    def resolve_all_course_categories(self, info, root_category=None, **kwargs):
+        print(root_category)
+        return CourseCategory.objects.all()
