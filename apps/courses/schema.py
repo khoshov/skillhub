@@ -12,7 +12,7 @@ class CourseNode(DjangoObjectType):
         filter_fields = [
             'name',
             'category',
-            'school' ,
+            'school',
             'type',
             'price',
             'duration',
