@@ -21,8 +21,15 @@ class CourseCategoryNode(DjangoObjectType):
         model = CourseCategory
         interfaces = (Node,)
         filter_fields = {
-            "course": ["exact"],
-            "category": ["exact"],
+            "course__name": ["exact"],
+            "course__school": ["exact"],
+            "course__type": ["exact"],
+            "course__price": ["gt", "lt", "exact"],
+            "course__duration": ["exact"],
+            "course__start_date": ["gt", "lt", "exact"],
+            "course__certificate": ["exact"],
+            "category__parent": ["exact"],
+            "category__name": ["exact"],
         }
 
 
