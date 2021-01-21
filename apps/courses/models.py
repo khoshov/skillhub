@@ -71,6 +71,11 @@ class Category(MPTTModel):
         _('Имя'),
         max_length=255,
     )
+    course = models.ManyToManyField(
+        'courses.Course',
+        through='courses.CourseCategory',
+        verbose_name=_('Курсы'),
+    )
 
     class Meta:
         db_table = 'category'
@@ -93,3 +98,7 @@ class CourseCategory(models.Model):
 
     class Meta:
         db_table = 'course_category'
+
+    def course_count(self):
+        return CourseCategory.objects.filter(
+            category__in=self.get_descendants(include_self=True)).count()

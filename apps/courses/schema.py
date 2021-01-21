@@ -2,6 +2,7 @@ import graphene
 from graphene import Node
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
+from django.db.models import Count
 
 from courses.models import Course, Category, CourseCategory
 
@@ -31,6 +32,11 @@ class CourseCategoryNode(DjangoObjectType):
             "category__parent": ["exact"],
             "category__name": ["exact"],
         }
+
+    course_count_field = graphene.Int()
+
+    def resolve_course_count_field(self, info):
+        return getattr(self, 'course_count', None)
 
 
 class CourseNode(DjangoObjectType):
