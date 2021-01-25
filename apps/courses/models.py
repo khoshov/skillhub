@@ -93,3 +93,8 @@ class CourseCategory(models.Model):
 
     class Meta:
         db_table = 'course_category'
+
+    @property
+    def course_count(self):
+        categories = self.category.get_root().get_descendants(include_self=True)
+        return Course.objects.filter(category__in=categories).count()

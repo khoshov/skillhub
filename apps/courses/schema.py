@@ -17,6 +17,8 @@ class CategoryNode(DjangoObjectType):
 
 
 class CourseCategoryNode(DjangoObjectType):
+    course_count = graphene.Int()
+
     class Meta:
         model = CourseCategory
         interfaces = (Node,)
@@ -33,6 +35,9 @@ class CourseCategoryNode(DjangoObjectType):
             "category__parent": ["exact"],
             "category__name": ["exact"],
         }
+
+    def resolve_course_count(self, info):
+        return getattr(self, 'course_count', None)
 
 
 class CourseNode(DjangoObjectType):
@@ -65,5 +70,9 @@ class Query(object):
     )
 
     def resolve_all_course_categories(self, info, root_category=None, **kwargs):
-        print(root_category)
-        return CourseCategory.objects.all()
+        queryset = CourseCategory.objects.all()
+        if root_category:
+            categories = Category.objects.filter(name=root_category).get_descendants(include_self=True)
+            print(categories)
+            queryset = queryset.filter(category__in=categories)
+        return queryset
