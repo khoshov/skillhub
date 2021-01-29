@@ -50,7 +50,7 @@ class CourseNode(DjangoObjectType):
             "school": ["exact"],
             "type": ["exact"],
             "price": ["gt", "lt", "exact"],
-            "duration": ["exact"],
+            "duration": ["gt", "lt", "exact"],
             "start_date": ["gt", "lt", "exact"],
             "certificate": ["exact"],
         }
