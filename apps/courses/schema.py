@@ -3,7 +3,13 @@ from graphene import Node
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
 
-from courses.models import Course, Category, CourseCategory
+from courses.models import Category, Course, CourseCategory, DifficultyLevel
+
+
+class DifficultyLevelNode(DjangoObjectType):
+    class Meta:
+        model = DifficultyLevel
+        interfaces = (Node,)
 
 
 class CategoryNode(DjangoObjectType):
@@ -58,6 +64,9 @@ class CourseNode(DjangoObjectType):
 
 
 class Query(object):
+    difficulty_level = Node.Field(DifficultyLevelNode)
+    all_difficulty_levels = DjangoFilterConnectionField(DifficultyLevelNode)
+
     course = Node.Field(CourseNode)
     all_courses = DjangoFilterConnectionField(CourseNode)
 
