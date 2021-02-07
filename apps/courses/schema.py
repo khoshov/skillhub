@@ -10,6 +10,9 @@ class DifficultyLevelNode(DjangoObjectType):
     class Meta:
         model = DifficultyLevel
         interfaces = (Node,)
+        filter_fields = {
+            "name": ["icontains", "exact"],
+        }
 
 
 class CategoryNode(DjangoObjectType):
