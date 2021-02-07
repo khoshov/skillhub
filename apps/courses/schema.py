@@ -28,6 +28,7 @@ class CourseCategoryNode(DjangoObjectType):
             "category": ["exact"],
             "course__school": ["exact"],
             "course__type": ["exact"],
+            "course__difficulty_level": ["exact"],
             "course__price": ["gt", "lt", "exact"],
             "course__duration": ["gt", "lt", "exact"],
             "course__start_date": ["gt", "lt", "exact"],

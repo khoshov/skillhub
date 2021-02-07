@@ -4,6 +4,21 @@ from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
 
+class DifficultyLevel(models.Model):
+    name = models.CharField(
+        _('Название'),
+        max_length=255,
+    )
+
+    class Meta:
+        db_table = 'difficulty_level'
+        verbose_name = _('Уровень сложности')
+        verbose_name_plural = _('Уровни сложности')
+
+    def __str__(self):
+        return self.name
+
+
 class Course(models.Model):
     ONLINE = 1
     OFFLINE = 2
@@ -31,19 +46,24 @@ class Course(models.Model):
         choices=TYPES,
         default=ONLINE,
     )
-    price = models.DecimalField(
-        _('Цена ₽'),
-        max_digits=9,
-        decimal_places=2,
-        null=True, blank=True,
+    difficulty_level = models.ForeignKey(
+        DifficultyLevel,
+        models.CASCADE,
+        verbose_name=_('Уровень сложности'),
     )
     duration = models.PositiveIntegerField(
         _('Длительность, мес.'),
-        null=True, blank=True,
+        blank=True, null=True,
     )
     start_date = models.DateField(
         _('Дата старта'),
         null=True, blank=True,
+    )
+    price = models.DecimalField(
+        _('Цена ₽'),
+        max_digits=9,
+        decimal_places=2,
+        blank=True, null=True,
     )
     certificate = models.BooleanField(
         _('Выдается сертификат гос. образца'),
@@ -63,9 +83,9 @@ class Category(MPTTModel):
     parent = TreeForeignKey(
         'self',
         models.CASCADE,
-        null=True, blank=True,
         related_name='children',
-        verbose_name=_('Родительская категория')
+        verbose_name=_('Родительская категория'),
+        blank=True, null=True,
     )
     name = models.CharField(
         _('Имя'),
