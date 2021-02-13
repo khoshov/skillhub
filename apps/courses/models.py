@@ -61,7 +61,13 @@ class Course(models.Model):
     )
     price = models.DecimalField(
         _('Цена ₽'),
-        max_digits=9,
+        max_digits=10,
+        decimal_places=2,
+        blank=True, null=True,
+    )
+    installment_price = models.DecimalField(
+        _('Цена в рассрочку ₽'),
+        max_digits=10,
         decimal_places=2,
         blank=True, null=True,
     )
@@ -90,6 +96,10 @@ class Category(MPTTModel):
     name = models.CharField(
         _('Имя'),
         max_length=255,
+    )
+    description = models.TextField(
+        _('Описание'),
+        blank=True, null=True,
     )
 
     class Meta:

@@ -1,9 +1,11 @@
-Django==3.1.1
-django-cors-headers==3.5.0
+django-cors-headers==3.7.0
 django-environ==0.4.5
-django-filter==2.3.0
+django-extensions==3.1.1
+django-filter==2.4.0
 django-mptt==0.11.0
-djangorestframework==3.11.1
+Django==3.1.6
+djangorestframework==3.12.2
+graphene-django==2.15.0
 graphene==2.1.8
-graphene-django==2.13.0
+model-bakery==1.2.1
 psycopg2-binary==2.8.6

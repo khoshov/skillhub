@@ -86,6 +86,5 @@ class Query(object):
         queryset = CourseCategory.objects.all()
         if root_category:
             categories = Category.objects.filter(name=root_category).get_descendants(include_self=True)
-            print(categories)
             queryset = queryset.filter(category__in=categories)
         return queryset
