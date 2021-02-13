@@ -3,6 +3,8 @@ from django.utils.translation import gettext_lazy as _
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
+from core.fields import AutoSlugField
+
 
 class DifficultyLevel(models.Model):
     name = models.CharField(
@@ -96,6 +98,11 @@ class Category(MPTTModel):
     name = models.CharField(
         _('Имя'),
         max_length=255,
+    )
+    slug = AutoSlugField(
+        _('Слаг'),
+        populate_from='name',
+        unique=True,
     )
     description = models.TextField(
         _('Описание'),
