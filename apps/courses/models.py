@@ -101,6 +101,10 @@ class Category(MPTTModel):
         _('Описание'),
         blank=True, null=True,
     )
+    sort_order = models.IntegerField(
+        _('Сортировка'),
+        default=0,
+    )
 
     class Meta:
         db_table = 'category'
