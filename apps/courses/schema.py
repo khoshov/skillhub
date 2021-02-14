@@ -1,4 +1,5 @@
 import graphene
+from django.db.models import Q
 from graphene import Node
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
@@ -85,6 +86,8 @@ class Query(object):
     def resolve_all_course_categories(self, info, root_category=None, **kwargs):
         queryset = CourseCategory.objects.all()
         if root_category:
-            categories = Category.objects.filter(name=root_category).get_descendants(include_self=True)
+            categories = Category.objects.filter(
+                Q(name__icontains=root_category) | Q(slug__icontains=root_category)
+            ).get_descendants(include_self=True)
             queryset = queryset.filter(category__in=categories)
         return queryset
