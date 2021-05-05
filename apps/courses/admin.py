@@ -1,10 +1,17 @@
 from django.contrib import admin
 
-from courses.models import Course, Category, CourseCategory
+from courses.models import Category, Course, CourseCategory, DifficultyLevel
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {
+        'slug': ('name',)
+    }
+
+
+@admin.register(DifficultyLevel)
+class DifficultyLevelAdmin(admin.ModelAdmin):
     pass
 
 

@@ -46,14 +46,15 @@ INSTALLED_APPS = [
 
     # Third party apps
     'corsheaders',
+    'django_extensions',
     'django_filters',
+    'graphene_django',
     'mptt',
     'rest_framework',
-    'graphene_django',
 
     # Project apps
-    'courses.apps.CoursesConfig',
-    'schools.apps.SchoolsConfig',
+    'courses',
+    'schools',
 ]
 
 MIDDLEWARE = [
