@@ -9,7 +9,7 @@ class SchoolNode(DjangoObjectType):
     class Meta:
         model = School
         interfaces = (Node,)
-        filter_fields = ['name',]
+        filter_fields = ['title']
 
 
 class Query(object):
