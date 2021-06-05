@@ -1,4 +1,4 @@
-from ckeditor.fields import RichTextField
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from mptt.fields import TreeForeignKey
@@ -8,6 +8,13 @@ from core.fields import AutoSlugField
 
 
 class Course(models.Model):
+    DRAFT = 1
+    PUBLIC = 2
+    STATUSES = (
+        (DRAFT, _('Черновик')),
+        (PUBLIC, _('Опубликован')),
+    )
+
     ONLINE = 1
     OFFLINE = 2
     TYPE = [
@@ -36,6 +43,13 @@ class Course(models.Model):
     title = models.CharField(
         _('Название'),
         max_length=255,
+    )
+    url = models.URLField(
+        _('Ссылка на страницу курса'),
+    )
+    affiliate_url = models.URLField(
+        _('Партнёрская ссылка'),
+        blank=True, null=True
     )
     category = models.ManyToManyField(
         'courses.Category',
@@ -66,6 +80,18 @@ class Course(models.Model):
         _('Длительность, мес.'),
         blank=True, null=True,
     )
+    status = models.PositiveSmallIntegerField(
+        _('Статус'),
+        choices=STATUSES,
+        default=DRAFT,
+    )
+    author = models.ForeignKey(
+        get_user_model(),
+        models.CASCADE,
+        verbose_name=_('Автор'),
+        related_name='courses',
+        blank=True, null=True,
+    )
     start_anytime = models.BooleanField(
         _('Можно начать в любое время'),
         default=False,
@@ -78,33 +104,13 @@ class Course(models.Model):
         _('Возможен отложенный платёж'),
         default=False,
     )
-    advantages = RichTextField(
-        _('Преимущества'),
-        blank=True, null=True,
-    )
-    target_audience = RichTextField(
-        _('Кому подойдёт'),
-        blank=True, null=True,
-    )
-    learning_outcomes = RichTextField(
-        _('Чему вы научитесь'),
-        blank=True, null=True,
-    )
-    learning_process = RichTextField(
-        _('Как проходит обучение'),
-        blank=True, null=True,
-    )
-    support = RichTextField(
-        _('Поддержка во время обучения'),
-        blank=True, null=True,
-    )
-    employment_assistance = RichTextField(
-        _('Помощь в трудоустройстве'),
-        blank=True, null=True,
-    )
-    syllabus = RichTextField(
-        _('Программа курса'),
-        blank=True, null=True,
+    created = models.DateTimeField(
+        _('Дата создания'),
+        auto_now_add=True,
+    ),
+    updated = models.DateTimeField(
+        _('Дата обновлёния'),
+        auto_now=True,
     )
 
     class Meta:

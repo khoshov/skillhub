@@ -18,3 +18,9 @@ class CourseCategoryInline(admin.TabularInline):
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     inlines = [CourseCategoryInline]
+    readonly_fields = ['author']
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.author = request.user
+        obj.save()
