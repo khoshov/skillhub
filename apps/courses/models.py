@@ -76,6 +76,10 @@ class Course(models.Model):
         choices=PRICE,
         default=AVERAGE,
     )
+    price_details = models.TextField(
+        _('Дополнительная информация о цене'),
+        blank=True, null=True,
+    )
     duration = models.PositiveIntegerField(
         _('Длительность, мес.'),
         blank=True, null=True,
