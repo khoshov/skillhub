@@ -1,10 +1,20 @@
 import graphene
+from django.db.models import Q
 from graphene import Node
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
 from django.db.models import Count
 
-from courses.models import Course, Category, CourseCategory
+from courses.models import Category, Course, CourseCategory, DifficultyLevel
+
+
+class DifficultyLevelNode(DjangoObjectType):
+    class Meta:
+        model = DifficultyLevel
+        interfaces = (Node,)
+        filter_fields = {
+            "name": ["icontains", "exact"],
+        }
 
 
 class CategoryNode(DjangoObjectType):
@@ -18,24 +28,27 @@ class CategoryNode(DjangoObjectType):
 
 
 class CourseCategoryNode(DjangoObjectType):
+    course_count = graphene.Int()
+
     class Meta:
         model = CourseCategory
         interfaces = (Node,)
         filter_fields = {
+            "course": ["exact"],
             "course__name": ["exact"],
+            "category": ["exact"],
             "course__school": ["exact"],
             "course__type": ["exact"],
+            "course__difficulty_level": ["exact"],
             "course__price": ["gt", "lt", "exact"],
-            "course__duration": ["exact"],
+            "course__duration": ["gt", "lt", "exact"],
             "course__start_date": ["gt", "lt", "exact"],
             "course__certificate": ["exact"],
             "category__parent": ["exact"],
             "category__name": ["exact"],
         }
 
-    course_count_field = graphene.Int()
-
-    def resolve_course_count_field(self, info):
+    def resolve_course_count(self, info):
         return getattr(self, 'course_count', None)
 
 
@@ -49,13 +62,16 @@ class CourseNode(DjangoObjectType):
             "school": ["exact"],
             "type": ["exact"],
             "price": ["gt", "lt", "exact"],
-            "duration": ["exact"],
+            "duration": ["gt", "lt", "exact"],
             "start_date": ["gt", "lt", "exact"],
             "certificate": ["exact"],
         }
 
 
 class Query(object):
+    difficulty_level = Node.Field(DifficultyLevelNode)
+    all_difficulty_levels = DjangoFilterConnectionField(DifficultyLevelNode)
+
     course = Node.Field(CourseNode)
     all_courses = DjangoFilterConnectionField(CourseNode)
 
@@ -69,5 +85,10 @@ class Query(object):
     )
 
     def resolve_all_course_categories(self, info, root_category=None, **kwargs):
-        print(root_category)
-        return CourseCategory.objects.all()
+        queryset = CourseCategory.objects.all()
+        if root_category:
+            categories = Category.objects.filter(
+                Q(name__icontains=root_category) | Q(slug__icontains=root_category)
+            ).get_descendants(include_self=True)
+            queryset = queryset.filter(category__in=categories)
+        return queryset
