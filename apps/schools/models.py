@@ -1,15 +1,20 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
 class School(models.Model):
-    name = models.CharField(
+    title = models.CharField(
         _('Название'),
         max_length=255,
     )
-    description = models.TextField(
+    description = RichTextField(
         _('Описание'),
-        null=True, blank=True,
+        blank=True, null=True,
+    )
+    accredited = models.BooleanField(
+        _('Аккредитованное учебное заведение'),
+        default=False,
     )
 
     class Meta:
@@ -18,4 +23,4 @@ class School(models.Model):
         verbose_name_plural = _('Школы')
 
     def __str__(self):
-        return self.name
+        return self.title
