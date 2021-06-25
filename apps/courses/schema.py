@@ -5,16 +5,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
 from django.db.models import Count
 
-from courses.models import Category, Course, CourseCategory, DifficultyLevel
-
-
-class DifficultyLevelNode(DjangoObjectType):
-    class Meta:
-        model = DifficultyLevel
-        interfaces = (Node,)
-        filter_fields = {
-            "name": ["icontains", "exact"],
-        }
+from courses.models import Category, Course, CourseCategory
 
 
 class CategoryNode(DjangoObjectType):
@@ -22,7 +13,7 @@ class CategoryNode(DjangoObjectType):
         model = Category
         interfaces = (Node,)
         filter_fields = {
-            "name": ["icontains", "exact"],
+            "title": ["icontains", "exact"],
             "parent": ["exact", "isnull"],
         }
 
@@ -35,17 +26,17 @@ class CourseCategoryNode(DjangoObjectType):
         interfaces = (Node,)
         filter_fields = {
             "course": ["exact"],
-            "course__name": ["exact"],
+            "course__title": ["exact"],
             "category": ["exact"],
             "course__school": ["exact"],
             "course__type": ["exact"],
-            "course__difficulty_level": ["exact"],
-            "course__price": ["gt", "lt", "exact"],
+            "course__difficulty": ["exact"],
+            "course__price": ["exact"],
             "course__duration": ["gt", "lt", "exact"],
-            "course__start_date": ["gt", "lt", "exact"],
-            "course__certificate": ["exact"],
+            "course__start_anytime": ["exact"],
+            "course__school__accredited": ["exact"],
             "category__parent": ["exact"],
-            "category__name": ["exact"],
+            "category__title": ["exact"],
         }
 
     def resolve_course_count(self, info):
@@ -57,21 +48,18 @@ class CourseNode(DjangoObjectType):
         model = Course
         interfaces = (Node,)
         filter_fields = {
-            "name": ["icontains", "exact"],
+            "title": ["icontains", "exact"],
             "category": ["exact"],
             "school": ["exact"],
             "type": ["exact"],
-            "price": ["gt", "lt", "exact"],
+            "price": ["exact"],
             "duration": ["gt", "lt", "exact"],
-            "start_date": ["gt", "lt", "exact"],
-            "certificate": ["exact"],
+            "start_anytime": ["exact"],
+            "school__accredited": ["exact"],
         }
 
 
 class Query(object):
-    difficulty_level = Node.Field(DifficultyLevelNode)
-    all_difficulty_levels = DjangoFilterConnectionField(DifficultyLevelNode)
-
     course = Node.Field(CourseNode)
     all_courses = DjangoFilterConnectionField(CourseNode)
 
@@ -88,7 +76,7 @@ class Query(object):
         queryset = CourseCategory.objects.all()
         if root_category:
             categories = Category.objects.filter(
-                Q(name__icontains=root_category) | Q(slug__icontains=root_category)
+                Q(title__icontains=root_category) | Q(slug__icontains=root_category)
             ).get_descendants(include_self=True)
             queryset = queryset.filter(category__in=categories)
         return queryset

@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from mptt.fields import TreeForeignKey
@@ -6,33 +7,49 @@ from mptt.models import MPTTModel
 from core.fields import AutoSlugField
 
 
-class DifficultyLevel(models.Model):
-    name = models.CharField(
-        _('Название'),
-        max_length=255,
+class Course(models.Model):
+    DRAFT = 1
+    PUBLIC = 2
+    STATUSES = (
+        (DRAFT, _('Черновик')),
+        (PUBLIC, _('Опубликован')),
     )
 
-    class Meta:
-        db_table = 'difficulty_level'
-        verbose_name = _('Уровень сложности')
-        verbose_name_plural = _('Уровни сложности')
-
-    def __str__(self):
-        return self.name
-
-
-class Course(models.Model):
     ONLINE = 1
     OFFLINE = 2
-
-    TYPES = [
+    TYPE = [
         (ONLINE, _('Онлайн')),
         (OFFLINE, _('Оффлайн')),
     ]
 
-    name = models.CharField(
+    BEGINNER = 1
+    ADVANCED = 2
+    DIFFICULTY = [
+        (BEGINNER, _('С нуля')),
+        (ADVANCED, _('Продвинутый')),
+    ]
+
+    FREE = 1
+    CHEAP = 2
+    AVERAGE = 3
+    EXPENSIVE = 4
+    PRICE = [
+        (FREE, _('Бесплатно')),
+        (CHEAP, _('Низкая цена')),
+        (AVERAGE, _('Средняя цена')),
+        (EXPENSIVE, _('Высокая цена')),
+    ]
+
+    title = models.CharField(
         _('Название'),
         max_length=255,
+    )
+    url = models.URLField(
+        _('Ссылка на страницу курса'),
+    )
+    affiliate_url = models.URLField(
+        _('Партнёрская ссылка'),
+        blank=True, null=True
     )
     category = models.ManyToManyField(
         'courses.Category',
@@ -46,42 +63,59 @@ class Course(models.Model):
     )
     type = models.PositiveIntegerField(
         _('Тип'),
-        choices=TYPES,
+        choices=TYPE,
         default=ONLINE,
     )
-    difficulty_level = models.ForeignKey(
-        DifficultyLevel,
-        models.CASCADE,
-        verbose_name=_('Уровень сложности'),
-
+    difficulty = models.PositiveIntegerField(
+        _('Уровень сложности'),
+        choices=DIFFICULTY,
+        default=BEGINNER,
+    )
+    price = models.PositiveIntegerField(
+        _('Цена ₽'),
+        choices=PRICE,
+        default=AVERAGE,
+    )
+    price_details = models.TextField(
+        _('Дополнительная информация о цене'),
+        blank=True, null=True,
     )
     duration = models.PositiveIntegerField(
         _('Длительность, мес.'),
         blank=True, null=True,
     )
-    start_date = models.DateField(
-        _('Дата старта'),
-        null=True, blank=True,
+    status = models.PositiveSmallIntegerField(
+        _('Статус'),
+        choices=STATUSES,
+        default=DRAFT,
     )
-    price = models.DecimalField(
-        _('Цена ₽'),
-        max_digits=10,
-        decimal_places=2,
+    author = models.ForeignKey(
+        get_user_model(),
+        models.CASCADE,
+        verbose_name=_('Автор'),
+        related_name='courses',
         blank=True, null=True,
     )
-    installment_price = models.DecimalField(
-        _('Цена в рассрочку ₽'),
-        max_digits=10,
-        decimal_places=2,
-        blank=True, null=True,
-    )
-    certificate = models.BooleanField(
-        _('Выдается сертификат гос. образца'),
+    start_anytime = models.BooleanField(
+        _('Можно начать в любое время'),
         default=False,
     )
-    course_url = models.CharField(
-        _('Ссылка на курс'),
-        max_length=255,
+    installment = models.BooleanField(
+        _('Возможна рассрочка'),
+        default=False,
+    )
+
+    deferred_payment = models.BooleanField(
+        _('Возможен отложенный платёж'),
+        default=False,
+    )
+    created = models.DateTimeField(
+        _('Дата создания'),
+        auto_now_add=True,
+    ),
+    updated = models.DateTimeField(
+        _('Дата обновлёния'),
+        auto_now=True,
     )
 
     class Meta:
@@ -90,7 +124,7 @@ class Course(models.Model):
         verbose_name_plural = _('Курсы')
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Category(MPTTModel):
@@ -101,7 +135,7 @@ class Category(MPTTModel):
         verbose_name=_('Родительская категория'),
         blank=True, null=True,
     )
-    name = models.CharField(
+    title = models.CharField(
         _('Имя'),
         max_length=255,
     )
@@ -125,7 +159,7 @@ class Category(MPTTModel):
         verbose_name_plural = _('Категории')
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class CourseCategory(models.Model):
