@@ -39,7 +39,12 @@ class Course(models.Model):
         (AVERAGE, _('Средняя цена')),
         (EXPENSIVE, _('Высокая цена')),
     ]
-
+    MONTH = 1
+    LESSON = 2
+    DURATION_TYPE = [
+        (MONTH, _("Месяц")), 
+        (LESSON, _("Урок")),
+    ]
     title = models.CharField(
         _('Название'),
         max_length=255,
@@ -81,8 +86,13 @@ class Course(models.Model):
         blank=True, null=True,
     )
     duration = models.PositiveIntegerField(
-        _('Длительность, мес.'),
+        _('Длительность курсов'),
         blank=True, null=True,
+    )
+    duration_type = models.PositiveSmallIntegerField(
+        _('Единицы измерения длительности курсов'),
+        choices=DURATION_TYPE,
+        default=DRAFT,
     )
     status = models.PositiveSmallIntegerField(
         _('Статус'),
@@ -96,15 +106,19 @@ class Course(models.Model):
         related_name='courses',
         blank=True, null=True,
     )
-    start_anytime = models.BooleanField(
-        _('Можно начать в любое время'),
-        default=False,
+    start_date = models.DateTimeField(
+        _('Дата начала курсов'),
+        blank=True, null=True,
     )
     installment = models.BooleanField(
         _('Возможна рассрочка'),
         default=False,
     )
-
+    course_format = models.CharField(
+        _('Формат проведения занятий'),
+        max_length=255,
+        default="Комбинированный"
+    )
     deferred_payment = models.BooleanField(
         _('Возможен отложенный платёж'),
         default=False,
@@ -179,3 +193,15 @@ class CourseCategory(models.Model):
     def course_count(self):
         categories = self.category.get_root().get_descendants(include_self=True)
         return Course.objects.filter(category__in=categories).count()
+
+
+class CategoryAlias(models.Model):
+    alias = models.CharField(
+        _('Псевдоним категории'),
+        max_length=255,
+    )
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.PROTECT,
+        verbose_name=_('категория'),
+    )
