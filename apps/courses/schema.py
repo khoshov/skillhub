@@ -3,6 +3,7 @@ from django.db.models import Q
 from graphene import Node
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
+from django.db.models import Count
 
 from courses.models import Category, Course, CourseCategory
 
@@ -32,7 +33,7 @@ class CourseCategoryNode(DjangoObjectType):
             "course__difficulty": ["exact"],
             "course__price": ["exact"],
             "course__duration": ["gt", "lt", "exact"],
-            "course__start_anytime": ["exact"],
+            "course__start_date": ["exact"],
             "course__school__accredited": ["exact"],
             "category__parent": ["exact"],
             "category__title": ["exact"],
@@ -53,7 +54,7 @@ class CourseNode(DjangoObjectType):
             "type": ["exact"],
             "price": ["exact"],
             "duration": ["gt", "lt", "exact"],
-            "start_anytime": ["exact"],
+            "start_date": ["exact"],
             "school__accredited": ["exact"],
         }
 

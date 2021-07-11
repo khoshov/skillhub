@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'graphene_django',
     'mptt',
     'rest_framework',
+    'rest_framework_api_key',
 
     # Project apps
     'courses',
