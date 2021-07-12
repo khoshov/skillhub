@@ -199,6 +199,7 @@ class CategoryAlias(models.Model):
     alias = models.CharField(
         _('Псевдоним категории'),
         max_length=255,
+        unique=True,
     )
     category = models.ForeignKey(
         'Category',

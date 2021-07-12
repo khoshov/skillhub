@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from courses.models import Category, Course
+from courses.models import Category, Course, CategoryAlias
 from schools.serializers import SchoolSerializer
 
 
@@ -28,7 +28,15 @@ class CourseSerializer(serializers.ModelSerializer):
         проваледированных данных
         """
         category_alias = validated_data.pop('category')
-        category = Category.objects.filter(category_alias__alias=category_alias)
+        try:
+            category = CategoryAlias.objects.get(alias=category_alias).category
+        except CategoryAlias.DoesNotExist:
+            category = Category.objects.create(title=category_alias.capitalize())
+            CategoryAlias.objects.create(
+                alias=category_alias,
+                category=category,
+            )
+
         school = validated_data.pop('schcool')
         course, created = Course.objects.update_or_create(
             category=category,
