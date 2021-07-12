@@ -23,3 +23,6 @@ createsuperuser:
 
 shell:
 	$(PYTHON) manage.py shell_plus
+
+reset_db:
+	$(PYTHON) manage.py reset_db

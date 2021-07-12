@@ -45,7 +45,7 @@ class Course(models.Model):
         (MONTH, _("Месяц")), 
         (LESSON, _("Урок")),
     ]
-    title = models.CharField(
+    name = models.CharField(
         _('Название'),
         max_length=255,
     )
@@ -56,7 +56,7 @@ class Course(models.Model):
         _('Партнёрская ссылка'),
         blank=True, null=True
     )
-    category = models.ManyToManyField(
+    categories = models.ManyToManyField(
         'courses.Category',
         through='courses.CourseCategory',
         verbose_name=_('Категория'),
@@ -92,7 +92,7 @@ class Course(models.Model):
     duration_type = models.PositiveSmallIntegerField(
         _('Единицы измерения длительности курсов'),
         choices=DURATION_TYPE,
-        default=DRAFT,
+        default=MONTH,
     )
     status = models.PositiveSmallIntegerField(
         _('Статус'),
@@ -138,7 +138,7 @@ class Course(models.Model):
         verbose_name_plural = _('Курсы')
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 class Category(MPTTModel):
@@ -149,7 +149,7 @@ class Category(MPTTModel):
         verbose_name=_('Родительская категория'),
         blank=True, null=True,
     )
-    title = models.CharField(
+    name = models.CharField(
         _('Имя'),
         max_length=255,
     )
@@ -173,7 +173,7 @@ class Category(MPTTModel):
         verbose_name_plural = _('Категории')
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 class CourseCategory(models.Model):

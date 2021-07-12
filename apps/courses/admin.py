@@ -6,7 +6,7 @@ from courses.models import Category, Course, CourseCategory
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {
-        'slug': ('title',)
+        'slug': ('name',)
     }
 
 

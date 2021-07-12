@@ -3,7 +3,6 @@ from django.db.models import Q
 from graphene import Node
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.types import DjangoObjectType
-from django.db.models import Count
 
 from courses.models import Category, Course, CourseCategory
 
@@ -13,7 +12,7 @@ class CategoryNode(DjangoObjectType):
         model = Category
         interfaces = (Node,)
         filter_fields = {
-            "title": ["icontains", "exact"],
+            "name": ["icontains", "exact"],
             "parent": ["exact", "isnull"],
         }
 
@@ -26,7 +25,7 @@ class CourseCategoryNode(DjangoObjectType):
         interfaces = (Node,)
         filter_fields = {
             "course": ["exact"],
-            "course__title": ["exact"],
+            "course__name": ["exact"],
             "category": ["exact"],
             "course__school": ["exact"],
             "course__type": ["exact"],
@@ -36,7 +35,7 @@ class CourseCategoryNode(DjangoObjectType):
             "course__start_date": ["exact"],
             "course__school__accredited": ["exact"],
             "category__parent": ["exact"],
-            "category__title": ["exact"],
+            "category__name": ["exact"],
         }
 
     def resolve_course_count(self, info):
@@ -48,8 +47,8 @@ class CourseNode(DjangoObjectType):
         model = Course
         interfaces = (Node,)
         filter_fields = {
-            "title": ["icontains", "exact"],
-            "category": ["exact"],
+            "name": ["icontains", "exact"],
+            "categories": ["exact"],
             "school": ["exact"],
             "type": ["exact"],
             "price": ["exact"],
@@ -76,7 +75,7 @@ class Query(object):
         queryset = CourseCategory.objects.all()
         if root_category:
             categories = Category.objects.filter(
-                Q(title__icontains=root_category) | Q(slug__icontains=root_category)
+                Q(name__icontains=root_category) | Q(slug__icontains=root_category)
             ).get_descendants(include_self=True)
             queryset = queryset.filter(category__in=categories)
         return queryset

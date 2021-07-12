@@ -1,11 +1,12 @@
 from rest_framework import viewsets
 from rest_framework.parsers import JSONParser
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_api_key.permissions import HasAPIKey
 
 from courses.models import Course
-from courses.serializers import CourseSerializer
+from courses.serializers import CourseSerializer, CourseUploadSerializer
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -13,18 +14,15 @@ class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
 
 
-class LoadCourseData(APIView):
-    """
-    обработчик post запросов парсера с данными о курсах
-    """
-    permission_classes = [HasAPIKey]
+class UploadCourseAPIView(APIView):
+    # permission_classes = [HasAPIKey]
+    permission_classes = [AllowAny]
     parser_classes = [JSONParser]
 
     def post(self, request, format=None):
-        serializer = CourseSerializer(data=request.data)
+        serializer = CourseUploadSerializer(data=request.data)
         if serializer.is_valid():
-            # сохраняем новый курс в базе или обновляем существующий
             serializer.save()
             return Response(serializer.data, status=201)
         else:
-            Response(serializer.errors, status=400)
+            return Response(serializer.errors, status=400)
