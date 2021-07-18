@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_extensions',
     'django_filters',
+    'drf_yasg',
     'graphene_django',
     'mptt',
     'rest_framework',

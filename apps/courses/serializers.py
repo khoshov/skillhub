@@ -12,7 +12,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
+    categories = CategorySerializer(many=True)
     school = SchoolSerializer()
     type = serializers.SerializerMethodField()
 

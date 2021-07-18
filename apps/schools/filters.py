@@ -1,10 +1,10 @@
 from django_filters import rest_framework as filters
 
-from courses.models import Course
+from schools.models import School
 
 
-class CourseFilter(filters.FilterSet):
+class SchoolFilter(filters.FilterSet):
 
     class Meta:
-        model = Course
+        model = School
         fields = '__all__'
