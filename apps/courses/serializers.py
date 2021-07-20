@@ -10,6 +10,11 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
+    def get_fields(self):
+        fields = super(CategorySerializer, self).get_fields()
+        fields['children'] = CategorySerializer(many=True)
+        return fields
+
 
 class CourseSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True)

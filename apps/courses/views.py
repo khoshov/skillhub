@@ -18,7 +18,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CategorySerializer
-    queryset = Category.objects.all()
+    queryset = Category.objects.filter(parent__isnull=True)
     filterset_class = CategoryFilter
 
 
@@ -26,8 +26,9 @@ class UploadCourseAPIView(APIView):
     permission_classes = [HasAPIKey]
     parser_classes = [JSONParser]
 
+    # noinspection PyTypeChecker
     @swagger_auto_schema(auto_schema=None)
-    def post(self, request, format=None):
+    def post(self, request):
         serializer = CourseUploadSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
