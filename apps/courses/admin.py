@@ -1,10 +1,11 @@
 from django.contrib import admin
+from mptt.admin import DraggableMPTTAdmin
 
 from courses.models import Category, Course, CourseCategory
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(DraggableMPTTAdmin):
     prepopulated_fields = {
         'slug': ('name',)
     }
