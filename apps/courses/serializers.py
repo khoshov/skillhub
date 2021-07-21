@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from courses.models import Category, Course, CategoryAlias, CourseCategory
 from schools.models import School
 from schools.serializers import SchoolSerializer
@@ -10,6 +9,8 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
+
+class CategoryTreeSerializer(CategorySerializer):
     def get_fields(self):
         fields = super(CategorySerializer, self).get_fields()
         fields['children'] = CategorySerializer(many=True)

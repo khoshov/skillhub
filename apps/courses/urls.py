@@ -7,7 +7,7 @@ app_name = 'courses'
 
 router = routers.DefaultRouter()
 router.register(r'categories', CategoryViewSet, basename='categories')
-router.register(r'courses', CourseViewSet, basename='course')
+router.register(r'courses', CourseViewSet, basename='courses')
 
 urlpatterns = [
     path('upload/', UploadCourseAPIView.as_view(), name='upload'),

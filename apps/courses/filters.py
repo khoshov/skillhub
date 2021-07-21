@@ -4,6 +4,8 @@ from courses.models import Category, Course
 
 
 class CourseFilter(filters.FilterSet):
+    name__icontains = filters.CharFilter(field_name='name', lookup_expr='icontains')
+
     class Meta:
         model = Course
         fields = '__all__'
