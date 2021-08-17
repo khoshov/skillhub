@@ -42,7 +42,7 @@ class Course(models.Model):
     MONTH = 1
     LESSON = 2
     DURATION_TYPE = [
-        (MONTH, _("Месяц")), 
+        (MONTH, _("Месяц")),
         (LESSON, _("Урок")),
     ]
     name = models.CharField(
