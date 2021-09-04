@@ -1,36 +1,37 @@
-from django.utils.decorators import method_decorator
-from drf_yasg.utils import swagger_auto_schema
-from rest_framework import viewsets
+from django_filters.views import FilterView
+from django_tables2 import SingleTableView
 from rest_framework.parsers import JSONParser
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework_api_key.permissions import HasAPIKey
 
-from courses.filters import CategoryFilter, CourseFilter
+from courses.filters import CourseFilter
 from courses.models import Category, Course
-from courses.serializers import (CategorySerializer, CategoryTreeSerializer, CourseSerializer, CourseUploadSerializer)
+from courses.serializers import CourseUploadSerializer
+from courses.tables import CourseTable
 
 
-class CourseViewSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = CourseSerializer
-    queryset = Course.objects.all()
+class CourseListView(FilterView, SingleTableView):
+    model = Course
+    table_class = CourseTable
+    template_name = 'courses/index.html'
     filterset_class = CourseFilter
 
-
-@method_decorator(name='list', decorator=swagger_auto_schema(responses={200: CategorySerializer(many=True)}))
-@method_decorator(name='retrieve', decorator=swagger_auto_schema(responses={200: CategorySerializer()}))
-class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = CategoryTreeSerializer
-    queryset = Category.objects.filter(parent__isnull=True)
-    filterset_class = CategoryFilter
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        category = self.request.GET.get('categories')
+        if category:
+            try:
+                data['category'] = Category.objects.get(pk=int(category))
+            except Category.DoesNotExist:
+                pass
+        return data
 
 
 class UploadCourseAPIView(APIView):
-    permission_classes = [HasAPIKey]
+    permission_classes = [AllowAny]
     parser_classes = [JSONParser]
 
-    # noinspection PyTypeChecker
-    @swagger_auto_schema(auto_schema=None)
     def post(self, request):
         serializer = CourseUploadSerializer(data=request.data)
         if serializer.is_valid():

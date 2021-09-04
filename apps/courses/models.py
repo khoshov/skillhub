@@ -17,34 +17,50 @@ class Course(models.Model):
 
     ONLINE = 1
     OFFLINE = 2
-    TYPE = [
+    TYPE = (
         (ONLINE, _('Онлайн')),
         (OFFLINE, _('Оффлайн')),
-    ]
+    )
 
     BEGINNER = 1
     ADVANCED = 2
-    DIFFICULTY = [
+    DIFFICULTY = (
         (BEGINNER, _('С нуля')),
         (ADVANCED, _('Продвинутый')),
-    ]
+    )
 
-    FREE = 1
-    CHEAP = 2
+    MISSING = 0
+    LOW = 1
+    INSIGNIFICANT = 2
     AVERAGE = 3
-    EXPENSIVE = 4
-    PRICE = [
-        (FREE, _('Бесплатно')),
-        (CHEAP, _('Низкая цена')),
+    SIGNIFICANT = 4
+    HIGH = 5
+
+    PRICE = (
+        (MISSING, _('Бесплатно')),
+        (LOW, _('Низкая цена')),
+        (INSIGNIFICANT, _('Невысокая цена')),
         (AVERAGE, _('Средняя цена')),
-        (EXPENSIVE, _('Высокая цена')),
-    ]
+        (SIGNIFICANT, _('Значительная цена')),
+        (HIGH, _('Высокая цена')),
+    )
+
     MONTH = 1
     LESSON = 2
-    DURATION_TYPE = [
+    DURATION_TYPE = (
         (MONTH, _("Месяц")), 
         (LESSON, _("Урок")),
-    ]
+    )
+
+    DURATION = (
+        (MISSING, _('Продолжительность отсутствует')),
+        (LOW, _('Короткая продолжительность')),
+        (INSIGNIFICANT, _('Небольшая продолжительность')),
+        (AVERAGE, _('Средняя продолжительность')),
+        (SIGNIFICANT, _('Значительная продолжительность')),
+        (HIGH, _('Высокая продолжительность')),
+    )
+
     name = models.CharField(
         _('Название'),
         max_length=255,
@@ -76,14 +92,14 @@ class Course(models.Model):
         choices=DIFFICULTY,
         default=BEGINNER,
     )
-    price = models.PositiveIntegerField(
+    price = models.IntegerField(
         _('Цена ₽'),
+        blank=True, null=True,
+    )
+    price_category = models.PositiveIntegerField(
+        _('Категория цены'),
         choices=PRICE,
         default=AVERAGE,
-    )
-    price_details = models.TextField(
-        _('Дополнительная информация о цене'),
-        blank=True, null=True,
     )
     duration = models.PositiveIntegerField(
         _('Длительность курсов'),
@@ -93,6 +109,11 @@ class Course(models.Model):
         _('Единицы измерения длительности курсов'),
         choices=DURATION_TYPE,
         default=MONTH,
+    )
+    duration_category = models.PositiveIntegerField(
+        _('Категория продолжительности'),
+        choices=DURATION,
+        default=AVERAGE,
     )
     status = models.PositiveSmallIntegerField(
         _('Статус'),
@@ -161,6 +182,10 @@ class Category(MPTTModel):
     description = models.TextField(
         _('Описание'),
         blank=True, null=True,
+    )
+    is_active = models.BooleanField(
+        _('Активный'),
+        default=False,
     )
     sort_order = models.IntegerField(
         _('Сортировка'),

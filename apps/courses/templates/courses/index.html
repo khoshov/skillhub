@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+{% load render_table from django_tables2 %}
+{% load count_courses %}
+
+
+{% block content %}
+  {% if category %}
+    <h1>{{ category.name }}</h1>
+    {% if category.description %}
+      <p>{{ category.description }}</p>
+    {% endif %}
+  {% else %}
+    <h1>Все курсы</h1>
+  {% endif %}
+
+  {% if category %}
+    {% if category.get_root == category %}
+      <div class="badges mt-5">
+        <a href="{% url 'courses:list' %}?categories={{ category.pk }}" class="badge badge-dark">Все ({{ category.get_family|count_courses }})</a>
+        {% for child in category.get_children %}
+          <a href="{% url 'courses:list' %}?categories={{ child.pk }}" class="badge badge-primary">{{ child.name }} ({{ child.course_set.count }})</a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="badges mt-5">
+        <a href="{% url 'courses:list' %}?categories={{ category.get_root.pk }}" class="badge badge-primary">{{ category.get_root.name }} ({{ category.get_root.get_family|count_courses }})</a>
+        {% for child in category.get_root.get_children %}
+          <a href="{% url 'courses:list' %}?categories={{ child.pk }}" class="badge {% if request.GET.categories == child.pk|slugify %}badge-dark{% else %}badge-primary{% endif %}">{{ child.name }} ({{ child.course_set.count }})</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <form class="mt-5">
+    {% if request.GET.categories %}
+      <input type="hidden" name="categories" value="{{ request.GET.categories }}">
+    {% endif %}
+    <div class="form-row align-items-center">
+      <div class="col-lg">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="free" name="free" value="true" {% if request.GET.free == 'true' %}checked{% endif %}>
+          <label class="form-check-label" for="free">Только бесплатные</label>
+        </div>
+      </div>
+      <div class="col-lg d-lg-flex flex-row-reverse mt-3 mt-lg-0">
+        <button type="submit" class="btn btn-primary">Применить фильтр</button>
+      </div>
+    </div>
+  </form>
+
+  {% render_table table %}
+{% endblock content %}
