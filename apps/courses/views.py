@@ -7,8 +7,10 @@ from rest_framework.views import APIView
 
 from courses.filters import CourseFilter
 from courses.models import Category, Course
+from courses.paginators import CustomPaginator
 from courses.serializers import CourseUploadSerializer
 from courses.tables import CourseTable
+from schools.models import School
 
 
 class CourseListView(FilterView, SingleTableView):
@@ -16,6 +18,7 @@ class CourseListView(FilterView, SingleTableView):
     table_class = CourseTable
     template_name = 'courses/index.html'
     filterset_class = CourseFilter
+    paginator_class = CustomPaginator
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -25,7 +28,16 @@ class CourseListView(FilterView, SingleTableView):
                 data['category'] = Category.objects.get(pk=int(category))
             except Category.DoesNotExist:
                 pass
+        data['schools'] = School.objects.all()
         return data
+
+    def get_template_names(self):
+        if self.request.is_ajax() or self.request.GET.get('ajax_partial'):
+            return 'courses/table.html'
+        return super().get_template_names()
+
+    def get_queryset(self):
+        return Course.objects.all().order_by('id')
 
 
 class UploadCourseAPIView(APIView):

@@ -9,4 +9,11 @@ class CourseFilter(django_filters.FilterSet):
 
     class Meta:
         model = Course
-        fields = ['name', 'categories']
+        fields = [
+            'name',
+            'categories',
+            'school',
+            'school__rating',
+            'price_category',
+            'duration_category',
+        ]
