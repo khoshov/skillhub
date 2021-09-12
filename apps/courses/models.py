@@ -47,13 +47,8 @@ class Course(models.Model):
 
     MONTH = 1
     LESSON = 2
-<<<<<<< HEAD
-    DURATION_TYPE = [
-        (MONTH, _("Месяц")),
-=======
     DURATION_TYPE = (
         (MONTH, _("Месяц")), 
->>>>>>> master
         (LESSON, _("Урок")),
     )
 
