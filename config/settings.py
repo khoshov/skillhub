@@ -45,18 +45,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third party apps
+    'bootstrap4',
     'ckeditor',
     'corsheaders',
     'django_extensions',
     'django_filters',
+    'django_tables2',
     'drf_yasg',
-    'graphene_django',
     'mptt',
     'rest_framework',
     'rest_framework_api_key',
 
     # Project apps
+    'core',
     'courses',
+    'reviews',
     'schools',
 ]
 
@@ -88,6 +91,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'core.context_processors.menu',
             ],
         },
     },
@@ -156,7 +161,3 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
-
-GRAPHENE = {
-    "SCHEMA": "config.schema.schema"
-}

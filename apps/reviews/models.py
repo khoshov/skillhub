@@ -1,9 +1,8 @@
-from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
-class School(models.Model):
+class Review(models.Model):
     MISSING = 0
     ONE = 1
     TWO = 2
@@ -20,64 +19,44 @@ class School(models.Model):
         (FIVE, _('Пять звёзд')),
     )
 
-    name = models.CharField(
-        _('Название'),
+    school = models.ForeignKey(
+        'schools.School',
+        models.CASCADE,
+        related_name='reviews',
+        verbose_name=_('Школа'),
+    )
+    source = models.CharField(
+        _('Источник отзыва'),
         max_length=255,
     )
-    description = RichTextField(
-        _('Описание'),
-        blank=True, null=True,
+    url = models.URLField(
+        _('Ссылка на отзыв'),
     )
-    accredited = models.BooleanField(
-        _('Аккредитованное учебное заведение'),
-        default=False,
+    published = models.DateField(
+        _('Дата публикации отзыва'),
     )
     rating = models.IntegerField(
         _('Рейтинг'),
         choices=STARS,
-        default=THREE,
+        default=MISSING,
     )
-
-    class Meta:
-        db_table = 'school'
-        verbose_name = _('Школа')
-        verbose_name_plural = _('Школы')
-
-    def __str__(self):
-        return self.name
-
-
-class Feedback(models.Model):
-    school = models.ForeignKey(
-        'schools.School',
-        models.CASCADE,
-        verbose_name=_('Школа'),
-    )
-    feedback_source = models.CharField(
-        _('Источник отзыва'),
-        max_length=255,
-    )
-    feedback_url = models.URLField(
-        _('Ссылка на отзыв'),
-    )
-    feedback_date = models.DateField(_('Дата публикации отзыва'))
-    feedback_plus = models.TextField(
+    advantages = models.TextField(
         _('Положительная часть отзыва'),
         blank=True, null=True,
     )
-    feedback_minus = models.TextField(
+    disadvantages = models.TextField(
         _('Отрицательная часть отзыва'),
         blank=True, null=True,
     )
-    feedback_description = models.TextField(
+    text = models.TextField(
         _('Основной текст отзыва'),
         blank=True, null=True,
     )
 
+
     class Meta:
-        db_table = 'feedback'
         verbose_name = _('Отзыв')
         verbose_name_plural = _('Отзывы')
 
     def __str__(self):
-        return f'feedback by url: {self.feedback_url}'
+        return self.url

@@ -1,17 +1,19 @@
-from django_filters import rest_framework as filters
+import django_filters
 
-from courses.models import Category, Course
+from .models import Course
 
 
-class CourseFilter(filters.FilterSet):
-    name__icontains = filters.CharFilter(field_name='name', lookup_expr='icontains')
+class CourseFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='icontains')
+    free = django_filters.BooleanFilter(field_name='price', lookup_expr='isnull')
 
     class Meta:
         model = Course
-        fields = '__all__'
-
-
-class CategoryFilter(filters.FilterSet):
-    class Meta:
-        model = Category
-        fields = '__all__'
+        fields = [
+            'name',
+            'categories',
+            'school',
+            'school__rating',
+            'price_category',
+            'duration_category',
+        ]

@@ -1,12 +1,9 @@
 from django.urls import path
-from rest_framework.routers import DefaultRouter
 
-from .views import SchoolViewSet, UploadFeedbackAPIView
+from schools.views import SchoolListAPIView
 
-router = DefaultRouter()
-
-router.register(r'schools', SchoolViewSet, basename='school')
+app_name = 'schools'
 
 urlpatterns = [
-    path('feedpack_upload/', UploadFeedbackAPIView.as_view(), name='feedback_upload'),
+    path('', SchoolListAPIView.as_view(), name='list'),
 ]
