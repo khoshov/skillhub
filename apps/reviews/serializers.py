@@ -12,11 +12,12 @@ class ReviewSerializer(serializers.Serializer):
     feedback_plus = serializers.CharField(required=False, allow_null=True)
     feedback_minus = serializers.CharField(required=False, allow_null=True)
     feedback_description = serializers.CharField(required=False, allow_null=True)
+    rating = serializers.IntegerField(required=False, allow_null=True)
 
     def create(self, validated_data):
         school, _ = School.objects.get_or_create(name=validated_data.get('school'))
 
-        course, _ = Review.objects.update_or_create(
+        review, _ = Review.objects.update_or_create(
             school=school,
             source=validated_data.get('feedback_source'),
             url=validated_data.get('feedback_url'),
@@ -24,5 +25,6 @@ class ReviewSerializer(serializers.Serializer):
             advantages=validated_data.get('feedback_plus'),
             disadvantages=validated_data.get('feedback_minus'),
             text=validated_data.get('feedback_description'),
+            rating=validated_data.get('rating'),
         )
         return validated_data

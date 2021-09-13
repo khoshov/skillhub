@@ -3,6 +3,22 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Review(models.Model):
+    MISSING = 0
+    ONE = 1
+    TWO = 2
+    THREE = 3
+    FOUR = 4
+    FIVE = 5
+
+    STARS = (
+        (MISSING, _('Нет рейтинга')),
+        (ONE, _('Одна звезда')),
+        (TWO, _('Две звезды')),
+        (THREE, _('Три звезды')),
+        (FOUR, _('Четыре звезды')),
+        (FIVE, _('Пять звёзд')),
+    )
+
     school = models.ForeignKey(
         'schools.School',
         models.CASCADE,
@@ -18,6 +34,11 @@ class Review(models.Model):
     )
     published = models.DateField(
         _('Дата публикации отзыва'),
+    )
+    rating = models.IntegerField(
+        _('Рейтинг'),
+        choices=STARS,
+        default=MISSING,
     )
     advantages = models.TextField(
         _('Положительная часть отзыва'),
