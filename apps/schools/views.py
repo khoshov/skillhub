@@ -1,5 +1,6 @@
 from django.db.models import OuterRef, Subquery
 from rest_framework.generics import ListAPIView
+from rest_framework.permissions import AllowAny
 
 from reviews.models import Review
 from schools.models import School
@@ -7,6 +8,7 @@ from schools.serializers import SchoolSerializer
 
 
 class SchoolListAPIView(ListAPIView):
+    permission_classes = [AllowAny]
     queryset = School.objects.annotate(
         latest_review_url=Subquery(
             Review.objects.filter(
