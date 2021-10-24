@@ -22,7 +22,9 @@ html {
 
 body {
     margin-bottom: 60px;
+	 font-family: 'Inter', sans-serif !important;
 }
+
 
 .footer {
     position: absolute;
@@ -51,5 +53,42 @@ body {
 
 #main-nav {
 	background-color: #10101A;
-	border-radius: 5px;
+	border-radius: 15px;
+	margin: 5px;
+}
+
+#main-content h1 {
+	font-weight: bold;
+	margin-top: 40px;	
+	
+}
+
+#main-content p {
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+.main-button {
+	background-color: #773FFF;
+	border-radius: 10px;
+	border: none;
+	padding: 10px 30px;
+}
+
+.form-control {
+	background-color: #C4C4C4;
+	border-radius: 72px;
+	border: none;
+}
+
+.mr-auto {
+	margin: 0 auto;
+}
+
+.nav-item {
+	padding-right: 20px;
+}
+
+.nav-item:last-child {
+	padding-right: 0px;
 }

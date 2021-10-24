@@ -2,10 +2,11 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-md-6">
-      <h1>Сравниваем онлайн-курсы в&nbsp;сфере&nbsp;IT</h1>
-      <p>Чтобы&nbsp;вы, с&nbsp;лёгкостью могли подобрать для себя лучший курс из&nbsp;сотни предложений.</p>
-      <a href="{% url 'courses:list' %}" class="btn btn-primary mt-3">Начать поиск</a>
+    <div id="main-content" class="col-md-6">
+      <h1>Сравниваем <br> онлайн-курсы <br> в сфере IT</h1>
+      <p>Чтобы&nbsp;вы с&nbsp;лёгкостью могли подобрать <br> для себя лучший курс из&nbsp;сотни предложений.</p>
+      <a href="{% url 'courses:list' %}" class="btn btn-primary mt-3 main-button">Начать поиск</a>
+		<img src="../apps/core/static/core/img/main-image.png" alt="">
     </div>
   </div>
 {% endblock content %}

@@ -1,6 +1,8 @@
+{% load static %}
+
 <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
-    <a class="navbar-brand" href="{% url 'index' %}">SkillHub</a>
+    <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'core/img/logo.svg' %}" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,8 +26,7 @@
         {% endfor %}
       </ul>
       <form class="form-inline" action="{% url 'courses:list' %}">
-        <input class="form-control mr-sm-2" name="name__icontains" type="search" placeholder="Поиск" aria-label="Search" value="{{ request.GET.name__icontains }}">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Поиск</button>
+        <input class="form-control mr-sm-2 " name="name__icontains" type="search" placeholder="Поиск" aria-label="Search" value="{{ request.GET.name__icontains }}">        
       </form>
     </div> <!-- navbar-collapse.// -->
   </div> <!-- container-fluid.// -->
