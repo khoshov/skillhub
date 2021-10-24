@@ -42,3 +42,14 @@ body {
         height: 120px;
     }
 }
+
+/************************/
+/*                      */
+/* NEW STYLES GOES HERE */
+/*                      */
+/************************/
+
+#main-nav {
+	background-color: #10101A;
+	border-radius: 5px;
+}
