@@ -8,4 +8,4 @@ class CustomPaginator(Paginator):
         top = bottom + self.per_page
         if top + self.orphans >= self.count:
             top = self.count
-        return self._get_page(self.object_list[1:top], number, self)
+        return self._get_page(self.object_list[0:top], number, self)
