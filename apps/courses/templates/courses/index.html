@@ -19,7 +19,7 @@
   {% if category %}
     {% if category.get_root == category %}
       <div class="badges mt-5">
-        <a href="{% url 'courses:list' %}?categories={{ category.pk }}" class="badge badge-dark">Все ({{ category.get_family|count_courses }})</a>
+        <a href="{% url 'courses:list' %}?categories={{ category.pk }}" class="badge badge-dark">{{ category.name }} ({{ category.get_family|count_courses }})</a>
         {% for child in category.get_children %}
           <a href="{% url 'courses:list' %}?categories={{ child.pk }}" class="badge badge-primary">{{ child.name }} ({{ child.course_set.count }})</a>
         {% endfor %}
@@ -34,67 +34,21 @@
     {% endif %}
   {% endif %}
 
-  <form class="mt-5">
+  <form id="filter-form" class="mt-5">
     {% if request.GET.categories %}
       <input type="hidden" name="categories" value="{{ request.GET.categories }}">
     {% endif %}
+    <input id="free" type="hidden" name="free">
     <div>
       <div class="form-row align-items-center">
         <div class="col-lg">
-          <label for="school">Школа</label>
-          <select id="school" class="form-control" name="school">
-            <option value="" {% if not request.GET.school %}selected{% endif %}>Любая</option>
-            {% for school in schools %}
-              <option value="{{ school.pk }}" {% if request.GET.school == school.pk|slugify %}selected{% endif %}>{{ school.name }}</option>
-            {% endfor %}
+          <select id="filter-select" class="form-control" name="sort">
+            <option value="" {% if not request.GET.school %}selected{% endif %} data-free="">Популярные</option>
+            <option value="" {% if request.GET.free == 'true' %}selected{% endif %} data-free="true">Бесплатные</option>
+            <option value="price_category" {% if request.GET.sort == 'price_category' %}selected{% endif %} data-free="false">Сначала дешевые</option>
+            <option value="-price_category" {% if request.GET.sort == '-price_category' %}selected{% endif %} data-free="false">Сначала дорогие</option>
           </select>
         </div>
-        <div class="col-lg">
-          <label for="rating">Рейтинг</label>
-          <select id="rating" class="form-control" name="school__rating">
-            <option value="" {% if not request.GET.school__rating %}selected{% endif %}>Любой</option>
-            {% for score in '54321' %}
-              <option value="{{ score }}" {% if request.GET.school__rating == score %}selected{% endif %}>{% multiply_icon '⭐' score %}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="col-lg">
-          <label for="price">Цена</label>
-          <select id="price" class="form-control" name="price_category">
-            <option value="" {% if not request.GET.price_category %}selected{% endif %}>Любая</option>
-            {% for number in '54321' %}
-              <option value="{{ number }}" {% if request.GET.price_category == number %}selected{% endif %}>{% multiply_icon '💰' number %}</option>
-            {% endfor %}
-            <option value="0" {% if request.GET.price_category == 0 %}selected{% endif %}>Бесплатно</option>
-          </select>
-        </div>
-        <div class="col-lg">
-          <label for="duration">Продолжительность</label>
-          <select id="duration" class="form-control" name="duration_category">
-            <option value="" {% if not request.GET.duration_category %}selected{% endif %}>Любая</option>
-            {% for number in '54321' %}
-              <option value="{{ number }}" {% if request.GET.duration_category == number %}selected{% endif %}>{% multiply_icon '⏳' number %}</option>
-            {% endfor %}
-          </select>
-        </div>
-      </div>
-
-
-      {#    <div class="col-lg">#}
-      {#      <div class="form-check">#}
-      {#        <input class="form-check-input" type="checkbox" id="free" name="free" value="true" {% if request.GET.free == 'true' %}checked{% endif %}>#}
-      {#        <label class="form-check-label" for="free">Только бесплатные</label>#}
-      {#      </div>#}
-      {#    </div>#}
-
-      {#      <div class="col-lg d-lg-flex flex-row-reverse mt-3 mt-lg-0">#}
-      <div class="mt-3">
-        <button type="submit" class="btn btn-primary">Применить фильтр</button>
-        {% if request.GET.categories %}
-          <a href="{% url 'courses:list' %}?categories={{ request.GET.categories }}" class="btn btn-warning">Сбросить</a>
-        {% else %}
-          <a href="{% url 'courses:list' %}" class="btn btn-warning">Сбросить</a>
-        {% endif %}
       </div>
     </div>
   </form>
@@ -123,5 +77,18 @@
       }
 
       $('#show-more').click(nextPageHandler);
+
+      const filterSelect = $('#filter-select');
+
+      filterSelect.on('change', function () {
+          const freeInput = $('#free')
+
+          freeInput.val($(this).children("option:selected").data('free'))
+
+          filterSelect.prop('disabled', !filterSelect.val());
+          freeInput.prop('disabled', !freeInput.val());
+
+          $('#filter-form').submit();
+      });
   </script>
 {% endblock %}
