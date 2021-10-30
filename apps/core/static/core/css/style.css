@@ -12,8 +12,15 @@
 
   .navbar .nav-item .dropdown-menu {
     margin-top: 0;
-  } 
+  }
 }
+
+@media all and (max-width: 1199px) {
+	#main-nav .dropdown-menu {
+		display: block;
+	}
+}
+
 
 
 html {
