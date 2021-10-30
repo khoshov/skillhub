@@ -25,7 +25,7 @@
   {% block content %}
   {% endblock content %}
 </div>
-{% include 'footer.html' %}
+{% block footer %}{% include 'footer.html' %}{% endblock %}
 {% block script %}{% endblock %}
 </body>
 </html>

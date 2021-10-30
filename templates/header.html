@@ -11,12 +11,12 @@
         {% for category in categories %}
           {% if category.get_children %}
             <li class="nav-item dropdown {% if request.GET.categories == category.pk|slugify %}active{% endif %}{% for child in category.get_children %}{% if request.GET.categories == child.pk|slugify %}active{% endif %}{% endfor %}">
-              <a class="nav-link dropdown-toggle" href="{% url 'courses:list' %}?categories={{ category.pk }}" data-bs-toggle="dropdown">{{ category.name }}</a>
-              <ul class="dropdown-menu">
+              <a class="nav-link dropdown-toggle" href="{% url 'courses:list' %}?categories={{ category.pk }}" data-bs-toggle="dropdown">{{ category.name }}</a>					
+				  <ul class="dropdown-menu">
                 {% for child in category.get_children %}
                   <li><a class="dropdown-item" href="{% url 'courses:list' %}?categories={{ child.pk }}">{{ child.name }}</a></li>
                 {% endfor %}
-              </ul>
+              </ul>				
             </li>
           {% else %}
             <li class="nav-item {% if request.GET.categories == category.pk|slugify %}active{% endif %}">
