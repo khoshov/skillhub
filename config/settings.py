@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_tables2',
     'drf_yasg',
+    'import_export',
     'mptt',
     'rest_framework',
     'rest_framework_api_key',
