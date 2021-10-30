@@ -45,8 +45,8 @@
           <select id="filter-select" class="form-control" name="sort">
             <option value="" {% if not request.GET.school %}selected{% endif %} data-free="">Популярные</option>
             <option value="" {% if request.GET.free == 'true' %}selected{% endif %} data-free="true">Бесплатные</option>
-            <option value="price_category" {% if request.GET.sort == 'price_category' %}selected{% endif %} data-free="false">Сначала дешевые</option>
-            <option value="-price_category" {% if request.GET.sort == '-price_category' %}selected{% endif %} data-free="false">Сначала дорогие</option>
+            <option value="price" {% if request.GET.sort == 'price' %}selected{% endif %} data-free="false">Сначала дешевые</option>
+            <option value="-price" {% if request.GET.sort == '-price' %}selected{% endif %} data-free="false">Сначала дорогие</option>
           </select>
         </div>
       </div>

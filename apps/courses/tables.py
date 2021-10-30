@@ -9,8 +9,8 @@ ICONS_TEMPLATE = '<span style="white-space: nowrap;">{}<span style="opacity: 0.1
 
 class CourseTable(tables.Table):
     name = tables.Column(verbose_name='Название курса', accessor='name')
-    school_rating = tables.Column(verbose_name='Рейтинг школы', accessor='school__rating')
-    price_category = tables.Column(verbose_name='Цена', default='Бесплатно')
+    price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
+    # school_rating = tables.Column(verbose_name='Рейтинг школы', accessor='school__rating')
     # duration_category = tables.Column(verbose_name='Длительность')
 
     class Meta:
@@ -18,16 +18,17 @@ class CourseTable(tables.Table):
         template_name = 'django_tables2/bootstrap4-responsive.html'
         fields = (
             'name',
+            'school',
+            'price',
+
             # 'url',
             # 'affiliate_url',
             # 'categories',
-            'school',
-            'school_rating',
+            # 'school_rating',
             # 'type',
             # 'difficulty',
             # 'price',
             # 'duration_category',
-            'price_category',
             # 'duration_type',
             # 'status',
             # 'author',
@@ -38,10 +39,10 @@ class CourseTable(tables.Table):
             # 'created',
         )
 
-    def render_school_rating(self, value, record):
-        return f'{record.school.rating} ★'
+    def render_school(self, value, record):
+        return f'{value} {record.school.rating}★'
 
-    def render_price_category(self, value, record):
+    def render_price(self, value, record):
         icons = '₽' * record.price_category
         missing_icons = '₽' * (5 - record.price_category)
         return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
