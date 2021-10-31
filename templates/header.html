@@ -16,7 +16,7 @@
                 {% for child in category.get_children %}
                   <li><a class="dropdown-item" href="{% url 'courses:list' %}?categories={{ child.pk }}">{{ child.name }}</a></li>
                 {% endfor %}
-              </ul>				
+              </ul>				  			
             </li>
           {% else %}
             <li class="nav-item {% if request.GET.categories == category.pk|slugify %}active{% endif %}">
