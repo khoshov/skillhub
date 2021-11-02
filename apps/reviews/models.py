@@ -35,7 +35,7 @@ class Review(models.Model):
     published = models.DateField(
         _('Дата публикации отзыва'),
     )
-    rating = models.IntegerField(
+    rating = models.FloatField(
         _('Рейтинг'),
         choices=STARS,
         default=MISSING,

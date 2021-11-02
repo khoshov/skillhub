@@ -92,7 +92,7 @@ class Course(models.Model):
         choices=DIFFICULTY,
         default=BEGINNER,
     )
-    price = models.IntegerField(
+    price = models.FloatField(
         _('Цена ₽'),
         blank=True, null=True,
     )
