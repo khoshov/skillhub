@@ -2,75 +2,28 @@
 {% load i18n %}
 {% load next_page %}
 
-{% block table-wrapper %}
-  <div class="table-container mt-5">
-  {% block table %}
-    <div {% render_attrs table.attrs class="table table-responsive" %}>
-    {#        {% block table.thead %}#}
-    {#          {% if table.show_header %}#}
-    {#            <thead {{ table.attrs.thead.as_html }}>#}
-    {#            <tr>#}
-    {#              {% for column in table.columns %}#}
-    {#                <th {{ column.attrs.th.as_html }}>#}
-    {#                  {% if column.orderable %}#}
-    {#                    <a href="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}">{{ column.header }}</a>#}
-    {#                  {% else %}#}
-    {#                    {{ column.header }}#}
-    {#                  {% endif %}#}
-    {#                </th>#}
-    {#              {% endfor %}#}
-    {#            </tr>#}
-    {#            </thead>#}
-    {#          {% endif %}#}
-    {#        {% endblock table.thead %}#}
-    {% block table.tbody %}
-      <div {{ table.attrs.tbody.as_html }}>
-      {% for row in table.paginated_rows %}
-        {% block table.tbody.row %}
-          <div class="mt-3">
-          <div {{ row.attrs.as_html }}>
-            <div class="card">
-              <div class="card-body">
-                {% for column, cell in row.items %}
-                  {% if forloop.counter == 1 %}
-                    <div class="card-title h5">
-                  {% else %}
-                    <div>
-                  {% endif %}
-                <div {{ column.attrs.td.as_html }}>{% if column.localize == None %}{{ cell }}{% else %}{% if column.localize %}{{ cell|localize }}{% else %}{{ cell|unlocalize }}{% endif %}{% endif %}</div>
-                </div>
-                {% endfor %}
-                </div>
-              </div>
-            </div>
-          </div>
-        {% endblock table.tbody.row %}
-      {% empty %}
-        {% if table.empty_text %}
-          {% block table.tbody.empty_text %}
-            <div>
-              <div colspan="{{ table.columns|length }}">{{ table.empty_text }}</div>
-            </div>
-          {% endblock table.tbody.empty_text %}
-        {% endif %}
+<div>
+  <div>
+    <div style="font-size: 0">
+      {% for column in table.columns %}
+        <div style="width: 25%; display: inline-block; font-size: 1rem">{{ column.header }}</div>
       {% endfor %}
     </div>
-    {% endblock table.tbody %}
-  {% block table.tfoot %}
-    {% if table.has_footer %}
-      <div {{ table.attrs.tfoot.as_html }}>
-        <div>
-          {% for column in table.columns %}
-            <div {{ column.attrs.tf.as_html }}>{{ column.footer }}</div>
-          {% endfor %}
-        </div>
+    {% for row in table.paginated_rows %}
+      <div style="font-size: 0">
+        {% for column, cell in row.items %}
+          <div style="width: 25%; display: inline-block; font-size: 1rem">{{ cell }}</div>
+        {% endfor %}
       </div>
-    {% endif %}
-  {% endblock table.tfoot %}
+    {% empty %}
+      {% if table.empty_text %}
+        <div>
+          <div>{{ table.empty_text }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
-  {% endblock table %}
 
-{% block pagination %}
   {% if table.page and table.paginator.num_pages > 1 and table.page.has_next %}
     <div class="d-flex justify-content-center">
       {% if request.GET.page %}
@@ -80,6 +33,4 @@
       {% endif %}
     </div>
   {% endif %}
-{% endblock pagination %}
 </div>
-{% endblock table-wrapper %}
