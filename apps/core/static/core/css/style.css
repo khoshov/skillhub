@@ -1,19 +1,4 @@
-@media all and (min-width: 992px) {
-  .navbar .nav-item .dropdown-menu {
-    display: none;
-  }
 
-  .navbar .nav-item:hover .nav-link {
-  }
-
-  .navbar .nav-item:hover .dropdown-menu {
-    display: block;
-  }
-
-  .navbar .nav-item .dropdown-menu {
-    margin-top: 0;
-  }
-}
 
 /*************************/
 /*                       */
@@ -62,9 +47,19 @@
 
 @media all and (max-width: 768px) {
   #main-content h1 {
-    font-size: 70px !important;
-    min-width: 550px !important;
+    font-size: 72px !important;
+    min-width: 600px !important;
     margin-top: 0 !important;
+  }
+
+  .container,
+  .container-md,
+  .container-sm {
+    max-width: 900px;
+  }
+
+  #main-nav .nav-item.active .nav-link:before {
+    display: none;
   }
 
   #main-content p {
@@ -74,34 +69,125 @@
   .main-image {
     position: absolute;
     z-index: -1;
-    top: -54px !important;
+    top: -78px !important;
     background-position-x: center !important;
-    background-size: 80% !important;
+    background-size: 60% !important;
   }
 
   .main-button {
     position: fixed;
-    bottom: 0;
+    bottom: 24px;
     width: 96%;
   }
 
   .container {
     margin: 0;
-  }  
+  }
+
+  #main-nav .dropdown-item {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 230%;
+    padding: 0 !important;
+  }
+
+  #main-nav .nav-item.active .nav-link:before {
+    display: none;
+  }
 }
 
-/*@media all and (max-width: 767px) {
-	.container {
-		margin: 0 auto;
-	}
+/*@media all and (min-width: 1024px) {
+  .navbar .nav-item .dropdown-menu {
+    display: none;
+  }*/
 
-	.main-button {
-		position: fixed;
-		bottom: 0;
-		width: 70%;
-	 }
-  
-}*/
+  #main-nav .nav-item.active .nav-link:before {
+    display: none;
+  }
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    max-width: 1200px !important;
+  }
+
+  .navbar .nav-item:hover .nav-link {
+  }
+
+  .navbar .nav-item:hover .dropdown-menu {
+    display: block;
+  }
+
+  .navbar .nav-item .dropdown-menu {
+    margin-top: 0;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .container,
+  .container-md,
+  .container-sm {
+    max-width: 1200px;
+  }
+
+  #main-content h1 {
+    font-size: 72px !important;
+  }
+
+  #main-content p {
+    font-size: 20px !important;
+    min-width: 600px !important;
+  }
+
+  #main-nav .nav-item.active .nav-link:before {
+    display: none;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #main-content p {
+    font-size: 20px !important;
+    min-width: 300px !important;
+  }
+
+  #main-content h1 {
+    font-size: 72px !important;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .container,
+  .container-sm {
+    max-width: 700px;
+  }
+
+  #main-nav .nav-item.active .nav-link:before {
+    display: none;
+  }
+}
+
+@media all and (max-width: 575px) {
+  body {
+    margin-bottom: 60px;
+  }
+
+  #main-nav .nav-item.active .nav-link:before {
+    display: none;
+  }
+
+  #main-content h1 {
+    font-size: 42px !important;
+    min-width: 300px !important;
+    margin-top: 0 !important;
+  }
+
+  .footer {
+    height: 120px;
+  }
+}
 
 html {
   position: relative;
@@ -121,16 +207,6 @@ body {
   width: 100%;
   height: 60px;
   background-color: #f5f5f5;
-}
-
-@media all and (max-width: 575px) {
-  body {
-    margin-bottom: 60px;
-  }
-
-  .footer {
-    height: 120px;
-  }
 }
 
 /************************/
@@ -262,6 +338,12 @@ body {
 }
 
 #main-nav .dropdown-item {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 230%;
+  padding: .25rem 1.5rem !important;
   opacity: .5;
   color: #fff;
 }
@@ -281,4 +363,10 @@ body {
   border-right: .3em solid transparent;
   border-bottom: 0;
   border-left: .3em solid transparent;
+}
+
+.btn-primary:hover {
+  opacity: .75 !important;
+  color: #fff;
+  background-color: #773fff !important;
 }
