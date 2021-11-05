@@ -1,4 +1,5 @@
 PYTHON := docker-compose run -u $(USERID):$(GROUPID) --rm web python
+CELERY := docker-compose run -u $(USERID):$(GROUPID) --rm celery python
 
 up:
 	docker-compose up
@@ -26,6 +27,9 @@ createsuperuser:
 
 shell:
 	$(PYTHON) manage.py shell_plus
+
+celery:
+	$(CELERY) manage.py shell_plus
 
 reset_db:
 	$(PYTHON) manage.py reset_db
