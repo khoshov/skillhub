@@ -25,7 +25,7 @@ services:
       - redis
   celery:
     build: .
-    command: celery -A config worker -l INFO
+    command: celery -A config worker -B -l INFO
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings.dev
     volumes:
