@@ -9,6 +9,6 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'aggregate_course_price': {
         'task': 'courses.tasks.aggregate_price',
-        'schedule': crontab(minute='*/1')
+        'schedule': crontab(minute=0, hour=0)
     },
 }
