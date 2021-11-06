@@ -1,8 +1,9 @@
+from mptt.fields import TreeForeignKey
+from mptt.models import MPTTModel
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from mptt.fields import TreeForeignKey
-from mptt.models import MPTTModel
 
 from core.fields import AutoSlugField
 

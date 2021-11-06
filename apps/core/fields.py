@@ -1,4 +1,5 @@
 import pytils
+
 from django.core import checks
 from django.db import models
 from django.utils.translation import ugettext_lazy as _

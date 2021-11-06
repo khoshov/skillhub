@@ -1,5 +1,6 @@
-from .models import Course
 from django.db.models import Max, Min
+
+from .models import Course
 
 
 def apply_categories(courses, attribute_from, attribute_to, min_value, max_value):
