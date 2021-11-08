@@ -22,6 +22,9 @@
 	 column-count: 2;
   }
 
+  #main-nav .dropdown-item {	
+	padding: 0 !important;
+ }
 
   .navbar-collapse {
     display: flex;
@@ -392,7 +395,7 @@ body {
   font-weight: normal;
   font-style: normal;
   line-height: 230%;
-  padding: 5px 20px 5px 0;
+  padding: 5px 20px 5px 20px;
   opacity: .5;
   color: #fff;
 }
