@@ -43,14 +43,7 @@ class CourseListView(FilterView, SingleTableView):
             status=Course.PUBLIC,
             school__is_active=True,
         ).annotate(
-            rewiews_count=Count('school__reviews', distinct=True),
-            popularity=Case(
-                When(
-                    rewiews_count__isnull=True,
-                    then=0,
-                ),
-                default='rewiews_count',
-            )
+            popularity=Count('school__reviews', distinct=True),
         ).order_by('-popularity')
 
 
