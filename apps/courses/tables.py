@@ -13,7 +13,7 @@ morph = pymorphy2.MorphAnalyzer(lang='ru')
 class CourseTable(tables.Table):
     name = tables.Column(verbose_name='Название курса', accessor='name')
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
-    duration_category = tables.Column(verbose_name='Длительность')
+    duration = tables.Column(verbose_name='Длительность', accessor='duration_category')
     popularity = tables.Column(verbose_name='Кол-во отзывов')
 
     # school_rating = tables.Column(verbose_name='Рейтинг школы', accessor='school__rating')
@@ -26,6 +26,7 @@ class CourseTable(tables.Table):
             'name',
             'school',
             'price',
+            'duration',
 
             # 'url',
             # 'affiliate_url',
@@ -53,7 +54,7 @@ class CourseTable(tables.Table):
         missing_icons = '₽' * (5 - record.price_category)
         return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
 
-    def render_duration_category(self, value, record):
+    def render_duration(self, value, record):
         duration_type = dict(Course.DURATION_TYPE)[record.duration_type].lower()
         duration_type = morph.parse(duration_type)[0]
         duration_type = duration_type.make_agree_with_number(record.duration).word
