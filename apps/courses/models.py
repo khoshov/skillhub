@@ -148,10 +148,14 @@ class Course(models.Model):
     created = models.DateTimeField(
         _('Дата создания'),
         auto_now_add=True,
-    ),
+    )
     updated = models.DateTimeField(
         _('Дата обновлёния'),
         auto_now=True,
+    )
+    government_support = models.BooleanField(
+        _('Государственная программа дополнительного образования в сфере цифровой экономики'),
+        default=False,
     )
 
     class Meta:
