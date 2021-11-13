@@ -23,6 +23,15 @@ def apply_categories(courses, attribute_from, attribute_to, min_value, max_value
         course.save()
 
 
+def apply_percents(courses, attribute_from, attribute_to, min_value, max_value):
+
+    for course in courses:
+        value = getattr(course, attribute_from)
+        percents = round(((value- min_value) / max_value) * 100, 1)
+        setattr(course, attribute_to, percents)
+        course.save()
+
+
 @app.task
 def aggregate_course_price():
     paid_courses = Course.objects.filter(price__isnull=False)
@@ -44,4 +53,4 @@ def aggregate_course_duration():
         courses = Course.objects.filter(duration__isnull=False, duration_type=duration_type)
         min_duration = courses.aggregate(Min('duration'))['duration__min']
         max_duration = courses.aggregate(Max('duration'))['duration__max']
-        apply_categories(courses, 'duration', 'duration_category', min_duration, max_duration)
+        apply_percents(courses, 'duration', 'duration_category', min_duration, max_duration)

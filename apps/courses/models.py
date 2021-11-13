@@ -53,15 +53,6 @@ class Course(models.Model):
         (LESSON, _("Урок")),
     )
 
-    DURATION = (
-        (MISSING, _('Продолжительность отсутствует')),
-        (LOW, _('Короткая продолжительность')),
-        (INSIGNIFICANT, _('Небольшая продолжительность')),
-        (AVERAGE, _('Средняя продолжительность')),
-        (SIGNIFICANT, _('Значительная продолжительность')),
-        (HIGH, _('Высокая продолжительность')),
-    )
-
     name = models.CharField(
         _('Название'),
         max_length=255,
@@ -111,10 +102,8 @@ class Course(models.Model):
         choices=DURATION_TYPE,
         default=MONTH,
     )
-    duration_category = models.PositiveIntegerField(
+    duration_category = models.FloatField(
         _('Категория продолжительности'),
-        choices=DURATION,
-        default=AVERAGE,
     )
     status = models.PositiveSmallIntegerField(
         _('Статус'),
