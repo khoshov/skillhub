@@ -20,3 +20,5 @@ sentry_sdk.init(
 
     ignore_errors=[DisallowedHost],
 )
+
+CELERY_BROKER_URL = 'redis://redis:6379'
