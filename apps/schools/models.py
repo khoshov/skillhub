@@ -19,7 +19,7 @@ class School(models.Model):
     )
     rating = models.FloatField(
         _('Рейтинг'),
-        blank=True, null=True,
+        default=0,
     )
     is_active = models.BooleanField(
         _('Активный'),
