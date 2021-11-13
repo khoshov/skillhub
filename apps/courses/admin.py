@@ -8,9 +8,6 @@ from courses.models import Category, Course, CourseCategory
 
 @admin.register(Category)
 class CategoryAdmin(DraggableMPTTAdmin):
-    list_display = ('id', 'indented_title', 'slug', 'is_active')
-    list_filter = ('is_active',)
-    actions = [activate, deactivate]
     prepopulated_fields = {
         'slug': ('name',)
     }
