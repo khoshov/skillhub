@@ -4,8 +4,7 @@
   <div class="container">
     <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'core/img/logo.svg' %}" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <span class="navbar-toggler-icon"></span>Каталог курсов</button>
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav mr-auto">
         {% for category in categories %}

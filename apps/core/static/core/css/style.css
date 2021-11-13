@@ -6,24 +6,39 @@
 /*                       */
 /*************************/
 
+@media all and (max-width: 320px) {
+	.navbar-nav {
+		width: 90% !important;		
+	 }
+}
+
 @media all and (max-width: 1199px) {
   #main-nav .dropdown-menu {
-    display: block;
+	width: 100%;
+	display: block;	
     padding-top: 0 !important;
     border-bottom: 1px solid rgba(255, 255, 255, .5) !important;
     border-radius: 0 !important;
+	 column-count: 2;
   }
+
+  #main-nav .dropdown-item {	
+	padding: 0 !important;
+ }
 
   .navbar-collapse {
     display: flex;
     flex-direction: column;
-
     align-items: start;
   }
 
+  #main-nav .nav-item {
+	  padding-right: 0 !important;
+  }
+  
   .navbar-nav {
+	 width: 100%;
     margin: 20px 0 !important;
-
     order: 2;
   }
 
@@ -52,6 +67,7 @@
     margin-top: 0 !important;
   }
 
+  
   .container,
   .container-md,
   .container-sm {
@@ -97,11 +113,6 @@
     display: none;
   }
 }
-
-/*@media all and (min-width: 1024px) {
-  .navbar .nav-item .dropdown-menu {
-    display: none;
-  }*/
 
   #main-nav .nav-item.active .nav-link:before {
     display: none;
@@ -164,6 +175,7 @@
     max-width: 700px;
   }
 
+  
   #main-nav .nav-item.active .nav-link:before {
     display: none;
   }
@@ -184,10 +196,20 @@
     margin-top: 0 !important;
   }
 
+  .main-image {
+	background-size: 100% !important;
+}
+
   .footer {
     height: 120px;
   }
 }
+
+/*************************/
+/*                       */
+/*   MOBILE STYLES END   */
+/*                       */
+/*************************/
 
 html {
   position: relative;
@@ -209,11 +231,41 @@ body {
   background-color: #f5f5f5;
 }
 
+
+
 /************************/
 /*                      */
 /* NEW STYLES GOES HERE */
 /*                      */
 /************************/
+
+.navbar-toggler {
+	max-width: 200px;
+	box-sizing: border-box;
+    position: relative;
+    border-radius: 2px;
+    color: #fff !important;
+    border: 1px solid currentColor;
+    height: 40px;
+    display: -webkit-flex;
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 0 18px 0 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.navbar-toggler-icon {
+	width: 3.5em !important;
+}
 
 .navbar-brand img {
   vertical-align: baseline;
@@ -343,7 +395,7 @@ body {
   font-weight: normal;
   font-style: normal;
   line-height: 230%;
-  padding: .25rem 1.5rem !important;
+  padding: 5px 20px 5px 20px;
   opacity: .5;
   color: #fff;
 }
@@ -370,3 +422,24 @@ body {
   color: #fff;
   background-color: #773fff !important;
 }
+
+@-webkit-keyframes autofill {
+  to {
+    color: inherit;
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #fff;
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
