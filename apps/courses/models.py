@@ -1,8 +1,9 @@
+from mptt.fields import TreeForeignKey
+from mptt.models import MPTTModel
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from mptt.fields import TreeForeignKey
-from mptt.models import MPTTModel
 
 from core.fields import AutoSlugField
 
@@ -147,11 +148,11 @@ class Course(models.Model):
     created = models.DateTimeField(
         _('Дата создания'),
         auto_now_add=True,
-    ),
+    )
     updated = models.DateTimeField(
         _('Дата обновлёния'),
         auto_now=True,
-    ),
+    )
     government_support = models.BooleanField(
         _('Государственная программа дополнительного образования в сфере цифровой экономики'),
         default=False,
