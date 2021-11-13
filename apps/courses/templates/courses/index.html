@@ -49,6 +49,7 @@
             <option value="-price" {% if request.GET.sort == '-price' %}selected{% endif %} data-free="false">Сначала дорогие</option>
             <option value="duration" {% if request.GET.sort == 'duration' %}selected{% endif %} data-free="">Сначала короткие</option>
             <option value="-duration" {% if request.GET.sort == '-duration' %}selected{% endif %} data-free="">Сначала долгие</option>
+            <option value="-rating" {% if request.GET.sort == '-rating' %}selected{% endif %} data-free="">С высоким рейтингом</option>
           </select>
         </div>
       </div>
