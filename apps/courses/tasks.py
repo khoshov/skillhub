@@ -47,7 +47,7 @@ def aggregate_course_price():
 @app.task
 def aggregate_course_duration():
     courses_with_no_duration = Course.objects.filter(duration__isnull=True)
-    courses_with_no_duration.update(duration_category=Course.MISSING)
+    courses_with_no_duration.update(duration_category=None)
 
     for duration_type in (Course.LESSON, Course.MONTH):
         courses = Course.objects.filter(duration__isnull=False, duration_type=duration_type)

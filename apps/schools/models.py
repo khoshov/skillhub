@@ -5,22 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class School(models.Model):
-    MISSING = 0
-    ONE = 1
-    TWO = 2
-    THREE = 3
-    FOUR = 4
-    FIVE = 5
-
-    STARS = (
-        (MISSING, _('Нет рейтинга')),
-        (ONE, _('Одна звезда')),
-        (TWO, _('Две звезды')),
-        (THREE, _('Три звезды')),
-        (FOUR, _('Четыре звезды')),
-        (FIVE, _('Пять звёзд')),
-    )
-
     name = models.CharField(
         _('Название'),
         max_length=255,
@@ -33,10 +17,9 @@ class School(models.Model):
         _('Аккредитованное учебное заведение'),
         default=False,
     )
-    rating = models.IntegerField(
+    rating = models.FloatField(
         _('Рейтинг'),
-        choices=STARS,
-        default=THREE,
+        blank=True, null=True,
     )
     is_active = models.BooleanField(
         _('Активный'),

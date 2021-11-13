@@ -173,4 +173,8 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'courses.tasks.aggregate_course_duration',
         'schedule': crontab(minute=0, hour=0),
     },
+    'aggregate_school_rating': {
+        'task': 'schools.tasks.aggregate_school_rating',
+        'schedule': crontab(minute=0, hour=0),
+    },
 }

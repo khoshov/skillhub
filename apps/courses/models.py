@@ -102,8 +102,9 @@ class Course(models.Model):
         choices=DURATION_TYPE,
         default=MONTH,
     )
-    duration_category = models.FloatField(
+    duration_category = models.PositiveIntegerField(
         _('Категория продолжительности'),
+        blank=True, null=True,
     )
     status = models.PositiveSmallIntegerField(
         _('Статус'),

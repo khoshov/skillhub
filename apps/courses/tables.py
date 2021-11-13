@@ -12,42 +12,42 @@ morph = pymorphy2.MorphAnalyzer(lang='ru')
 
 class CourseTable(tables.Table):
     name = tables.Column(verbose_name='Название курса', accessor='name')
+    rating = tables.Column(verbose_name='Школа', accessor='school__rating', empty_values=())
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
     duration = tables.Column(verbose_name='Длительность', accessor='duration_category')
-    popularity = tables.Column(verbose_name='Кол-во отзывов')
-
-    # school_rating = tables.Column(verbose_name='Рейтинг школы', accessor='school__rating')
     duration_category = tables.Column(verbose_name='Длительность баллы')
+    popularity = tables.Column(verbose_name='Кол-во отзывов')
 
     class Meta:
         model = Course
         template_name = 'django_tables2/bootstrap4-responsive.html'
         fields = (
             'name',
-            'school',
+            'rating',
             'price',
             'duration',
             'duration_category',
+            'popularity',
 
-            # 'url',
             # 'affiliate_url',
-            # 'categories',
-            # 'school_rating',
-            # 'type',
-            # 'difficulty',
-            # 'price',
-            # 'duration_type',
-            # 'status',
             # 'author',
-            # 'start_date',
-            # 'installment',
+            # 'categories',
             # 'course_format',
-            # 'deferred_payment',
             # 'created',
+            # 'deferred_payment',
+            # 'difficulty',
+            # 'duration_type',
+            # 'installment',
+            # 'school_rating',
+            # 'start_date',
+            # 'status',
+            # 'type',
+            # 'url',
         )
 
-    def render_school(self, value, record):
-        return f'{value} {record.school.rating}★'
+    def render_rating(self, value, record):
+        rating = f'{record.school.rating}★' if record.school.rating else ''
+        return f'{record.school.name} {rating}'
 
     def render_price(self, value, record):
         icons = '₽' * record.price_category
