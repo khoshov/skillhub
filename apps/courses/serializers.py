@@ -13,6 +13,7 @@ class CourseUploadSerializer(serializers.Serializer):
     course_duration = serializers.FloatField()
     course_duration_type = serializers.FloatField()
     course_link = serializers.URLField()
+    government_support = serializers.BooleanField(required=False, allow_null=True)
 
     def create(self, validated_data):
         school, _ = School.objects.get_or_create(name=validated_data.get('school'))
@@ -25,6 +26,7 @@ class CourseUploadSerializer(serializers.Serializer):
             duration=validated_data.get('course_duration'),
             duration_type=validated_data.get('course_duration_type'),
             start_date=validated_data.get('course_start_date'),
+            government_support=validated_data.get('government_support')
         )
 
         category_alias = validated_data.get('course_category')

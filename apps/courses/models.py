@@ -151,6 +151,10 @@ class Course(models.Model):
     updated = models.DateTimeField(
         _('Дата обновлёния'),
         auto_now=True,
+    ),
+    government_support = models.BooleanField(
+        _('Государственная программа дополнительного образования в сфере цифровой экономики'),
+        default=False,
     )
 
     class Meta:
