@@ -165,7 +165,7 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 CELERY_BEAT_SCHEDULE = {
-    'Aggregate_course_price': {
+    'aggregate_course_price': {
         'task': 'courses.tasks.aggregate_price',
         'schedule': crontab(minute=0, hour=0)
     },
