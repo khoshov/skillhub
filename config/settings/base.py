@@ -167,7 +167,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 CELERY_BEAT_SCHEDULE = {
     'aggregate_course_price': {
         'task': 'courses.tasks.aggregate_price',
-        'schedule': 60.0 * 5,
-        # 'schedule': crontab(minute=0, hour=0)
+        'schedule': crontab(minute=0, hour=0),
     },
 }

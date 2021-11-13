@@ -5,11 +5,14 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from django.db.models import Case, Count, OuterRef, Subquery, When
+
 from courses.filters import CourseFilter
 from courses.models import Category, Course
 from courses.paginators import CustomPaginator
 from courses.serializers import CourseUploadSerializer
 from courses.tables import CourseTable
+from reviews.models import Review
 from schools.models import School
 
 
@@ -37,7 +40,25 @@ class CourseListView(FilterView, SingleTableView):
         return super().get_template_names()
 
     def get_queryset(self):
-        return Course.objects.all().order_by('id')
+        return Course.objects.filter(
+            status=Course.PUBLIC,
+            school__is_active=True,
+        ).annotate(
+            rewiews_count=Subquery(
+                queryset=Review.objects.filter(
+                    school=OuterRef('school'),
+                ).annotate(
+                    reviews_count=Count('id'),
+                ).values('reviews_count')[:1]
+            ),
+            popularity=Case(
+                When(
+                    rewiews_count__isnull=True,
+                    then=0,
+                ),
+                default='rewiews_count',
+            )
+        ).order_by('-popularity')
 
 
 class UploadCourseAPIView(APIView):

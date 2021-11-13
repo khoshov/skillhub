@@ -145,6 +145,10 @@ class Course(models.Model):
         _('Возможен отложенный платёж'),
         default=False,
     )
+    government_support = models.BooleanField(
+        _('Гос. поддержка'),
+        default=False,
+    )
     created = models.DateTimeField(
         _('Дата создания'),
         auto_now_add=True,
@@ -152,10 +156,6 @@ class Course(models.Model):
     updated = models.DateTimeField(
         _('Дата обновлёния'),
         auto_now=True,
-    )
-    government_support = models.BooleanField(
-        _('Государственная программа дополнительного образования в сфере цифровой экономики'),
-        default=False,
     )
 
     class Meta:

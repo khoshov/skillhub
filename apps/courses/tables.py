@@ -14,6 +14,7 @@ class CourseTable(tables.Table):
     name = tables.Column(verbose_name='Название курса', accessor='name')
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
     duration_category = tables.Column(verbose_name='Длительность')
+    popularity = tables.Column(verbose_name='Кол-во отзывов')
 
     # school_rating = tables.Column(verbose_name='Рейтинг школы', accessor='school__rating')
     # duration_category = tables.Column(verbose_name='Длительность')

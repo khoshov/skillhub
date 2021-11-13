@@ -38,6 +38,10 @@ class School(models.Model):
         choices=STARS,
         default=THREE,
     )
+    is_active = models.BooleanField(
+        _('Активный'),
+        default=False,
+    )
 
     class Meta:
         db_table = 'school'
