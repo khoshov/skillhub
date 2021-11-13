@@ -14,6 +14,7 @@ import sys
 from pathlib import Path
 
 import environ
+from celery.schedules import crontab
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -163,3 +164,9 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+CELERY_BEAT_SCHEDULE = {
+    'aggregate_course_price': {
+        'task': 'courses.tasks.aggregate_price',
+        'schedule': crontab(minute=0, hour=0)
+    },
+}

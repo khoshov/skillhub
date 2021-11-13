@@ -1,6 +1,7 @@
-from django.db.models import OuterRef, Subquery
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import AllowAny
+
+from django.db.models import OuterRef, Subquery
 
 from reviews.models import Review
 from schools.models import School
