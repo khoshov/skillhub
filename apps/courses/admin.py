@@ -2,8 +2,8 @@ from mptt.admin import DraggableMPTTAdmin
 
 from django.contrib import admin
 
-from core.admin import activate, deactivate, make_draft, make_public
-from courses.models import Category, Course, CourseCategory
+from core.admin import make_draft, make_public
+from courses.models import Category, CategoryAlias, Course, CourseCategory
 
 
 @admin.register(Category)
@@ -16,6 +16,11 @@ class CategoryAdmin(DraggableMPTTAdmin):
 class CourseCategoryInline(admin.TabularInline):
     model = CourseCategory
     extra = 1
+
+
+@admin.register(CategoryAlias)
+class CategoryAliasAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(Course)

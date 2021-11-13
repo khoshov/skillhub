@@ -226,3 +226,10 @@ class CategoryAlias(models.Model):
         on_delete=models.PROTECT,
         verbose_name=_('категория'),
     )
+
+    class Meta:
+        verbose_name = _('Псевдоним категории')
+        verbose_name_plural = _('Псевдонимы категорий')
+
+    def __str__(self):
+        return f'{self.alias} – {self.category.name}'
