@@ -17,7 +17,7 @@ class CourseTable(tables.Table):
     popularity = tables.Column(verbose_name='Кол-во отзывов')
 
     # school_rating = tables.Column(verbose_name='Рейтинг школы', accessor='school__rating')
-    # duration_category = tables.Column(verbose_name='Длительность')
+    duration_category = tables.Column(verbose_name='Длительность баллы')
 
     class Meta:
         model = Course
@@ -27,6 +27,7 @@ class CourseTable(tables.Table):
             'school',
             'price',
             'duration',
+            'duration_category',
 
             # 'url',
             # 'affiliate_url',
@@ -35,7 +36,6 @@ class CourseTable(tables.Table):
             # 'type',
             # 'difficulty',
             # 'price',
-            # 'duration_category',
             # 'duration_type',
             # 'status',
             # 'author',
@@ -59,3 +59,6 @@ class CourseTable(tables.Table):
         duration_type = morph.parse(duration_type)[0]
         duration_type = duration_type.make_agree_with_number(record.duration).word
         return f'{record.duration} {duration_type}'
+
+    def render_duration_category(self, value, record):
+        return record.duration_category
