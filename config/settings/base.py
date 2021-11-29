@@ -37,6 +37,10 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
+    # Admin apps
+    'jet.dashboard',
+    'jet',
+
     # Django apps
     'django.contrib.admin',
     'django.contrib.auth',

@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from django.db.models import Case, Count, When
+from django.db.models import Count
 
 from courses.filters import CourseFilter
 from courses.models import Category, Course
