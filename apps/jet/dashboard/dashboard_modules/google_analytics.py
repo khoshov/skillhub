@@ -337,7 +337,7 @@ class GoogleAnalyticsVisitorsTotals(GoogleAnalyticsBase):
 
     def init_with_context(self, context):
         result = self.api_ga()
-
+        logger.error(result)
         if result is not None:
             try:
                 self.children.append({'title': _('users'), 'value': result['totalsForAllResults']['ga:users']})
@@ -388,7 +388,7 @@ class GoogleAnalyticsVisitorsChart(GoogleAnalyticsBase):
 
     def init_with_context(self, context):
         result = self.api_ga(self.group)
-
+        logger.error(result)
         if result is not None:
             try:
                 for data in result['rows']:
@@ -438,7 +438,7 @@ class GoogleAnalyticsPeriodVisitors(GoogleAnalyticsBase):
 
     def init_with_context(self, context):
         result = self.api_ga(self.group)
-
+        logger.error(result)
         if result is not None:
             try:
                 for data in reversed(result['rows']):
