@@ -37,10 +37,6 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
-    # Admin apps
-    'jet.dashboard',
-    'jet',
-
     # Django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -182,7 +178,3 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(minute=0, hour=0),
     },
 }
-
-
-JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
-JET_MODULE_GOOGLE_ANALYTICS_CLIENT_SECRETS_FILE = os.path.join(BASE_DIR, 'client_secret.json')
