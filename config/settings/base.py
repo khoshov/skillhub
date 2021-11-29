@@ -182,3 +182,7 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(minute=0, hour=0),
     },
 }
+
+
+JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+JET_MODULE_GOOGLE_ANALYTICS_CLIENT_SECRETS_FILE = os.path.join(BASE_DIR, 'client_secret.json')
