@@ -2,6 +2,8 @@
 import datetime
 import json
 
+from loguru import logger
+
 from django import forms
 
 try:
@@ -256,10 +258,10 @@ class GoogleAnalyticsBase(DashboardModule):
         try:
             client = GoogleAnalyticsClient(self.storage)
             profiles, exception = client.api_profiles()
-            print(exception)
+            logger.error(exception)
             return profiles
         except Exception as e:
-            print(e)
+            logger.error(e)
             return None
 
     def get_grouped_date(self, data, group):
