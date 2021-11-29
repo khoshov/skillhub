@@ -256,8 +256,10 @@ class GoogleAnalyticsBase(DashboardModule):
         try:
             client = GoogleAnalyticsClient(self.storage)
             profiles, exception = client.api_profiles()
+            print(exception)
             return profiles
-        except Exception:
+        except Exception as e:
+            print(e)
             return None
 
     def get_grouped_date(self, data, group):
