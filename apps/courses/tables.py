@@ -15,8 +15,8 @@ class CourseTable(tables.Table):
     rating = tables.Column(verbose_name='Школа', accessor='school__rating', empty_values=())
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
     duration = tables.Column(verbose_name='Длительность', accessor='duration_category')
-    duration_category = tables.Column(verbose_name='Длительность баллы')
-    popularity = tables.Column(verbose_name='Кол-во отзывов')
+    # duration_category = tables.Column(verbose_name='Длительность баллы')
+    # popularity = tables.Column(verbose_name='Кол-во отзывов')
 
     class Meta:
         model = Course
@@ -26,8 +26,8 @@ class CourseTable(tables.Table):
             'rating',
             'price',
             'duration',
-            'duration_category',
-            'popularity',
+            # 'duration_category',
+            # 'popularity',
 
             # 'affiliate_url',
             # 'author',
@@ -47,7 +47,7 @@ class CourseTable(tables.Table):
 
     def render_rating(self, value, record):
         rating = f'{record.school.rating}★' if record.school.rating else ''
-        return f'{record.school.name} {rating}'
+        return format_html(f'{record.school.name}&nbsp;{rating}')
 
     def render_price(self, value, record):
         icons = '₽' * record.price_category
