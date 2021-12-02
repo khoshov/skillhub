@@ -2,19 +2,19 @@
 {% load i18n %}
 {% load next_page %}
 
-<div>
-  <div>
-    <div style="font-size: 0">
+<div class="grid">
+  <div >
+    <div class="t-header">
       {% for column in table.columns %}
-        <div style="width: 15%; display: inline-block; font-size: 1rem">{{ column.header }}</div>
+        <div class="t-col">{{ column.header }}</div>
       {% endfor %}
     </div>
     {% for row in table.paginated_rows %}
-      <div style="font-size: 0">
-        {% for column, cell in row.items %}
-          <div style="width: 15%; display: inline-block; font-size: 1rem">{{ cell }}</div>
-        {% endfor %}
-      </div>
+      <a class="row-link" href=""><div class="container t-row">
+			{% for column, cell in row.items %}
+			  <div class="t-cell">{{ cell }}</div>
+			{% endfor %}
+		 </div></a>
     {% empty %}
       {% if table.empty_text %}
         <div>
