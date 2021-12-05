@@ -15,6 +15,7 @@ class CourseTable(tables.Table):
     rating = tables.Column(verbose_name='Школа', accessor='school__rating', empty_values=())
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
     duration = tables.Column(verbose_name='Длительность', accessor='duration_category')
+    url = tables.Column(verbose_name='Длительность', accessor='url')
     # duration_category = tables.Column(verbose_name='Длительность баллы')
     # popularity = tables.Column(verbose_name='Кол-во отзывов')
 
@@ -42,7 +43,9 @@ class CourseTable(tables.Table):
             # 'start_date',
             # 'status',
             # 'type',
-            # 'url',
+
+            # should be the last one
+            'url',
         )
 
     def render_rating(self, value, record):
