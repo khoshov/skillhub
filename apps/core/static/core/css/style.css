@@ -184,11 +184,6 @@
         font-size: 72px !important;
     }
 
-    #main-content p {
-        font-size: 20px !important;
-        margin-bottom: 0 !important;
-    }
-
     #main-nav .nav-item.active .nav-link:before {
         display: none;
     }
