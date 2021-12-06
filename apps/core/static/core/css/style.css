@@ -537,7 +537,7 @@ select:-webkit-autofill:focus {
   display: flex;
   max-width: 1328px;
   margin-bottom: 5px;
-  padding: 20px;
+  padding: 24px;
   justify-content: space-between !important;
 }
 
