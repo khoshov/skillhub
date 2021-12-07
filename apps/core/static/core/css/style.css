@@ -22,6 +22,7 @@
     padding-top: 0 !important;
     border-bottom: 1px solid rgba(255 255 255 / 0.5) !important;
     border-radius: 0 !important;
+    -moz-column-count: 3;
     column-count: 3;
   }
 
@@ -117,6 +118,7 @@
   }
 
   #main-nav .dropdown-menu {
+    -moz-column-count: 2;
     column-count: 2;
   }
 
@@ -140,7 +142,7 @@
   }
 
   #main-nav .dropdown-item {
-    font-family: Inter;
+    font-family: "Inter";
     font-size: 16px;
     font-weight: normal;
     font-style: normal;
@@ -225,6 +227,7 @@
   }
 
   #main-nav .dropdown-menu {
+    -moz-column-count: 1;
     column-count: 1;
   }
 
@@ -273,7 +276,6 @@ body {
   font-size: 16px;
   font-weight: 500;
   position: relative;
-  display: -webkit-flex;
   display: flex;
   box-sizing: border-box;
   max-width: 200px;
@@ -282,14 +284,13 @@ body {
   cursor: pointer;
   -webkit-user-select: none;
   -ms-user-select: none;
+  -moz-user-select: none;
   user-select: none;
   transition: all 0.2s ease;
   color: #fff !important;
   border: 1px solid currentColor;
   border-radius: 2px;
-  -webkit-align-items: center;
   align-items: center;
-  -webkit-justify-content: center;
   justify-content: center;
 }
 
@@ -375,7 +376,7 @@ body {
 
 .container p {
   width: 610px;
-  font-family: Inter;
+  font-family: "Inter";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -394,7 +395,7 @@ body {
 }
 
 .main-button {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 600;
   font-style: normal;
@@ -423,6 +424,18 @@ body {
 #search-form .form-control:focus {
   background-color: #36363f;
   box-shadow: none;
+}
+
+#search-form input::-webkit-input-placeholder {
+  color: #9b9b9f;
+}
+
+#search-form input::-moz-placeholder {
+  color: #9b9b9f;
+}
+
+#search-form input:-ms-input-placeholder {
+  color: #9b9b9f;
 }
 
 #search-form input::placeholder {
@@ -462,7 +475,7 @@ body {
 }
 
 #main-nav .dropdown-item {
-  font-family: Inter;
+  font-family: "Inter";
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -510,9 +523,9 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
   border: 1px solid #fff;
-  -webkit-box-shadow: 0 0 0 1000px #000 inset;
   box-shadow: 0 0 0 1000px #000 inset;
   -webkit-text-fill-color: #fff;
 }
@@ -530,7 +543,7 @@ select:-webkit-autofill:focus {
 
 .t-header,
 .t-row {
-  font-family: Inter;
+  font-family: "Inter";
   font-size: 20px;
   font-style: normal;
   line-height: 120%;
@@ -542,7 +555,7 @@ select:-webkit-autofill:focus {
 }
 
 .t-header {
-  font-family: Inter;
+  font-family: "Inter";
   font-size: 20px;
   font-style: normal;
   line-height: 120%;
@@ -564,7 +577,7 @@ select:-webkit-autofill:focus {
 }
 
 .t-cell {
-  font-family: Inter;
+  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -634,4 +647,23 @@ select:-webkit-autofill:focus {
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
+}
+
+#show-more {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  padding-top: 0;
+  box-shadow: none;
+  align-items: center;
+  width: 220px;
+  height: 48px;
+  color: #773fff;
+  border: 1px solid #e0e1e2 !important;
+  box-sizing: border-box;
+  border-radius: 8px !important;
+  background-color: #fff !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 280% !important;
 }
