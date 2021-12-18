@@ -1,5 +1,5 @@
 {% load bootstrap4 %}
-{% load static %}
+{% load render_bundle from webpack_loader %}
 
 <!doctype html>
 <html lang="en">
@@ -15,7 +15,8 @@
     <link rel="manifest" href="/site.webmanifest">
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    {% render_bundle 'main' %}
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">

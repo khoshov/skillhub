@@ -32,3 +32,10 @@ services:
       - .:/code
     depends_on:
       - redis
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    command: npx webpack --config webpack.config.js --watch
+    volumes:
+      - .:/code

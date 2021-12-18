@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'mptt',
     'rest_framework',
     'rest_framework_api_key',
+    'webpack_loader',
 
     # Project apps
     'core',
@@ -143,6 +144,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATICFILES_DIRS = (
+  os.path.join(BASE_DIR, 'assets'),
+)
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 STATIC_URL = '/static/'
 
@@ -177,4 +181,14 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'schools.tasks.aggregate_school_rating',
         'schedule': crontab(minute=0, hour=0),
     },
+}
+
+
+WEBPACK_LOADER = {
+  'DEFAULT': {
+    'CACHE': not DEBUG,
+    'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    'POLL_INTERVAL': 0.1,
+    'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+  }
 }
