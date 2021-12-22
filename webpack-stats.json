@@ -1,26 +1,22 @@
 {
   "status": "done",
   "assets": {
-    "main-80ad2b325809c88f76a4.js": {
-      "name": "main-80ad2b325809c88f76a4.js",
-      "path": "/code/assets/webpack_bundles/main-80ad2b325809c88f76a4.js"
+    "main-28ec805822df8285ca56.js": {
+      "name": "main-28ec805822df8285ca56.js",
+      "path": "/code/assets/webpack_bundles/main-28ec805822df8285ca56.js"
     },
     "1c8a2597e9ac9d1b91dc.png": {
       "name": "1c8a2597e9ac9d1b91dc.png",
       "path": "/code/assets/webpack_bundles/1c8a2597e9ac9d1b91dc.png"
     },
-    "b669f1af019ab0656614.svg": {
-      "name": "b669f1af019ab0656614.svg",
-      "path": "/code/assets/webpack_bundles/b669f1af019ab0656614.svg"
-    },
-    "main-8ef1ef761c79cc7c08d6.js": {
-      "name": "main-8ef1ef761c79cc7c08d6.js",
-      "path": "/code/assets/webpack_bundles/main-8ef1ef761c79cc7c08d6.js"
+    "85719bc55d21054c11a3.svg": {
+      "name": "85719bc55d21054c11a3.svg",
+      "path": "/code/assets/webpack_bundles/85719bc55d21054c11a3.svg"
     }
   },
   "chunks": {
     "main": [
-      "main-80ad2b325809c88f76a4.js"
+      "main-28ec805822df8285ca56.js"
     ]
   }
 }
