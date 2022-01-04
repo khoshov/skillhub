@@ -1,0 +1,92 @@
+.main-text {
+	font-family: "Inter" sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 120%;
+	color: #10101a;
+	opacity: 1 !important;
+ }
+ 
+ .container {
+	h1 {
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 120%;
+	 }
+	p {
+		width: 610px;
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+		line-height: 120%;
+		opacity: 0.4;
+	 }
+	 
+ }
+ 
+ #main-content {
+	h1 {
+		font-family: "Inter", "Arial", sans-serif;
+		font-size: 80px;
+		font-weight: bold;
+		line-height: 110%;
+		min-width: 650px;
+		margin-top: 20px;
+	 }
+	p {
+		font-family: "Inter", "Arial", sans-serif;
+		width: 100%;
+		font-size: 20px;
+		font-weight: 600;
+		font-style: normal;
+		line-height: 120%;
+		margin-top: 34px;
+		margin-bottom: 55px;
+	 } 
+ }
+ 
+ #mobile-image {
+	display: none;
+ } 
+ 
+ .main-button {
+	font-family: "Inter", "Arial", sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	font-style: normal;
+	line-height: 120%;
+	padding: 15px 32px;
+	border: none;
+	border-radius: 15px;
+	background-color: #773fff;
+ }
+ 
+ .main-image {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/main-image.png");
+	background-repeat: no-repeat;
+	background-position-x: right;
+	background-position-y: bottom;
+	background-size: 60%;
+ } 
+ 
+ .btn-primary:hover {
+	opacity: 0.75 !important;
+	color: #fff;
+	background-color: #773fff !important;
+ }
+ 
+ .mt-5,
+ .my-5 {
+	margin-top: 25px !important;
+	margin-bottom: 40px !important;
+ } 
