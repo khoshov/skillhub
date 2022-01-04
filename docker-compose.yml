@@ -37,5 +37,3 @@ services:
       context: .
       dockerfile: Dockerfile.node
     command: npx webpack --config webpack.config.js --watch
-    volumes:
-      - .:/code
