@@ -15,7 +15,7 @@ build-no-cache:
 	docker-compose build --no-cache
 
 collectstatic:
-	$(PYTHON) manage.py collectstatic --noi
+	$(PYTHON) manage.py collectstatic --noi -c
 
 makemigrations:
 	$(PYTHON) manage.py makemigrations ${app}
