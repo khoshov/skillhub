@@ -7,7 +7,8 @@ module.exports = {
     entry: './assets/js/index',
     output: {
         path: path.resolve('./assets/webpack_bundles/'),
-        filename: "[name]-[hash].js"
+        filename: "[name]-[hash].js",
+        clean: true
     },
     plugins: [
         new BundleTracker({filename: './webpack-stats.json'})

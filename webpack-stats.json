@@ -12,10 +12,6 @@
     "b669f1af019ab0656614.svg": {
       "name": "b669f1af019ab0656614.svg",
       "path": "/usr/src/app/assets/webpack_bundles/b669f1af019ab0656614.svg"
-    },
-    "main-d9628874502a6c39edfa.js": {
-      "name": "main-d9628874502a6c39edfa.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-d9628874502a6c39edfa.js"
     }
   },
   "chunks": {

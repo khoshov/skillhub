@@ -1,5 +1,6 @@
 PYTHON := docker-compose run -u $(USERID):$(GROUPID) --rm web python
 CELERY := docker-compose run -u $(USERID):$(GROUPID) --rm celery python
+NPM := docker-compose run -u $(USERID):$(GROUPID) --rm node npm
 
 up:
 	docker-compose up
@@ -33,3 +34,6 @@ celery:
 
 reset_db:
 	$(PYTHON) manage.py reset_db
+
+npm_install_dev:
+	$(NPM) i ${package} --save-dev
