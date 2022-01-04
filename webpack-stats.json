@@ -28,11 +28,21 @@
     "main-a8f10ecc279b5c044745.js": {
       "name": "main-a8f10ecc279b5c044745.js",
       "path": "/usr/src/app/assets/webpack_bundles/main-a8f10ecc279b5c044745.js"
+    },
+    "main-76af613c5d3197aa5fa1.js": {
+      "name": "main-76af613c5d3197aa5fa1.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-76af613c5d3197aa5fa1.js"
+    },
+    "main-0f60253e7b0e2f56734e.js": {
+      "name": "main-0f60253e7b0e2f56734e.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-0f60253e7b0e2f56734e.js"
     }
   },
   "chunks": {
     "main": [
-      "main-a8f10ecc279b5c044745.js"
+      "main-0f60253e7b0e2f56734e.js"
     ]
-  }
+  },
+  "error": "ModuleBuildError",
+  "message": "Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n  ╷\n7 │         mr0.5re\n  │                ^\n  ╵\n  assets/scss/mobile.scss 7:10  @import\n  assets/scss/style.scss 5:9    root stylesheet"
 }
