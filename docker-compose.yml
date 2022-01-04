@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  db:
+  postgres:
     image: postgres
     environment:
       - POSTGRES_DB=postgres
@@ -11,17 +11,17 @@ services:
     image: "redis:alpine"
     ports:
       - "6379:6379"
-  web:
+  django:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings.dev
     volumes:
-      - .:/code
+      - .:/usr/src/app
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - postgres
       - redis
   celery:
     build: .
@@ -29,7 +29,7 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings.dev
     volumes:
-      - .:/code
+      - .:/usr/src/app
     depends_on:
       - redis
   node:
@@ -37,3 +37,6 @@ services:
       context: .
       dockerfile: Dockerfile.node
     command: npx webpack --config webpack.config.js --watch
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules

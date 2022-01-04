@@ -1,17 +1,21 @@
 {
-  "status": "compile",
+  "status": "done",
   "assets": {
     "main-80ad2b325809c88f76a4.js": {
       "name": "main-80ad2b325809c88f76a4.js",
-      "path": "/code/assets/webpack_bundles/main-80ad2b325809c88f76a4.js"
+      "path": "/usr/src/app/assets/webpack_bundles/main-80ad2b325809c88f76a4.js"
     },
     "1c8a2597e9ac9d1b91dc.png": {
       "name": "1c8a2597e9ac9d1b91dc.png",
-      "path": "/code/assets/webpack_bundles/1c8a2597e9ac9d1b91dc.png"
+      "path": "/usr/src/app/assets/webpack_bundles/1c8a2597e9ac9d1b91dc.png"
     },
     "b669f1af019ab0656614.svg": {
       "name": "b669f1af019ab0656614.svg",
-      "path": "/code/assets/webpack_bundles/b669f1af019ab0656614.svg"
+      "path": "/usr/src/app/assets/webpack_bundles/b669f1af019ab0656614.svg"
+    },
+    "main-d9628874502a6c39edfa.js": {
+      "name": "main-d9628874502a6c39edfa.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-d9628874502a6c39edfa.js"
     }
   },
   "chunks": {
