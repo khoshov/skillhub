@@ -1,4 +1,4 @@
-PYTHON := docker-compose run -u $(USERID):$(GROUPID) --rm web python
+PYTHON := docker-compose run -u $(USERID):$(GROUPID) --rm django python
 CELERY := docker-compose run -u $(USERID):$(GROUPID) --rm celery python
 NPM := docker-compose run -u $(USERID):$(GROUPID) --rm node npm
 
