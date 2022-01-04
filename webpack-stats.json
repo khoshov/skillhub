@@ -12,11 +12,27 @@
     "b669f1af019ab0656614.svg": {
       "name": "b669f1af019ab0656614.svg",
       "path": "/usr/src/app/assets/webpack_bundles/b669f1af019ab0656614.svg"
+    },
+    "main-4e1c5a9cccba2f00a12c.js": {
+      "name": "main-4e1c5a9cccba2f00a12c.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-4e1c5a9cccba2f00a12c.js"
+    },
+    "main-e66e2e323ffe1726cd28.js": {
+      "name": "main-e66e2e323ffe1726cd28.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-e66e2e323ffe1726cd28.js"
+    },
+    "main-98ea3f3e0b44905601f0.js": {
+      "name": "main-98ea3f3e0b44905601f0.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-98ea3f3e0b44905601f0.js"
+    },
+    "main-a8f10ecc279b5c044745.js": {
+      "name": "main-a8f10ecc279b5c044745.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-a8f10ecc279b5c044745.js"
     }
   },
   "chunks": {
     "main": [
-      "main-7bdc7713e8d63f435fd9.js"
+      "main-a8f10ecc279b5c044745.js"
     ]
   }
 }
