@@ -93,7 +93,7 @@
  
 	.pt-5,
 	.py-5 {
-	  padding-top: 3rem !important;
+	  padding-top: 2rem !important;
 	  padding-bottom: 0 !important;
 	}
  
@@ -165,7 +165,7 @@
  @media all and (max-width: 767px) {
 	#main-content {
 	 p {
-		 font-size: 20px !important;
+		 font-size: 16px !important;
 		 min-width: 291px !important;
 		 margin-bottom: 0;
 	  }
@@ -236,10 +236,7 @@
  }
  
  @media all and (max-width: 575px) {
-	body {
-	  margin-bottom: 60px;
-	}
- 
+	 
 	#main-content {
 	 p {
 		 margin-bottom: 0;
