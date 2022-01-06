@@ -28,7 +28,7 @@
       <div class="badges mt-5">
         <a href="{% url 'courses:category' slug=category.get_root.slug %}" class="badge badge-primary">{{ category.get_root.name }} ({{ category.get_root.get_family|count_courses }})</a>
         {% for child in category.get_root.get_children %}
-          <a href="{% url 'courses:category' slug=child.slug %}" class="badge {% if request.GET.categories == child.pk|slugify %}badge-dark{% else %}badge-primary{% endif %}">{{ child.name }} ({{ child.course_set.count }})</a>
+          <a href="{% url 'courses:category' slug=child.slug %}" class="badge {% if request.resolver_match.kwargs.slug == child.slug %}badge-dark{% else %}badge-primary{% endif %}">{{ child.name }} ({{ child.course_set.count }})</a>
         {% endfor %}
       </div>
     {% endif %}
