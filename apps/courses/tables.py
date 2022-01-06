@@ -15,7 +15,9 @@ class CourseTable(tables.Table):
     rating = tables.Column(verbose_name='Школа', accessor='school__rating', empty_values=())
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
     duration = tables.Column(verbose_name='Длительность', accessor='duration_category')
+    popularity = tables.Column(verbose_name='Популярность', accessor='popularity')
     url = tables.Column(verbose_name='Длительность', accessor='url')
+
     # duration_category = tables.Column(verbose_name='Длительность баллы')
     # popularity = tables.Column(verbose_name='Кол-во отзывов')
 
@@ -28,6 +30,8 @@ class CourseTable(tables.Table):
             'rating',
             'price',
             'duration',
+            'popularity',
+
             # 'duration_category',
             # 'popularity',
 
@@ -46,6 +50,7 @@ class CourseTable(tables.Table):
             # 'type',
 
             # should be the last one
+
             'url',
         )
 
