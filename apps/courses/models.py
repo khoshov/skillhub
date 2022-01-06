@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
@@ -174,7 +175,7 @@ class Category(MPTTModel):
         populate_from='name',
         unique=True,
     )
-    description = models.TextField(
+    description = RichTextField(
         _('Описание'),
         blank=True, null=True,
     )
