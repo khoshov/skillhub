@@ -26,7 +26,7 @@ class CourseUploadSerializer(serializers.Serializer):
             duration=validated_data.get('course_duration'),
             duration_type=validated_data.get('course_duration_type'),
             start_date=validated_data.get('course_start_date'),
-            government_support=validated_data.get('government_support')
+            government_support=validated_data.get('government_support', False)
         )
 
         category_alias = validated_data.get('course_category')
