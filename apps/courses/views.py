@@ -53,7 +53,8 @@ class CourseListView(FilterView, SingleTableView):
         if slug:
             try:
                 category = Category.objects.get(slug=slug)
-                qs = qs.filter(categories=category)
+                categories = category.get_descendants(include_self=True)
+                qs = qs.filter(categories__in=categories).distinct()
             except Category.DoesNotExist:
                 raise Http404()
 
