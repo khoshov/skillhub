@@ -28,8 +28,9 @@ class CategoryAliasAdmin(admin.ModelAdmin):
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'school', 'status', 'author', 'government_support', 'created', 'updated')
+    list_display = ('id', 'name', 'school', 'url', 'status', 'author', 'government_support', 'created', 'updated')
     list_filter = ('categories', 'school', 'status', 'author', 'government_support')
+    search_fields = ('name', 'url')
     inlines = [CourseCategoryInline]
     readonly_fields = ['author']
     actions = [make_public, make_draft]
