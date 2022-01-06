@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from django.db.models import Count
+from django.http import Http404
 
 from courses.filters import CourseFilter
 from courses.models import Category, Course
@@ -21,13 +22,14 @@ class CourseListView(FilterView, SingleTableView):
     template_name = 'courses/index.html'
     filterset_class = CourseFilter
     paginator_class = CustomPaginator
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        category = self.request.GET.get('categories')
-        if category:
+        slug = self.request.resolver_match.kwargs.get('slug')
+        if slug:
             try:
-                data['category'] = Category.objects.get(pk=int(category))
+                data['category'] = Category.objects.get(slug=slug)
             except Category.DoesNotExist:
                 pass
         data['schools'] = School.objects.all()
@@ -39,12 +41,23 @@ class CourseListView(FilterView, SingleTableView):
         return super().get_template_names()
 
     def get_queryset(self):
-        return Course.objects.filter(
+        qs = Course.objects.filter(
             status=Course.PUBLIC,
             school__is_active=True,
         ).annotate(
             popularity=Count('school__reviews', distinct=True),
-        ).order_by('-popularity')
+        )
+
+        slug = self.request.resolver_match.kwargs.get('slug')
+
+        if slug:
+            try:
+                category = Category.objects.get(slug=slug)
+                qs = qs.filter(categories=category)
+            except Category.DoesNotExist:
+                raise Http404()
+
+        return qs
 
 
 class UploadCourseAPIView(APIView):

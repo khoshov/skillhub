@@ -22,6 +22,7 @@ class CourseTable(tables.Table):
     class Meta:
         model = Course
         template_name = 'django_tables2/bootstrap4-responsive.html'
+        order_by = '-popularity'
         fields = (
             'name',
             'rating',

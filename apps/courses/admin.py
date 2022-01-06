@@ -2,15 +2,18 @@ from mptt.admin import DraggableMPTTAdmin
 
 from django.contrib import admin
 
-from core.admin import make_draft, make_public
+from core.admin import activate, deactivate, make_draft, make_public
 from courses.models import Category, CategoryAlias, Course, CourseCategory
 
 
 @admin.register(Category)
 class CategoryAdmin(DraggableMPTTAdmin):
+    list_display = ('tree_actions', 'indented_title', 'slug', 'is_active', 'sort_order')
+    list_filter = ('is_active',)
     prepopulated_fields = {
         'slug': ('name',)
     }
+    actions = [activate, deactivate]
 
 
 class CourseCategoryInline(admin.TabularInline):
