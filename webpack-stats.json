@@ -1,9 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "main-7bdc7713e8d63f435fd9.js": {
-      "name": "main-7bdc7713e8d63f435fd9.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-7bdc7713e8d63f435fd9.js"
+    "main-9a00cfd04e13ac5bb4de.js": {
+      "name": "main-9a00cfd04e13ac5bb4de.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-9a00cfd04e13ac5bb4de.js"
     },
     "1c8a2597e9ac9d1b91dc.png": {
       "name": "1c8a2597e9ac9d1b91dc.png",
@@ -12,37 +12,11 @@
     "b669f1af019ab0656614.svg": {
       "name": "b669f1af019ab0656614.svg",
       "path": "/usr/src/app/assets/webpack_bundles/b669f1af019ab0656614.svg"
-    },
-    "main-4e1c5a9cccba2f00a12c.js": {
-      "name": "main-4e1c5a9cccba2f00a12c.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-4e1c5a9cccba2f00a12c.js"
-    },
-    "main-e66e2e323ffe1726cd28.js": {
-      "name": "main-e66e2e323ffe1726cd28.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-e66e2e323ffe1726cd28.js"
-    },
-    "main-98ea3f3e0b44905601f0.js": {
-      "name": "main-98ea3f3e0b44905601f0.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-98ea3f3e0b44905601f0.js"
-    },
-    "main-a8f10ecc279b5c044745.js": {
-      "name": "main-a8f10ecc279b5c044745.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-a8f10ecc279b5c044745.js"
-    },
-    "main-76af613c5d3197aa5fa1.js": {
-      "name": "main-76af613c5d3197aa5fa1.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-76af613c5d3197aa5fa1.js"
-    },
-    "main-0f60253e7b0e2f56734e.js": {
-      "name": "main-0f60253e7b0e2f56734e.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-0f60253e7b0e2f56734e.js"
     }
   },
   "chunks": {
     "main": [
-      "main-0f60253e7b0e2f56734e.js"
+      "main-9a00cfd04e13ac5bb4de.js"
     ]
-  },
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n  ╷\n7 │         mr0.5re\n  │                ^\n  ╵\n  assets/scss/mobile.scss 7:10  @import\n  assets/scss/style.scss 5:9    root stylesheet"
+  }
 }
