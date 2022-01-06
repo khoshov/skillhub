@@ -10,7 +10,7 @@
   {% if category %}
     <h1>{{ category.name }}</h1>
     {% if category.description %}
-      <p>{{ category.description }}</p>
+      <p>{{ category.description|safe }}</p>
     {% endif %}
   {% else %}
     <h1>Все курсы</h1>
