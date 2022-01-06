@@ -49,8 +49,9 @@ class CourseTable(tables.Table):
         )
 
     def render_rating(self, value, record):
-        rating = f'{record.school.rating}★' if record.school.rating else ''
-        return format_html(f'{record.school.name}&nbsp;{rating}')
+        # rating = f'{record.school.rating}★' if record.school.rating else ''
+        # return format_html(f'{record.school.name}&nbsp;{rating}')
+        return record.school.name
 
     def render_price(self, value, record):
         icons = '₽' * record.price_category
