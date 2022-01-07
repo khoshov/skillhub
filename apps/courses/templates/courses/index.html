@@ -19,25 +19,25 @@
   {% if category %}
     {% if category.get_root == category %}
       <div class="badges mt-5">
-        <a href="{% url 'courses:list' %}?categories={{ category.pk }}" class="badge badge-dark">{{ category.name }} ({{ category.get_family|count_courses }})</a>
+        <a href="{% url 'courses:category' slug=category.slug %}" class="badge badge-dark">{{ category.name }} ({{ category.get_family|count_courses }})</a>
         {% for child in category.get_children %}
-          <a href="{% url 'courses:list' %}?categories={{ child.pk }}" class="badge badge-primary">{{ child.name }} ({{ child.course_set.count }})</a>
+          <a href="{% url 'courses:category' slug=child.slug %}" class="badge badge-primary">{{ child.name }} ({{ child.course_set.count }})</a>
         {% endfor %}
       </div>
     {% else %}
       <div class="badges mt-5">
-        <a href="{% url 'courses:list' %}?categories={{ category.get_root.pk }}" class="badge badge-primary">{{ category.get_root.name }} ({{ category.get_root.get_family|count_courses }})</a>
+        <a href="{% url 'courses:category' slug=category.get_root.slug %}" class="badge badge-primary">{{ category.get_root.name }} ({{ category.get_root.get_family|count_courses }})</a>
         {% for child in category.get_root.get_children %}
-          <a href="{% url 'courses:list' %}?categories={{ child.pk }}" class="badge {% if request.GET.categories == child.pk|slugify %}badge-dark{% else %}badge-primary{% endif %}">{{ child.name }} ({{ child.course_set.count }})</a>
+          <a href="{% url 'courses:category' slug=child.slug %}" class="badge {% if request.resolver_match.kwargs.slug == child.slug %}badge-dark{% else %}badge-primary{% endif %}">{{ child.name }} ({{ child.course_set.count }})</a>
         {% endfor %}
       </div>
     {% endif %}
   {% endif %}
 
   <form id="filter-form" class="mt-5">
-    {% if request.GET.categories %}
-      <input type="hidden" name="categories" value="{{ request.GET.categories }}">
-    {% endif %}
+{#    {% if category %}#}
+{#      <input type="hidden" name="categories" value="{{ category.id }}">#}
+{#    {% endif %}#}
     <input id="free" type="hidden" name="free">
     <div>
       <div class="form-row align-items-center">

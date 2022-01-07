@@ -48,11 +48,15 @@
     "main-eda7a2083b800334b139.js": {
       "name": "main-eda7a2083b800334b139.js",
       "path": "/usr/src/app/assets/webpack_bundles/main-eda7a2083b800334b139.js"
+    },
+    "main-11f0706c6d7093571f19.js": {
+      "name": "main-11f0706c6d7093571f19.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-11f0706c6d7093571f19.js"
     }
   },
   "chunks": {
     "main": [
-      "main-eda7a2083b800334b139.js"
+      "main-11f0706c6d7093571f19.js"
     ]
   },
   "error": "ModuleBuildError",

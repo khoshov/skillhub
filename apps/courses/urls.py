@@ -7,4 +7,5 @@ app_name = 'courses'
 urlpatterns = [
     path('', CourseListView.as_view(), name='list'),
     path('upload/', UploadCourseAPIView.as_view(), name='upload'),
+    path('<slug:slug>/', CourseListView.as_view(), name='category'),
 ]
