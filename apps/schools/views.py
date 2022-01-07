@@ -10,7 +10,7 @@ from schools.serializers import SchoolSerializer
 
 class SchoolListAPIView(ListAPIView):
     permission_classes = [AllowAny]
-    queryset = School.objects.annotate(
+    queryset = School.objects.filter(is_active=True).annotate(
         latest_review_url=Subquery(
             Review.objects.filter(
                 school_id=OuterRef('pk')
