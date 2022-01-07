@@ -32,8 +32,11 @@
 		 padding-right: 0 !important;
 	  }	  
 	} 
- 
- 
+
+	#main-nav .nav-item.active .nav-link::before {
+		display: none;
+	}
+	
 	.navbar-collapse {
 	  display: flex;
 	  flex-direction: column;
