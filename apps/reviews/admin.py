@@ -14,4 +14,6 @@ class ReviewResource(resources.ModelResource):
 
 @admin.register(Review)
 class ReviewAdmin(ImportExportModelAdmin):
+    list_display = ('id', 'url', 'rating', 'school', 'source', 'published')
+    list_filter = ('school', 'rating', 'source', 'published')
     resource_class = ReviewResource
