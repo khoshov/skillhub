@@ -1,9 +1,13 @@
 {
   "status": "done",
   "assets": {
-    "main-11f0706c6d7093571f19.js": {
-      "name": "main-11f0706c6d7093571f19.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-11f0706c6d7093571f19.js"
+    "main-da98c514ab49f6cb1bc4.js": {
+      "name": "main-da98c514ab49f6cb1bc4.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-da98c514ab49f6cb1bc4.js"
+    },
+    "b471f0e10d74fe888137.svg": {
+      "name": "b471f0e10d74fe888137.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/b471f0e10d74fe888137.svg"
     },
     "1c8a2597e9ac9d1b91dc.png": {
       "name": "1c8a2597e9ac9d1b91dc.png",
@@ -12,11 +16,15 @@
     "b669f1af019ab0656614.svg": {
       "name": "b669f1af019ab0656614.svg",
       "path": "/usr/src/app/assets/webpack_bundles/b669f1af019ab0656614.svg"
+    },
+    "ba3267869e0e66f6ceca.svg": {
+      "name": "ba3267869e0e66f6ceca.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/ba3267869e0e66f6ceca.svg"
     }
   },
   "chunks": {
     "main": [
-      "main-11f0706c6d7093571f19.js"
+      "main-da98c514ab49f6cb1bc4.js"
     ]
   }
 }
