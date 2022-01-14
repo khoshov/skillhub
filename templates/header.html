@@ -3,9 +3,9 @@
 <nav id="main-nav" class="navbar navbar-expand-xl navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="{% url 'index' %}"><img src="{% webpack_static 'img/logo.svg' %}" alt="logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>Каталог курсов
-    </button>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+      Все курсы </button> -->
+      <div class="navbar__burger" data-toggle="collapse" data-target="#main_nav">Все курсы<span></span></div>
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav mr-auto">
         {% for category in categories %}
@@ -26,7 +26,7 @@
         {% endfor %}
       </ul>
       <form id="search-form" class="form-inline" action="{% url 'courses:list' %}">
-        <input class="form-control mr-sm-2 " name="name" type="search" placeholder="Поиск" autocomplete="off" aria-label="Search" value="{{ request.GET.name__icontains }}">
+        <input class="form-control mr-sm-2 " name="name" placeholder="Поиск" autocomplete="off" aria-label="Search" value="{{ request.GET.name__icontains }}">
       </form>
     </div>
   </div>

@@ -41,8 +41,8 @@
 
 .t-row {
   font-weight: 600;
-  color: #10101a;
-  background-color: #fafbfc;
+  color: #101019;
+  background-color: #F5F7FA;
 
   &:hover {
     background-color: #f3f5f8;
@@ -53,13 +53,14 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 120%;
   flex: 0 1 20%;
   padding-right: 30px;
 
   &:first-child {
     flex: 0 1 40%;
+    font-size: 20px;
   }
 
   &:nth-last-child(2) {
@@ -80,6 +81,7 @@
   height: 32px !important;
   border-radius: 8px !important;
   padding: 6px 10px !important;
+  margin-bottom: 10px;
 }
 
 .badge-primary {

@@ -16,8 +16,11 @@
     <h1>Все курсы</h1>
   {% endif %}
 
+  <div class="line"></div>
+  
+  <div class="bagde-and-select">
   {% if category %}
-    {% if category.get_root == category %}
+    {% if category.get_root == category %}    
       <div class="badges mt-5">
         <a href="{% url 'courses:category' slug=category.slug %}" class="badge badge-dark">{{ category.name }} ({{ category.get_family|count_courses }})</a>
         {% for child in category.get_children %}
@@ -30,10 +33,9 @@
         {% for child in category.get_root.get_children %}
           <a href="{% url 'courses:category' slug=child.slug %}" class="badge {% if request.resolver_match.kwargs.slug == child.slug %}badge-dark{% else %}badge-primary{% endif %}">{{ child.name }} ({{ child.course_set.count }})</a>
         {% endfor %}
-      </div>
+      </div>    
     {% endif %}
-  {% endif %}
-
+  {% endif %}  
   <form id="filter-form" class="mt-5">
 {#    {% if category %}#}
 {#      <input type="hidden" name="categories" value="{{ category.id }}">#}
@@ -42,6 +44,7 @@
     <div>
       <div class="form-row align-items-center">
         <div class="col-lg">
+          <div class="custom-sel">
           <select id="filter-select" class="form-control" name="sort">
             <option value="" {% if not request.GET.school %}selected{% endif %} data-free="">Популярные</option>
             <option value="" {% if request.GET.free == 'true' %}selected{% endif %} data-free="true">Бесплатные</option>
@@ -51,13 +54,20 @@
             <option value="-duration" {% if request.GET.sort == '-duration' %}selected{% endif %} data-free="">Сначала долгие</option>
             <option value="-rating" {% if request.GET.sort == '-rating' %}selected{% endif %} data-free="">С высоким рейтингом</option>
           </select>
+         </div>
         </div>
       </div>
     </div>
   </form>
-
+</div>
   <div id='table'>
     {% include 'courses/table.html' %}
+  </div>
+
+  <div class="rating">
+    <div class="rating-text" >
+      <div class="r-text" >Рейтинг школ сформирован на основе данных из открытых источников</div>
+    </div>
   </div>
 {% endblock content %}
 

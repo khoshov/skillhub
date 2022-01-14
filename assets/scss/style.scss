@@ -3,6 +3,7 @@
 @import "courses";
 @import "footer";
 @import "mobile";
+@import "select";
 
 /* stylelint-disable font-family-no-missing-generic-family-keyword */
 
@@ -13,6 +14,48 @@ html {
 
 body {
   height: 100%;
-  margin-bottom: 60px;  
+  margin-bottom: 80px;
 }
 
+// .container {
+//   padding-top: 0 !important;
+// }
+
+.py-5 {
+  padding-top: 0 !important;
+}
+
+// #main-content h1 {
+//   margin-top: 100px;
+// }
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #773fff !important;
+  border-color: #773fff !important;
+}
+
+.btn-primary:focus {
+  background-color: #773fff !important;
+  border-color: #773fff !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+}
+
+.btn-primary:focus {
+  box-shadow: none;
+}
+
+
+// body.overlay:before {
+//   content: '';
+//   display: block;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   background: rgba(0, 0, 0, .5);
+//   z-index: 100;
+// }
