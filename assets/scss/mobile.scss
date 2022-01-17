@@ -43,6 +43,8 @@
 	.mt-5 {
 		margin-bottom: 8px !important;
 		margin-top: 0 !important;
+		margin-right: 10px;
+		padding: 5px;
 	}
 
 	
@@ -261,6 +263,8 @@
 	.container-sm {
 	  max-width: 1200px !important;
 	}
+
+	
  }
  
  @media all and (min-width: 767px) {
@@ -272,12 +276,12 @@
  
 	#main-content {
 	 h1 {
-		 font-size: 72px !important;
+		//  font-size: 72px !important;
 		 margin-top: 10 !important;
 		 
 	  }
 	  p {
-		font-size: 18px !important;		
+		// font-size: 18px !important;		
 		margin-right: auto;
 		margin-bottom: 30px;
 		
@@ -360,6 +364,23 @@
 	}
 	.rating {
 		margin: 16px auto;
+	}
+
+	.mt-5 {
+		margin-right: 0 !important;
+		width: 100% !important;
+	}
+
+	.filter-form {
+		width: 100% !important;
+	}
+
+	.select-selected {
+		width: 100% !important;
+	}
+
+	.select-items div {
+		width: 100% !important;
 	}
  }
  
@@ -445,13 +466,10 @@
  }
 
  .r-text::before {
-	 content: "";
-	 background-image: url(../img/star.svg);	 
+	 content: "★";	
 	 position: absolute;
-	 display: block;
-	 width: 24px;
-	 height: 24px;
-	 top: 17px;
-	 left: 10px;	 
+	 display: block;	 
+	 top: 20px;
+	 left: 15px;	 
  }
  
