@@ -1,9 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "main-44c272ac3fa761d5f31f.js": {
-      "name": "main-44c272ac3fa761d5f31f.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-44c272ac3fa761d5f31f.js"
+    "main-b1f1425fe02905cda933.js": {
+      "name": "main-b1f1425fe02905cda933.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-b1f1425fe02905cda933.js"
     },
     "b471f0e10d74fe888137.svg": {
       "name": "b471f0e10d74fe888137.svg",
@@ -24,7 +24,7 @@
   },
   "chunks": {
     "main": [
-      "main-44c272ac3fa761d5f31f.js"
+      "main-b1f1425fe02905cda933.js"
     ]
   }
 }
