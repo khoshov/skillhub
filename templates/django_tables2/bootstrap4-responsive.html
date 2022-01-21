@@ -14,7 +14,7 @@
     {% for row in table.paginated_rows %}
       {% for column, cell in row.items %}
         {% if forloop.last %}
-          <a class="row-link" href="{{ cell }}">
+          <a class="row-link" target="_blank" href="{{ cell }}">
         {% endif %}
       {% endfor %}
 
