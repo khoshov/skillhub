@@ -15,8 +15,8 @@
 	}
 
 	.r-text {		
-		font-size: 12px !important;	
-		text-align: center !important;		
+		font-size: 12px !important;
+		margin-left: 20px;	
 	 }
  }
  
@@ -45,14 +45,14 @@
 
 	.bagde-and-select {
 		margin-top: 25px;
-		margin-bottom: 8px;
+		margin-bottom: 16px;
 	 }
 
 	.mt-5 {
-		margin-bottom: 8px !important;
+		// margin-bottom: 8px !important;
 		margin-top: 0 !important;
 		margin-right: 10px;
-		padding: 5px;
+		// padding: 5px;
 	}
 
 	.py-5 {
@@ -73,6 +73,9 @@
 			 box-shadow: none;
 		 }
 	  }
+	  .navbar-nav {
+		 margin: 0;
+	 }
 	  .dropdown-item {
 		 padding: 0 !important;
 	  }
@@ -93,7 +96,7 @@
  
 	.navbar-nav {
 	  width: 100%;
-	  margin: 20px 0 !important;
+	  margin-top: 20px !important;
 	  order: 2;
 	}
 
@@ -188,6 +191,11 @@
  }
  
  @media all and (max-width: 768px) {
+
+	body {
+		margin-bottom: 86px !important;
+	}
+
 	#main-content {
 	 h1 {
 		 font-size: 72px !important;
@@ -268,17 +276,16 @@
 	  margin: 0 auto;
 	}
  
-	.container {
-		margin-bottom: 5px;
-	}
+	// .container {
+	// 	margin-bottom: 5px;
+	// }
  
 	.container,
 	.container-lg,
 	.container-md,
 	.container-sm {
 	  max-width: 1200px !important;
-	}
-
+	}	
 	
  }
  
@@ -415,7 +422,7 @@
 	}
  }
  
- @media all and (max-width: 575px) {
+ @media all and (max-width: 575px) {	
 	 
 	#main-content {
 	 p {
@@ -452,6 +459,10 @@
 	.footer {
 	  height: 50px;
 	}
+
+	.copyright {
+		margin-bottom: 42px;
+	}
  }
  
  .rating {
@@ -464,7 +475,7 @@
  }
 
  .rating-text {
-	max-width: 260px;
+	max-width: 265px;
 	height: auto;
 	margin: 0 auto;
  }

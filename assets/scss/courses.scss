@@ -42,10 +42,10 @@
 .t-row {
   font-weight: 600;
   color: #101019;
-  background-color: #F5F7FA;
+  background-color: #FAFBFC;
 
   &:hover {
-    background-color: #f3f5f8;
+    background-color: #F3F5F8;
   }
 }
 
@@ -90,7 +90,7 @@
   height: 32px !important;
   border-radius: 8px !important;
   padding: 6px 10px !important;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 
 .badge-primary {
@@ -98,8 +98,8 @@
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
-  line-height: 120%;
-  margin-bottom: 10px;
+  // line-height: 120%;
+  margin-bottom: 9px;
   text-align: center;
   color: black !important;
   border: 1px solid #e0e1e2;
@@ -126,8 +126,15 @@
 }
 
 .form-row > [class*=col-] {
-  padding: 0 !important;
+  padding: 0 !important;  
 }
+
+.form-row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+
 
 .row-link {
   text-decoration: none !important;
@@ -135,7 +142,7 @@
 
 #show-more {
   margin-top: 10px;
-  margin-bottom: 85px;
+  // margin-bottom: 85px;
   padding-top: 0;
   box-shadow: none;
   align-items: center;

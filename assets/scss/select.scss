@@ -19,8 +19,8 @@
   content: "";
   background-image: url(../img/arrow.svg);
   transform: rotate(180deg);
-  top: 8px;
-  right: 10px;
+  top: 10px;
+  right: 13px;
   width: 24px;
   height: 24px;
   transition: all .2s ease 0s;
@@ -30,13 +30,13 @@
 .select-selected.select-arrow-active:after {
   
   transform: rotate(0deg);
-  top: 8px;
+  top: 10px;
 }
 
 /* style the items (options), including the selected item: */
 .select-items div,.select-selected {
   width: 283px;
-  padding: 8px 16px;  
+  padding: 10px 16px;  
   cursor: pointer;
   background-color: #FFFFFF;
   border: 1px solid #E0E1E2;
@@ -46,6 +46,7 @@
 .select-items div {
   border-bottom: none;
   border-top: none;
+  border-radius: 0;
 }
 
 /* Style items (options): */
