@@ -51,7 +51,7 @@
           <div class="col-lg">
             <div class="custom-sel">
               <select id="filter-select" class="form-control" name="sort">
-                <option value="" {% if not request.GET.school %}selected{% endif %} data-free="">Популярные</option>
+                <option value="" {% if not request.GET.school %}selected{% endif %} data-free="">Бесплатные</option>
                 <option value="" {% if request.GET.free == 'true' %}selected{% endif %} data-free="true">Бесплатные</option>
                 <option value="price" {% if request.GET.sort == 'price' %}selected{% endif %} data-free="false">Сначала дешевые</option>
                 <option value="-price" {% if request.GET.sort == '-price' %}selected{% endif %} data-free="false">Сначала дорогие</option>
