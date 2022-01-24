@@ -57,7 +57,7 @@ class CourseTable(tables.Table):
     def render_rating(self, value, record):
         rating_icon = '<span class="rating-icon"></span>'
         rating_points = record.school.rating or 0
-        rating_style = 'low' if rating_points < 4 else 'high'
+        rating_style = 'low-rating' if rating_points < 4 else 'high-rating'
         rating_tag = f'<span class="{rating_style}">{rating_points}</span>'
         rating = f'{rating_icon}{rating_tag}' if rating_points else ''
         return format_html(f'{record.school.name}{rating}')
