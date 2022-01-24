@@ -80,13 +80,61 @@
     "main-b6440d3ea6bdd03629b7.js": {
       "name": "main-b6440d3ea6bdd03629b7.js",
       "path": "/usr/src/app/assets/webpack_bundles/main-b6440d3ea6bdd03629b7.js"
+    },
+    "main-45ec567735e61c7d8da5.js": {
+      "name": "main-45ec567735e61c7d8da5.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-45ec567735e61c7d8da5.js"
+    },
+    "main-d192702e95bc9f3e18ec.js": {
+      "name": "main-d192702e95bc9f3e18ec.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-d192702e95bc9f3e18ec.js"
+    },
+    "main-123b90dcf5208a4d47a0.js": {
+      "name": "main-123b90dcf5208a4d47a0.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-123b90dcf5208a4d47a0.js"
+    },
+    "main-e5f07b7546e7d9896e9d.js": {
+      "name": "main-e5f07b7546e7d9896e9d.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-e5f07b7546e7d9896e9d.js"
+    },
+    "main-eca52998af64a6d2b182.js": {
+      "name": "main-eca52998af64a6d2b182.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-eca52998af64a6d2b182.js"
+    },
+    "main-dcea3fb43b0aa496eaf2.js": {
+      "name": "main-dcea3fb43b0aa496eaf2.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-dcea3fb43b0aa496eaf2.js"
+    },
+    "main-a15b3c8a9fd131a9ea25.js": {
+      "name": "main-a15b3c8a9fd131a9ea25.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-a15b3c8a9fd131a9ea25.js"
+    },
+    "main-407c74bc6fd63cd63ee3.js": {
+      "name": "main-407c74bc6fd63cd63ee3.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-407c74bc6fd63cd63ee3.js"
+    },
+    "main-ec8e97fdd49d20debb3a.js": {
+      "name": "main-ec8e97fdd49d20debb3a.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-ec8e97fdd49d20debb3a.js"
+    },
+    "main-46d804cb6d04ce930e28.js": {
+      "name": "main-46d804cb6d04ce930e28.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-46d804cb6d04ce930e28.js"
+    },
+    "main-f3eb60b72512d915c87b.js": {
+      "name": "main-f3eb60b72512d915c87b.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-f3eb60b72512d915c87b.js"
+    },
+    "05a7a69342d74438c8da.svg": {
+      "name": "05a7a69342d74438c8da.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/05a7a69342d74438c8da.svg"
     }
   },
   "chunks": {
     "main": [
-      "main-b6440d3ea6bdd03629b7.js"
+      "main-f3eb60b72512d915c87b.js"
     ]
   },
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n    ╷\n352 │     .rating-icon\n    │                 ^\n    ╵\n  assets/scss/mobile.scss 352:14  @import\n  assets/scss/style.scss 5:9      root stylesheet"
+  "error": "ModuleNotFoundError",
+  "message": "Module not found: Error: Can't resolve '../img/' in '/usr/src/app/assets/scss'"
 }
