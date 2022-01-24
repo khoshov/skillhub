@@ -44,11 +44,19 @@
     "main-3feb2e0be921c360dc43.js": {
       "name": "main-3feb2e0be921c360dc43.js",
       "path": "/usr/src/app/assets/webpack_bundles/main-3feb2e0be921c360dc43.js"
+    },
+    "main-bedc7dbe3fb20fcb2ada.js": {
+      "name": "main-bedc7dbe3fb20fcb2ada.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-bedc7dbe3fb20fcb2ada.js"
+    },
+    "main-d6ff36ee4289c16c3203.js": {
+      "name": "main-d6ff36ee4289c16c3203.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-d6ff36ee4289c16c3203.js"
     }
   },
   "chunks": {
     "main": [
-      "main-3feb2e0be921c360dc43.js"
+      "main-d6ff36ee4289c16c3203.js"
     ]
   }
 }
