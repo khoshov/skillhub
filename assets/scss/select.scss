@@ -71,7 +71,11 @@
   cursor: pointer;
 }
 
-.same-as-selected::after {
+.selected {
+  position: relative;
+}
+
+.selected::after {
   position: absolute;
   content: "";
   display: block;
