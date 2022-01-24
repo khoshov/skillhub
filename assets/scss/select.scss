@@ -65,7 +65,19 @@
 }
 
 .select-items div:hover, .same-as-selected {
+  position: relative;
   background-color: #FFFFFF;
   color: #773FFF;
   cursor: pointer;
+}
+
+.same-as-selected::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url(../img/check.svg);
+  top: 9px;
+  right: 6px;
 }

@@ -5,7 +5,7 @@
     <a class="navbar-brand" href="{% url 'index' %}"><img src="{% webpack_static 'img/logo.svg' %}" alt="logo"></a>
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
       Все курсы </button> -->
-      <div class="navbar__burger collapsed" data-toggle="collapse" data-target="#main_nav">Все курсы<span></span></div>
+      <div class="navbar__burger collapsed" data-toggle="collapse" data-target="#main_nav">Все курсы<span></span></div>      
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav mr-auto">
         {% for category in categories %}
