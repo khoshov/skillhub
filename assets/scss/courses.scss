@@ -162,14 +162,24 @@
   line-height: 45px !important;
 }
 
-.rating-icon {
+.high-rating-icon {
   position: absolute;
   content: "";
   width: 24px;
   height: 24px;
   top: -2px;  
   margin-left: 10px;
-  background-image: url(../img/star.svg);
+  background-image: url(../img/star.svg);  
+}
+
+.low-rating-icon {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  top: -2px;  
+  margin-left: 10px;
+  background-image: url(../img/gray-star.svg);  
 }
 
 .low-rating, .high-rating {
@@ -180,3 +190,9 @@
   // height: 24px;
   // right: 70px;  
 }
+
+.low-rating {
+  color: #B7B7BA;
+}
+
+
