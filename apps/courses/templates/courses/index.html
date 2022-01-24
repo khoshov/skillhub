@@ -51,7 +51,8 @@
           <div class="col-lg">
             <div class="custom-sel">
               <select id="filter-select" class="form-control" name="sort">
-                <option value="" {% if not request.GET.school %}selected{% endif %} data-free="">Бесплатные</option>
+                <option></option>
+                <option value="" {% if not request.GET.free and not request.GET.sort %}selected{% endif %} data-free="">Популярные</option>
                 <option value="" {% if request.GET.free == 'true' %}selected{% endif %} data-free="true">Бесплатные</option>
                 <option value="price" {% if request.GET.sort == 'price' %}selected{% endif %} data-free="false">Сначала дешевые</option>
                 <option value="-price" {% if request.GET.sort == '-price' %}selected{% endif %} data-free="false">Сначала дорогие</option>
@@ -88,25 +89,11 @@
 
           $.get(urlLink, function (data) {
               $('#table').html(data)
-              $('html, body').animate({scrollTop: $(document).height()}, 0);
           }).done(function () {
               $('#show-more').bind("click", nextPageHandler);
           });
       }
 
       $('#show-more').click(nextPageHandler);
-
-      const filterSelect = $('#filter-select');
-
-      filterSelect.on('change', function () {
-          const freeInput = $('#free')
-
-          freeInput.val($(this).children("option:selected").data('free'))
-
-          filterSelect.prop('disabled', !filterSelect.val());
-          freeInput.prop('disabled', !freeInput.val());
-
-          $('#filter-form').submit();
-      });
   </script>
 {% endblock %}
