@@ -24,11 +24,39 @@
     "b669f1af019ab0656614.svg": {
       "name": "b669f1af019ab0656614.svg",
       "path": "/usr/src/app/assets/webpack_bundles/b669f1af019ab0656614.svg"
+    },
+    "main-9c6d49caaf8722200795.js": {
+      "name": "main-9c6d49caaf8722200795.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-9c6d49caaf8722200795.js"
+    },
+    "main-6105bc2ef058d1b64227.js": {
+      "name": "main-6105bc2ef058d1b64227.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-6105bc2ef058d1b64227.js"
+    },
+    "main-5c4c330d214acce7b132.js": {
+      "name": "main-5c4c330d214acce7b132.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-5c4c330d214acce7b132.js"
+    },
+    "main-d8b15367d68e9796b750.js": {
+      "name": "main-d8b15367d68e9796b750.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-d8b15367d68e9796b750.js"
+    },
+    "main-3feb2e0be921c360dc43.js": {
+      "name": "main-3feb2e0be921c360dc43.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-3feb2e0be921c360dc43.js"
+    },
+    "main-bedc7dbe3fb20fcb2ada.js": {
+      "name": "main-bedc7dbe3fb20fcb2ada.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-bedc7dbe3fb20fcb2ada.js"
+    },
+    "main-d6ff36ee4289c16c3203.js": {
+      "name": "main-d6ff36ee4289c16c3203.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-d6ff36ee4289c16c3203.js"
     }
   },
   "chunks": {
     "main": [
-      "main-e85e0df17b6737a2299d.js"
+      "main-d6ff36ee4289c16c3203.js"
     ]
   }
 }
