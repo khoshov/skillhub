@@ -19,6 +19,31 @@
 		margin-left: 20px;	
 	 }
  }
+
+ @media (min-width: 768px) and (max-width: 1023px) {
+	.t-cell {
+		&:first-child {
+		  flex: 0 1 30%;
+		  font-size: 20px;
+		}
+	 
+		&:nth-child(2) {
+			flex: 0 1 30%;
+		  line-height: 22px;
+		}
+ }
+
+ .t-col {
+	 &:first-child {
+		flex: 0 1 30%;
+	 }
+	 &:nth-child(2) {
+		flex: 0 1 30%;  
+	}	
+ } 
+ 
+}
+ 
  
  @media all and (max-width: 1199px) {
 	 
@@ -322,7 +347,7 @@
 		  text-align: left;
 		  font-weight: 600 !important;
 		}
-	}
+	}	
  }
  
  @media all and (max-width: 767px) {
@@ -408,6 +433,10 @@
 	.select-items div {
 		width: 100% !important;
 	}
+
+	.rating-icon {
+		top: -4px;
+	}
  }
  
  @media all and (max-width: 576px) {
@@ -492,14 +521,17 @@
 	color: #5622D2 !important;	
 	opacity: 0.7 !important;
 	text-align: left;
-	padding: 12px 0;
+	padding: 12px 4px;
  }
 
  .r-text::before {
-	 content: "★";	
+	 content: "";
+	 background-image: url(../img/star.svg);
 	 position: absolute;
-	 display: block;	 
-	 top: 20px;
-	 left: 15px;	 
+	 display: block;
+	 width: 24px;
+	 height: 24px; 
+	 top: 16px;
+	 left: 9px;	 
  }
  

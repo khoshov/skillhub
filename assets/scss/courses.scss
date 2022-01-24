@@ -50,6 +50,7 @@
 }
 
 .t-cell {
+  position: relative;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
@@ -159,4 +160,23 @@
   font-weight: 500 !important;
   font-size: 16px !important;
   line-height: 45px !important;
+}
+
+.rating-icon {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  top: -2px;  
+  margin-left: 10px;
+  background-image: url(../img/star.svg);
+}
+
+.low-rating, .high-rating {
+  position: absolute;
+  content: "";
+  margin-left: 35px;
+  // width: 24px;
+  // height: 24px;
+  // right: 70px;  
 }
