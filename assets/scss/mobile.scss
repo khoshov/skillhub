@@ -404,13 +404,14 @@
 	  }
 	  &:nth-child(3) {
 		 display: table-cell !important;
-		 font-size: 12px;
+		 font-size: 16px;
+		 font-weight: normal;
 		 width: 70%;
 	  }
 	  &:nth-child(4) {
-		 font-size: 12px;
+		 font-size: 16px;
 		 text-align: left;
-		 font-weight: 400 !important;
+		 font-weight: 600 !important;
 	  }
 	}
 	.rating {
