@@ -93,3 +93,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     then close all select boxes: */
     document.addEventListener("click", closeAllSelect);
 });
+
+
+$(document).ready(function() {
+   $('.navbar__burger').on('click', function() {
+       $('body').toggleClass('overlay');
+   });
+});
