@@ -52,14 +52,27 @@ body {
 }
 
 
-// body.overlay:before {
-//   content: '';
-//   display: block;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   width: 100%;
-//   background: rgba(0, 0, 0, .5);
-//   z-index: 100;
+.overlay:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;  
+  background: rgba(16, 16, 26, 0.5);
+  z-index: 100;
+}
+
+
+// .grid-one {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
 // }
+
+// .row-link {
+//   display: flex;
+//   flex: 0 0 32%;
+// }
+

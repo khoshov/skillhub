@@ -3,29 +3,30 @@
 {% load next_page %}
 
 <div class="grid">
-  <div>
+  
     <div class="t-header">
       {% for column in table.columns %}
         {% if not forloop.last %}
           <div class="t-col">{{ column.header }}</div>
         {% endif %}
       {% endfor %}
-    </div>
+    </div> 
+    <div class="row" >
     {% for row in table.paginated_rows %}
       {% for column, cell in row.items %}
         {% if forloop.last %}
-          <a class="row-link" target="_blank" href="{{ cell }}">
+          <a class="row-link col-12 col-sm-4 col-md-12 d-flex" target="_blank" href="{{ cell }}">
         {% endif %}
       {% endfor %}
 
-    <div class="container t-row">
+    <div class="container t-row ">
       {% for column, cell in row.items %}
         {% if not forloop.last %}
           <div class="t-cell">{{ cell }}{{ row.items.url }}</div>
         {% endif %}
       {% endfor %}
     </div>
-    </a>
+    </a>  
     {% empty %}
       {% if table.empty_text %}
         <div>
