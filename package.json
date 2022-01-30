@@ -1,6 +1,12 @@
 {
+  "dependencies": {
+    "bootstrap": "4.6.1",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1"
+  },
   "devDependencies": {
     "css-loader": "^6.5.1",
+    "exports-loader": "^3.1.0",
     "sass": "^1.45.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",

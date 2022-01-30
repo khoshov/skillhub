@@ -1,57 +1,55 @@
-{% load bootstrap4 %}
 {% load render_bundle from webpack_loader %}
 {% load webpack_static from webpack_loader %}
 
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="verify-admitad" content="408817ee2c" />
-    <title>Skillhub - Сравниваем курсы в сфере IT</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="{% webpack_static 'img/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% webpack_static 'img/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% webpack_static 'img/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% webpack_static 'img/site.webmanifest' %}/">
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-    {% render_bundle 'main' %}
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="verify-admitad" content="408817ee2c"/>
+  <title>Skillhub - Сравниваем курсы в сфере IT</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="{% webpack_static 'img/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% webpack_static 'img/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% webpack_static 'img/favicon-16x16.png' %}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  {% render_bundle 'vendor' %}
+  {% render_bundle 'main' %}
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () {
-                (m[i].a = m[i].a || []).push(arguments)
-            };
-            m[i].l = 1 * new Date();
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-        ym(86835205, "init", {
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true,
-            webvisor: true
-        });
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/86835205" style="position:absolute; left:-9999px;" alt=""/></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+          m[i] = m[i] || function () {
+              (m[i].a = m[i].a || []).push(arguments)
+          };
+          m[i].l = 1 * new Date();
+          k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+      })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(86835205, "init", {
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true,
+          webvisor: true
+      });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/86835205" style="position:absolute; left:-9999px;" alt=""/></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
 </head>
 <body class="{% block body_class %}{% endblock body_class %}">
 {% include 'header.html' %}
 <div class="container py-5">
-    {% block content %}
-    {% endblock content %}
+  {% block content %}
+  {% endblock content %}
 </div>
 {% block footer %}{% include 'footer.html' %}{% endblock %}
 {% block script %}{% endblock %}
