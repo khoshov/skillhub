@@ -20,14 +20,24 @@ module.exports = {
         rules: [
             {
                 test: /\.s[ac]ss$/i,
-                use: [
-                    // Creates `style` nodes from JS strings
-                    "style-loader",
-                    // Translates CSS into CommonJS
-                    "css-loader",
-                    // Compiles Sass to CSS
-                    "sass-loader",
-                ],
+                use: [{
+                    loader: 'style-loader',
+                }, {
+                    loader: 'css-loader',
+                }, {
+                    loader: 'postcss-loader',
+                    options: {
+                        postcssOptions: {
+                            plugins: function () {
+                                return [
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    }
+                }, {
+                    loader: 'sass-loader'
+                }]
             },
         ],
     },
