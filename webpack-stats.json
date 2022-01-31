@@ -1,9 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "main-53a1e58a966875beddde.js": {
-      "name": "main-53a1e58a966875beddde.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-53a1e58a966875beddde.js"
+    "main-d538607125cb8a4f2948.js": {
+      "name": "main-d538607125cb8a4f2948.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-d538607125cb8a4f2948.js"
     },
     "b471f0e10d74fe888137.svg": {
       "name": "b471f0e10d74fe888137.svg",
@@ -33,236 +33,25 @@
       "name": "1bc6946a19d584cb33c7.svg",
       "path": "/usr/src/app/assets/webpack_bundles/1bc6946a19d584cb33c7.svg"
     },
-    "main-28c763791efb8ffa3a80.js": {
-      "name": "main-28c763791efb8ffa3a80.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-28c763791efb8ffa3a80.js"
+    "vendor-d538607125cb8a4f2948.js": {
+      "name": "vendor-d538607125cb8a4f2948.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-d538607125cb8a4f2948.js"
     },
-    "main-115a6348bd30b42a5e23.js": {
-      "name": "main-115a6348bd30b42a5e23.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-115a6348bd30b42a5e23.js"
+    "main-d538607125cb8a4f2948.js.LICENSE.txt": {
+      "name": "main-d538607125cb8a4f2948.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-d538607125cb8a4f2948.js.LICENSE.txt"
     },
-    "main-ef281d2ba8fd1a87d544.js": {
-      "name": "main-ef281d2ba8fd1a87d544.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-ef281d2ba8fd1a87d544.js"
-    },
-    "main-4045b17988de5a1edfe3.js": {
-      "name": "main-4045b17988de5a1edfe3.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-4045b17988de5a1edfe3.js"
-    },
-    "main-bc9c996b1e57fe84393f.js": {
-      "name": "main-bc9c996b1e57fe84393f.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-bc9c996b1e57fe84393f.js"
-    },
-    "main-5cdc522c6ee57d12dcf7.js": {
-      "name": "main-5cdc522c6ee57d12dcf7.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-5cdc522c6ee57d12dcf7.js"
-    },
-    "main-5b52537f5e028e5c4d17.js": {
-      "name": "main-5b52537f5e028e5c4d17.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-5b52537f5e028e5c4d17.js"
-    },
-    "main-e44a1fc16cd702454519.js": {
-      "name": "main-e44a1fc16cd702454519.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-e44a1fc16cd702454519.js"
-    },
-    "main-97c2f65d6322fbf46090.js": {
-      "name": "main-97c2f65d6322fbf46090.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-97c2f65d6322fbf46090.js"
-    },
-    "main-fe236b649c92b7cda6c2.js": {
-      "name": "main-fe236b649c92b7cda6c2.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-fe236b649c92b7cda6c2.js"
-    },
-    "main-d3e0a222eb5c2ea30cc7.js": {
-      "name": "main-d3e0a222eb5c2ea30cc7.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-d3e0a222eb5c2ea30cc7.js"
-    },
-    "main-423eb8d01f3cfd18c2e1.js": {
-      "name": "main-423eb8d01f3cfd18c2e1.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-423eb8d01f3cfd18c2e1.js"
-    },
-    "main-b0efae8860d66a748418.js": {
-      "name": "main-b0efae8860d66a748418.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-b0efae8860d66a748418.js"
-    },
-    "main-26aafa3b253a8159d4fe.js": {
-      "name": "main-26aafa3b253a8159d4fe.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-26aafa3b253a8159d4fe.js"
-    },
-    "main-650eed657ee2c100eac0.js": {
-      "name": "main-650eed657ee2c100eac0.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-650eed657ee2c100eac0.js"
-    },
-    "main-e5dbdf655a4506443b96.js": {
-      "name": "main-e5dbdf655a4506443b96.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-e5dbdf655a4506443b96.js"
-    },
-    "main-2f85a0c3c5e3c9b912ee.js": {
-      "name": "main-2f85a0c3c5e3c9b912ee.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-2f85a0c3c5e3c9b912ee.js"
-    },
-    "main-5e0bdac760475ed38b29.js": {
-      "name": "main-5e0bdac760475ed38b29.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-5e0bdac760475ed38b29.js"
-    },
-    "main-ce8f3f86f90b06f99543.js": {
-      "name": "main-ce8f3f86f90b06f99543.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-ce8f3f86f90b06f99543.js"
-    },
-    "main-69df94dd4e65777c7666.js": {
-      "name": "main-69df94dd4e65777c7666.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-69df94dd4e65777c7666.js"
-    },
-    "main-931255cc82ac986ebdab.js": {
-      "name": "main-931255cc82ac986ebdab.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-931255cc82ac986ebdab.js"
-    },
-    "main-83ed0a40aa62ba012e78.js": {
-      "name": "main-83ed0a40aa62ba012e78.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-83ed0a40aa62ba012e78.js"
-    },
-    "main-16ea6d4dbf0decfa9cc3.js": {
-      "name": "main-16ea6d4dbf0decfa9cc3.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-16ea6d4dbf0decfa9cc3.js"
-    },
-    "main-7d4fea64424f8cdcbb6f.js": {
-      "name": "main-7d4fea64424f8cdcbb6f.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-7d4fea64424f8cdcbb6f.js"
-    },
-    "main-ab1efc7208d359d63527.js": {
-      "name": "main-ab1efc7208d359d63527.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-ab1efc7208d359d63527.js"
-    },
-    "main-7d6d6ecedf07cd87118d.js": {
-      "name": "main-7d6d6ecedf07cd87118d.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-7d6d6ecedf07cd87118d.js"
-    },
-    "main-b37667c42faec6f6cb61.js": {
-      "name": "main-b37667c42faec6f6cb61.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-b37667c42faec6f6cb61.js"
-    },
-    "main-69aa7558f566d24d26cc.js": {
-      "name": "main-69aa7558f566d24d26cc.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-69aa7558f566d24d26cc.js"
-    },
-    "main-116b615866cb23989d87.js": {
-      "name": "main-116b615866cb23989d87.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-116b615866cb23989d87.js"
-    },
-    "main-543a6a0fdca36089e47d.js": {
-      "name": "main-543a6a0fdca36089e47d.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-543a6a0fdca36089e47d.js"
-    },
-    "main-8e7825281aa4221e818a.js": {
-      "name": "main-8e7825281aa4221e818a.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-8e7825281aa4221e818a.js"
-    },
-    "main-30e46dea52c9c71a9f98.js": {
-      "name": "main-30e46dea52c9c71a9f98.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-30e46dea52c9c71a9f98.js"
-    },
-    "main-23cb5e9ae5f7398f8829.js": {
-      "name": "main-23cb5e9ae5f7398f8829.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-23cb5e9ae5f7398f8829.js"
-    },
-    "main-7d843a77c1257b1537a7.js": {
-      "name": "main-7d843a77c1257b1537a7.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-7d843a77c1257b1537a7.js"
-    },
-    "main-c11ae8443c0ae331c76d.js": {
-      "name": "main-c11ae8443c0ae331c76d.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-c11ae8443c0ae331c76d.js"
-    },
-    "main-c6466edfc0660eea6f58.js": {
-      "name": "main-c6466edfc0660eea6f58.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-c6466edfc0660eea6f58.js"
-    },
-    "main-fec7047f99b9f943400a.js": {
-      "name": "main-fec7047f99b9f943400a.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-fec7047f99b9f943400a.js"
-    },
-    "main-d01931584cb4de844ee1.js": {
-      "name": "main-d01931584cb4de844ee1.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-d01931584cb4de844ee1.js"
-    },
-    "main-d5065f663810a884735e.js": {
-      "name": "main-d5065f663810a884735e.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-d5065f663810a884735e.js"
-    },
-    "main-1125019b2b1a6f4f067c.js": {
-      "name": "main-1125019b2b1a6f4f067c.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-1125019b2b1a6f4f067c.js"
-    },
-    "main-3dc2af7d93bbb5379850.js": {
-      "name": "main-3dc2af7d93bbb5379850.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-3dc2af7d93bbb5379850.js"
-    },
-    "main-b207f7a489c031c1b964.js": {
-      "name": "main-b207f7a489c031c1b964.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-b207f7a489c031c1b964.js"
-    },
-    "main-7db3b676e136779c740a.js": {
-      "name": "main-7db3b676e136779c740a.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-7db3b676e136779c740a.js"
-    },
-    "main-400257ae5d662ad6ac4c.js": {
-      "name": "main-400257ae5d662ad6ac4c.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-400257ae5d662ad6ac4c.js"
-    },
-    "main-b51fae9d44f3054a0c8d.js": {
-      "name": "main-b51fae9d44f3054a0c8d.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-b51fae9d44f3054a0c8d.js"
-    },
-    "main-8021d09d79c737c32392.js": {
-      "name": "main-8021d09d79c737c32392.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-8021d09d79c737c32392.js"
-    },
-    "main-8b1cf7f1758e956df817.js": {
-      "name": "main-8b1cf7f1758e956df817.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-8b1cf7f1758e956df817.js"
-    },
-    "main-1d55c5e21823bf9e9ed3.js": {
-      "name": "main-1d55c5e21823bf9e9ed3.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-1d55c5e21823bf9e9ed3.js"
-    },
-    "main-16c09f06bba7a4d5ed8d.js": {
-      "name": "main-16c09f06bba7a4d5ed8d.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-16c09f06bba7a4d5ed8d.js"
-    },
-    "main-75d67adba3d4079c8146.js": {
-      "name": "main-75d67adba3d4079c8146.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-75d67adba3d4079c8146.js"
-    },
-    "main-658fd9872008bc7611a8.js": {
-      "name": "main-658fd9872008bc7611a8.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-658fd9872008bc7611a8.js"
-    },
-    "main-52e3e87b7879b26d7bfb.js": {
-      "name": "main-52e3e87b7879b26d7bfb.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-52e3e87b7879b26d7bfb.js"
-    },
-    "main-44b30e00b5fdfacc7773.js": {
-      "name": "main-44b30e00b5fdfacc7773.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-44b30e00b5fdfacc7773.js"
-    },
-    "main-5e40e24b0bf454a17b61.js": {
-      "name": "main-5e40e24b0bf454a17b61.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-5e40e24b0bf454a17b61.js"
-    },
-    "main-20f4b83e009568a08d7c.js": {
-      "name": "main-20f4b83e009568a08d7c.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-20f4b83e009568a08d7c.js"
-    },
-    "main-2fc80cb949cfd1dafb27.js": {
-      "name": "main-2fc80cb949cfd1dafb27.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-2fc80cb949cfd1dafb27.js"
+    "vendor-d538607125cb8a4f2948.js.LICENSE.txt": {
+      "name": "vendor-d538607125cb8a4f2948.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-d538607125cb8a4f2948.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-2fc80cb949cfd1dafb27.js"
+      "main-d538607125cb8a4f2948.js"
+    ],
+    "vendor": [
+      "vendor-d538607125cb8a4f2948.js"
     ]
-  },
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n    ╷\n495 │     mt\n    │       ^\n    ╵\n  assets/scss/mobile.scss 495:4  @import\n  assets/scss/style.scss 5:9     root stylesheet"
+  }
 }
