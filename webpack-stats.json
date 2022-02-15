@@ -1,9 +1,9 @@
 {
-  "status": "done",
+  "status": "compile",
   "assets": {
-    "main-f14c0ac03f29b9c99bf1.js": {
-      "name": "main-f14c0ac03f29b9c99bf1.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-f14c0ac03f29b9c99bf1.js"
+    "main-c044d5a19ddd3b354a4f.js": {
+      "name": "main-c044d5a19ddd3b354a4f.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-c044d5a19ddd3b354a4f.js"
     },
     "b471f0e10d74fe888137.svg": {
       "name": "b471f0e10d74fe888137.svg",
@@ -33,25 +33,107 @@
       "name": "1bc6946a19d584cb33c7.svg",
       "path": "/usr/src/app/assets/webpack_bundles/1bc6946a19d584cb33c7.svg"
     },
-    "vendor-f14c0ac03f29b9c99bf1.js": {
-      "name": "vendor-f14c0ac03f29b9c99bf1.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-f14c0ac03f29b9c99bf1.js"
+    "vendor-c044d5a19ddd3b354a4f.js": {
+      "name": "vendor-c044d5a19ddd3b354a4f.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-c044d5a19ddd3b354a4f.js"
     },
-    "main-f14c0ac03f29b9c99bf1.js.LICENSE.txt": {
-      "name": "main-f14c0ac03f29b9c99bf1.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-f14c0ac03f29b9c99bf1.js.LICENSE.txt"
+    "main-c044d5a19ddd3b354a4f.js.LICENSE.txt": {
+      "name": "main-c044d5a19ddd3b354a4f.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-c044d5a19ddd3b354a4f.js.LICENSE.txt"
     },
-    "vendor-f14c0ac03f29b9c99bf1.js.LICENSE.txt": {
-      "name": "vendor-f14c0ac03f29b9c99bf1.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-f14c0ac03f29b9c99bf1.js.LICENSE.txt"
+    "vendor-c044d5a19ddd3b354a4f.js.LICENSE.txt": {
+      "name": "vendor-c044d5a19ddd3b354a4f.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-c044d5a19ddd3b354a4f.js.LICENSE.txt"
+    },
+    "main-2ed30855386913c97fd8.js": {
+      "name": "main-2ed30855386913c97fd8.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-2ed30855386913c97fd8.js"
+    },
+    "vendor-2ed30855386913c97fd8.js": {
+      "name": "vendor-2ed30855386913c97fd8.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-2ed30855386913c97fd8.js"
+    },
+    "main-2ed30855386913c97fd8.js.LICENSE.txt": {
+      "name": "main-2ed30855386913c97fd8.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-2ed30855386913c97fd8.js.LICENSE.txt"
+    },
+    "vendor-2ed30855386913c97fd8.js.LICENSE.txt": {
+      "name": "vendor-2ed30855386913c97fd8.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-2ed30855386913c97fd8.js.LICENSE.txt"
+    },
+    "main-7de1c5c5306ce73e4289.js": {
+      "name": "main-7de1c5c5306ce73e4289.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-7de1c5c5306ce73e4289.js"
+    },
+    "vendor-7de1c5c5306ce73e4289.js": {
+      "name": "vendor-7de1c5c5306ce73e4289.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-7de1c5c5306ce73e4289.js"
+    },
+    "main-7de1c5c5306ce73e4289.js.LICENSE.txt": {
+      "name": "main-7de1c5c5306ce73e4289.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-7de1c5c5306ce73e4289.js.LICENSE.txt"
+    },
+    "vendor-7de1c5c5306ce73e4289.js.LICENSE.txt": {
+      "name": "vendor-7de1c5c5306ce73e4289.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-7de1c5c5306ce73e4289.js.LICENSE.txt"
+    },
+    "main-7cfa6c57f19ee796b4d8.js": {
+      "name": "main-7cfa6c57f19ee796b4d8.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-7cfa6c57f19ee796b4d8.js"
+    },
+    "vendor-7cfa6c57f19ee796b4d8.js": {
+      "name": "vendor-7cfa6c57f19ee796b4d8.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-7cfa6c57f19ee796b4d8.js"
+    },
+    "main-7cfa6c57f19ee796b4d8.js.LICENSE.txt": {
+      "name": "main-7cfa6c57f19ee796b4d8.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-7cfa6c57f19ee796b4d8.js.LICENSE.txt"
+    },
+    "vendor-7cfa6c57f19ee796b4d8.js.LICENSE.txt": {
+      "name": "vendor-7cfa6c57f19ee796b4d8.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-7cfa6c57f19ee796b4d8.js.LICENSE.txt"
+    },
+    "main-261d1db7c25dadc0bdee.js": {
+      "name": "main-261d1db7c25dadc0bdee.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-261d1db7c25dadc0bdee.js"
+    },
+    "vendor-261d1db7c25dadc0bdee.js": {
+      "name": "vendor-261d1db7c25dadc0bdee.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-261d1db7c25dadc0bdee.js"
+    },
+    "main-261d1db7c25dadc0bdee.js.LICENSE.txt": {
+      "name": "main-261d1db7c25dadc0bdee.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-261d1db7c25dadc0bdee.js.LICENSE.txt"
+    },
+    "vendor-261d1db7c25dadc0bdee.js.LICENSE.txt": {
+      "name": "vendor-261d1db7c25dadc0bdee.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-261d1db7c25dadc0bdee.js.LICENSE.txt"
+    },
+    "main-1a8165e7831ee3f9a096.js": {
+      "name": "main-1a8165e7831ee3f9a096.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-1a8165e7831ee3f9a096.js"
+    },
+    "vendor-1a8165e7831ee3f9a096.js": {
+      "name": "vendor-1a8165e7831ee3f9a096.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-1a8165e7831ee3f9a096.js"
+    },
+    "main-1a8165e7831ee3f9a096.js.LICENSE.txt": {
+      "name": "main-1a8165e7831ee3f9a096.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-1a8165e7831ee3f9a096.js.LICENSE.txt"
+    },
+    "vendor-1a8165e7831ee3f9a096.js.LICENSE.txt": {
+      "name": "vendor-1a8165e7831ee3f9a096.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-1a8165e7831ee3f9a096.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-f14c0ac03f29b9c99bf1.js"
+      "main-1a8165e7831ee3f9a096.js"
     ],
     "vendor": [
-      "vendor-f14c0ac03f29b9c99bf1.js"
+      "vendor-1a8165e7831ee3f9a096.js"
     ]
-  }
+  },
+  "error": "ModuleBuildError",
+  "message": "Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n  ╷\n1 │ @import \"custom\";\n  │         ^^^^^^^^\n  ╵\n  assets/scss/style.scss 1:9  root stylesheet"
 }

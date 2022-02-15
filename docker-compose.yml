@@ -42,4 +42,5 @@ services:
       - ./webpack.config.js:/usr/src/app/webpack.config.js
       - ./.stylelintrc.json:/usr/src/app/.stylelintrc.json
       - ./.prettierrc:/usr/src/app/.prettierrc
+      - ./webpack-stats.json:/usr/src/app/webpack-stats.json
       - /usr/src/app/node_modules
