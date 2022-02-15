@@ -1,42 +1,42 @@
 .badges {
-   max-width: 600px;
-   margin-top: 3rem;
-   margin-right: 10px;
-   @media all and (max-width: 1199px) {
-     margin-top: 0;
-   }
- }
+  max-width: 600px;
+  margin-top: 3rem;
+  margin-right: 10px;
+  @media all and (max-width: 1199px) {
+    margin-top: 0;
+  }
+}
+
+.badge {
+  width: auto;
+  height: 32px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-bottom: 9px;
+}
  
- .badge {
-   width: auto;
-   height: 32px;
-   border-radius: 8px;
-   padding: 6px 10px;
-   margin-bottom: 9px;
- }
+.badge-primary {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;   
+  margin-bottom: 9px;
+  text-align: center;
+  color: black ;
+  border: 1px solid #e0e1e2;
+  background-color: #fff;
+  box-shadow: none;
+}
  
- .badge-primary {
-   font-family: "Inter";
-   font-size: 16px;
-   font-weight: normal;
-   font-style: normal;   
-   margin-bottom: 9px;
-   text-align: center;
-   color: black ;
-   border: 1px solid #e0e1e2;
-   background-color: #fff;
-   box-shadow: none;
- }
- 
- .badge-dark {
-   font-size: 16px;
-   font-family: "Inter";
-   font-weight: 600;
-   font-style: normal;
-   line-height: 120%;
-   text-align: center;
-   color: #fff;
-   background-color: #773fff;
-   box-shadow: none;
-   align-items: center;
- }
+.badge-dark {
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 600;
+  font-style: normal;
+  line-height: 120%;
+  text-align: center;
+  color: #fff;
+  background-color: #773fff;
+  box-shadow: none;
+  align-items: center;
+}

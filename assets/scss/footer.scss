@@ -1,31 +1,31 @@
 .footer {
-	line-height: 60px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 60px;
-	background-color: transparent;
-	@media all and (max-width: 575px) {
-		height: 50px;
-	}
- }
+  line-height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  @media all and (max-width: 575px) {
+    height: 50px;
+  }
+}
 
 .footer-text {
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: normal;
-	font-size: 16px;
-	line-height: 24px;
-	margin-bottom: 4px;
-	a {
-		color: #773fff;
-	}
- }
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 4px;
 
- .copyright {
-	@media all and (max-width: 575px) {
-		margin-bottom: 42px;
-	}
-	
+  a {
+    color: #773fff;
+  }
+}
+
+.copyright {
+  @media all and (max-width: 575px) {
+    margin-bottom: 42px;
+  }
 }

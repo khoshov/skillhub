@@ -50,3 +50,6 @@ npm_install_dev:
 
 node_shell:
 	$(NODE) node
+
+update:
+	$(NPM) update

@@ -16,7 +16,7 @@ module.exports = {
     },
     plugins: [
         new BundleTracker({filename: './webpack-stats.json'}),
-        new StylelintPlugin(options)
+        new StylelintPlugin({fix: true})
     ],
     module: {
         rules: [

@@ -1,12 +1,12 @@
 html {
-   position: relative;
-   min-height: 100%;
- }
+  position: relative;
+  min-height: 100%;
+}
  
- body {
-   height: 100%;
-   margin-bottom: 60px;
-   @media all and (max-width: 768px) {
+body {
+  height: 100%;
+  margin-bottom: 60px;
+  @media all and (max-width: 768px) {
     margin-bottom: 86px !important;
-   }
- }
+  }
+}

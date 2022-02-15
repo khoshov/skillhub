@@ -7,3 +7,5 @@ RUN npm install
 
 COPY assets .
 COPY webpack.config.js .
+COPY .stylelintrc.json .
+COPY .prettierrc .

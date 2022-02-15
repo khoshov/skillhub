@@ -1,7 +1,11 @@
 {
-	"extends": "stylelint-config-standard",
-	"rules": {
-		"alpha-value-notation": "number",
-		"font-family-name-quotes": "always-unless-keyword"		
-	 }
- }
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
+  "rules": {
+    "indentation": 2,
+    "alpha-value-notation": "number",
+    "font-family-name-quotes": "always-unless-keyword"
+  }
+}
