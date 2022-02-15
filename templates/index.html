@@ -6,10 +6,10 @@
 
 {% block content %}
   <div class="row">	  
-    <div id="main-content" class="col-md-6">
+    <div id="main-content">
       <h1>Сравниваем онлайн-курсы в&nbsp;сфере&nbsp;IT</h1>
       <p class="main-text" >Чтобы&nbsp;вы с&nbsp;лёгкостью могли подобрать для себя лучший курс из&nbsp;сотен предложений.</p>		
-      <a href="{% url 'courses:list' %}" class="btn btn-primary mt-3 main-button">Начать поиск</a>
+      <a href="{% url 'courses:list' %}" class="btn btn-primary main-button">Начать поиск</a>
       <img id="mobile-image" src="{% webpack_static 'img/main-image.png' %}" alt="">
   	</div>
 	  <div class="main-image">
