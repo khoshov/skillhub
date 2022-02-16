@@ -1,9 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "main-47b28f61525b4c5313a3.js": {
-      "name": "main-47b28f61525b4c5313a3.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-47b28f61525b4c5313a3.js"
+    "main-39681ea38dd554652685.js": {
+      "name": "main-39681ea38dd554652685.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-39681ea38dd554652685.js"
     },
     "b471f0e10d74fe888137.svg": {
       "name": "b471f0e10d74fe888137.svg",
@@ -33,41 +33,43 @@
       "name": "1bc6946a19d584cb33c7.svg",
       "path": "/usr/src/app/assets/webpack_bundles/1bc6946a19d584cb33c7.svg"
     },
-    "vendor-47b28f61525b4c5313a3.js": {
-      "name": "vendor-47b28f61525b4c5313a3.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-47b28f61525b4c5313a3.js"
+    "vendor-39681ea38dd554652685.js": {
+      "name": "vendor-39681ea38dd554652685.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-39681ea38dd554652685.js"
     },
-    "main-47b28f61525b4c5313a3.js.LICENSE.txt": {
-      "name": "main-47b28f61525b4c5313a3.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-47b28f61525b4c5313a3.js.LICENSE.txt"
+    "main-39681ea38dd554652685.js.LICENSE.txt": {
+      "name": "main-39681ea38dd554652685.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-39681ea38dd554652685.js.LICENSE.txt"
     },
-    "vendor-47b28f61525b4c5313a3.js.LICENSE.txt": {
-      "name": "vendor-47b28f61525b4c5313a3.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-47b28f61525b4c5313a3.js.LICENSE.txt"
+    "vendor-39681ea38dd554652685.js.LICENSE.txt": {
+      "name": "vendor-39681ea38dd554652685.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-39681ea38dd554652685.js.LICENSE.txt"
     },
-    "main-411a2356a8dc08b871e0.js": {
-      "name": "main-411a2356a8dc08b871e0.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-411a2356a8dc08b871e0.js"
+    "main-80e499e8eaa452125d97.js": {
+      "name": "main-80e499e8eaa452125d97.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-80e499e8eaa452125d97.js"
     },
-    "vendor-411a2356a8dc08b871e0.js": {
-      "name": "vendor-411a2356a8dc08b871e0.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-411a2356a8dc08b871e0.js"
+    "vendor-80e499e8eaa452125d97.js": {
+      "name": "vendor-80e499e8eaa452125d97.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-80e499e8eaa452125d97.js"
     },
-    "main-411a2356a8dc08b871e0.js.LICENSE.txt": {
-      "name": "main-411a2356a8dc08b871e0.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-411a2356a8dc08b871e0.js.LICENSE.txt"
+    "main-80e499e8eaa452125d97.js.LICENSE.txt": {
+      "name": "main-80e499e8eaa452125d97.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-80e499e8eaa452125d97.js.LICENSE.txt"
     },
-    "vendor-411a2356a8dc08b871e0.js.LICENSE.txt": {
-      "name": "vendor-411a2356a8dc08b871e0.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-411a2356a8dc08b871e0.js.LICENSE.txt"
+    "vendor-80e499e8eaa452125d97.js.LICENSE.txt": {
+      "name": "vendor-80e499e8eaa452125d97.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-80e499e8eaa452125d97.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-411a2356a8dc08b871e0.js"
+      "main-80e499e8eaa452125d97.js"
     ],
     "vendor": [
-      "vendor-411a2356a8dc08b871e0.js"
+      "vendor-80e499e8eaa452125d97.js"
     ]
-  }
+  },
+  "error": "ModuleBuildError",
+  "message": "Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n   ╷\n12 │ @import \"functions\";\n   │         ^^^^^^^^^^^\n   ╵\n  assets/scss/vendor.scss 12:9  @import\n  assets/scss/style.scss 1:9    root stylesheet"
 }
