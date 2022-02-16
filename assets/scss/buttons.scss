@@ -8,6 +8,7 @@
   border: none;
   border-radius: 12px;
   background-color: #773fff;
+  color: #fff;
   box-shadow: 0 4px 4px rgb(0 0 0 / 0.25);
   @media all and (max-width: 768px) {
     display: block;
@@ -16,30 +17,26 @@
   }
 }
 
-.btn-primary:not(:disabled):not(.disabled):active {
-  background-color: #773fff !important;
-  border-color: #773fff !important;
-}
-
 .btn-primary:hover {
   opacity: 0.75 !important;
   color: #fff;
   background-color: #773fff !important;
 }
 
- 
 .btn-primary:focus {
   background-color: #773fff !important;
   border-color: #773fff !important;
+  box-shadow: none;
 }
- 
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #773fff !important;
+  border-color: #773fff !important;
+}
+
 .btn-primary:not(:disabled):not(.disabled):active:focus {
   box-shadow: none;
-}
- 
-.btn-primary:focus {
-  box-shadow: none;
-}
+} 
 
 .show-button {
   margin-top: 10px;  

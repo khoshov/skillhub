@@ -3,7 +3,7 @@
 <nav id="main-nav" class="navbar navbar-expand-xl navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="{% url 'index' %}"><img src="{% webpack_static 'img/logo.svg' %}" alt="logo"></a>    
-      <div class="navbar__burger collapsed" data-toggle="collapse" data-target="#main_nav">Все курсы<span></span></div>      
+      <div class="navbar-burger collapsed" data-toggle="collapse" data-target="#main_nav">Все курсы<span></span></div>      
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav mr-auto">
         {% for category in categories %}
