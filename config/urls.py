@@ -11,6 +11,10 @@ urlpatterns = [
     path('schools/', include('schools.urls', namespace='schools')),
 
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
+
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('accounts/', include('django_registration.backends.activation.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

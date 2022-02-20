@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_filters',
     'django_tables2',
+    'django_registration',
     'drf_yasg',
     'import_export',
     'mptt',
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
     'webpack_loader',
 
     # Project apps
+    'accounts',
     'core',
     'courses',
     'reviews',
@@ -192,3 +194,12 @@ WEBPACK_LOADER = {
     'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
   }
 }
+
+# User
+
+AUTH_USER_MODEL = 'accounts.User'
+
+# django-registration
+# https://django-registration.readthedocs.io/en/3.2/index.html
+
+ACCOUNT_ACTIVATION_DAYS = 7
