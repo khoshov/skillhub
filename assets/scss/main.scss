@@ -1,4 +1,4 @@
-.container {  
+.container {
   h1 {
     font-family: "Inter", sans-serif;
     font-style: normal;
@@ -19,7 +19,7 @@
     @media all and (max-width: 1199px) {
       margin-bottom: 0;
     }
-  }	 
+  }
 }
 
 #main-content {  
@@ -27,7 +27,7 @@
     flex: 0 0 100%;
     max-width: 100%;
     padding-left: 0 !important;
-  }	
+  }
 
   h1 {
     font-family: "Inter", sans-serif;
@@ -51,7 +51,7 @@
       font-size: 40px !important;
       min-width: 280px !important;
       margin-top: 100px !important;
-      text-align: center;		 
+      text-align: center;
     }
   }
 
@@ -94,7 +94,7 @@
       margin-bottom: 30px;
       text-align: center;
     }
-  } 
+  }
 }
 
 #mobile-image {
@@ -147,7 +147,7 @@
   }
 }
 
-.bagde-and-select {
+.badge-and-select {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -161,7 +161,7 @@
 @media (min-width: 500px) and (max-width: 700px) {
   .col-sm-4 {
     flex: 0 0 50%;
-    max-width: 50%;    
+    max-width: 50%;
   }
 }
 

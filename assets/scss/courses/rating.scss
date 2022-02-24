@@ -10,7 +10,7 @@
   }
 }
 
-.low-rating-icon {  
+.low-rating-icon {
   background-image: url("../img/gray-star.svg");
 }
 
@@ -47,14 +47,14 @@
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 120%;	
-  color: #5622D2 !important;	
+  line-height: 120%;
+  color: #5622D2 !important;
   opacity: 0.7 !important;
   text-align: left;
   padding: 12px 4px;
   @media all and (max-width: 374px) {
     font-size: 12px !important;
-    margin-left: 20px;	
+    margin-left: 20px;
   }
 }
 
@@ -66,5 +66,5 @@
   width: 24px;
   height: 24px; 
   top: 16px;
-  left: 9px;	 
+  left: 9px;
 }

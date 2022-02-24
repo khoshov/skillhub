@@ -27,7 +27,7 @@
   .dropdown-menu {
     width: 208px;
     padding-top: 27px;
-    border: none;		
+    border: none;
     background-color: transparent;
     margin: 0 !important;
     @media all and (max-width: 575px) {
@@ -49,10 +49,10 @@
         box-shadow: none;
       }
 
-      li {			
+      li {
         flex: 0 0 33.3333%;
         max-width: 33.3333%;
-        padding-right: 21px;						 
+        padding-right: 21px;
         @media all and (max-width: 374px) {
           flex: 0 0 100% !important;
           max-width: 100% !important;
@@ -60,9 +60,9 @@
         @media all and (max-width: 575px) {
           flex: 0 0 50%;
           max-width: 50%;
-        }			 
+        }
       }
-    }		
+    }
 
     &::after {
       position: absolute;
@@ -83,13 +83,13 @@
     &:last-child {
       padding-bottom: 15px;
     }
-  }	 		
+  }
 
   .nav-item {
     padding-right: 24px;
 
     &.active {
-      position: relative;			
+      position: relative;
 
       .nav-link {
         position: relative;
@@ -103,7 +103,7 @@
           border-bottom: 4px solid #773fff;
           @media all and (min-width: 575px) and (max-width: 1199px) {
             display: none;
-          }  
+          }
         }
 
         &::after {
@@ -115,7 +115,7 @@
     &:last-child {
       .dropdown-menu {
         border-bottom: 0 !important;
-      }	
+      }
     }
     @media all and (max-width: 1199px) {
       padding-right: 0 !important;
@@ -137,7 +137,7 @@
     font-size: 16px;
     font-weight: normal;
     font-style: normal;
-    line-height: 230%;    
+    line-height: 230%;
   }
   @media all and (max-width: 1199px) {
     font-family: "Inter", sans-serif;
@@ -153,6 +153,6 @@
   &:hover {
     opacity: 1;
     color: #fff;
-    background-color: rgb(255 255 255 / .06);		
+    background-color: rgb(255 255 255 / .06);
   }
 }

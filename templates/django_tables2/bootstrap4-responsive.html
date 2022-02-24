@@ -18,7 +18,7 @@
         {% endif %}
       {% endfor %}
 
-    <div class="container mycont t-row">
+    <div class="container max-width-container t-row">
       {% for column, cell in row.items %}
         {% if not forloop.last %}
           <div class="t-cell">{{ cell }}{{ row.items.url }}</div>

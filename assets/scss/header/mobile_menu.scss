@@ -24,7 +24,7 @@
   display: block;
 }
 
-.dropdown-toggle {	 
+.dropdown-toggle {
   &::after {
     display: inline-block;
     margin-left: 10px;
@@ -46,7 +46,7 @@
   &:hover {
     &::after {
       opacity: 1;
-    }		
+    }
   }
 }
 
@@ -118,6 +118,6 @@
       top: 10px;
       transition: all .3s ease 0s;
       border-radius: 10px;
-    }	
-  }  		
+    }
+  }
 }

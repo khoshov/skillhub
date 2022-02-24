@@ -4,7 +4,7 @@
 }
 
 .form-row > [class*=col-] {
-  padding: 0 !important;  
+  padding: 0 !important;
 }
 
 .form-row {
@@ -40,9 +40,9 @@
   position: relative;
   background-color: #FFF;
   border: 1px solid #E0E1E2;
-  border-radius: 8px;  
-  padding: 8px 15px;  
-  cursor: pointer;  
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
 }
 
 /* Style the arrow inside the select element: */
@@ -76,7 +76,7 @@
 
 /* Style items (options): */
 .select-items {
-  position: absolute;  
+  position: absolute;
   top: 120%;
   left: 0;
   right: 0;
