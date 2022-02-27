@@ -16,27 +16,20 @@
 }
 
 .badge-primary {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+  @include badge-font;
+
   font-weight: normal;
-  font-style: normal;   
   margin-bottom: 9px;
-  text-align: center;
-  color: black ;
+  color: black !important;
   border: 1px solid #e0e1e2;
-  background-color: #fff;
-  box-shadow: none;
+  background-color: #fff !important;
 }
 
 .badge-dark {
-  font-size: 16px;
-  font-family: "Inter", sans-serif;
+  @include badge-font;
+
   font-weight: 600;
-  font-style: normal;
   line-height: 120%;
-  text-align: center;
-  color: #fff;
-  background-color: #773fff;
-  box-shadow: none;
-  align-items: center;
+  color: #fff !important;
+  background-color: #773fff !important;
 }

@@ -124,7 +124,6 @@
 }
 
 .dropdown-item {
-  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -133,14 +132,12 @@
   opacity: 0.5;
   color: #fff;
   @media all and (max-width: 768px) {
-    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: normal;
     font-style: normal;
     line-height: 230%;
   }
   @media all and (max-width: 1199px) {
-    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: normal;
     font-style: normal;

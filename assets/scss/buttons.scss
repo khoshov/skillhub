@@ -1,5 +1,4 @@
 .main-button {
-  font-family: "Inter", sans-serif;
   font-size: 20px;
   font-weight: 400;
   font-style: normal;
@@ -10,6 +9,18 @@
   background-color: #773fff;
   color: #fff;
   box-shadow: 0 4px 4px rgb(0 0 0 / 0.25);
+
+  &:hover {
+    opacity: 0.75 !important;
+    color: #fff;
+    background-color: #773fff !important;
+  }
+
+  &:focus {
+    background-color: #773fff !important;
+    border-color: #773fff !important;
+    box-shadow: none;
+  }
   @media all and (max-width: 768px) {
     display: block;
     width: 75%;
@@ -17,24 +28,12 @@
   }
 }
 
-.btn-primary:hover {
-  opacity: 0.75 !important;
-  color: #fff;
-  background-color: #773fff !important;
-}
-
-.btn-primary:focus {
-  background-color: #773fff !important;
-  border-color: #773fff !important;
-  box-shadow: none;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active {
+.main-button:not(:disabled):not(.disabled):active {
   background-color: #773fff !important;
   border-color: #773fff !important;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active:focus {
+.main-button:not(:disabled):not(.disabled):active:focus {
   box-shadow: none;
 } 
 

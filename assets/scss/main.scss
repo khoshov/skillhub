@@ -1,7 +1,9 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
 .container {
   h1 {
-    font-family: "Inter", sans-serif;
-    font-style: normal;
     font-weight: 600;
     font-size: 40px;
     line-height: 120%;
@@ -9,9 +11,6 @@
   }
 
   p {
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 140%;
     color: #10101A;
@@ -30,7 +29,6 @@
   }
 
   h1 {
-    font-family: "Inter", sans-serif;
     font-size: 80px;
     font-weight: bold;
     line-height: 110%;
@@ -56,11 +54,8 @@
   }
 
   p {
-    font-family: "Inter", sans-serif;
     width: 100%;
     font-size: 24px;
-    font-weight: normal;
-    font-style: normal;
     line-height: 120%;
     margin-top: 25px;
     margin-bottom: 55px;
