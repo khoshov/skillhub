@@ -13,6 +13,9 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
 ]
 
+handler404 = 'core.views.page_not_found'
+handler500 = 'core.views.server_error'
+
 if settings.DEBUG:
     import debug_toolbar
 
