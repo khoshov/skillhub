@@ -1,9 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "main-4937af113fc43aa165e2.js": {
-      "name": "main-4937af113fc43aa165e2.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-4937af113fc43aa165e2.js"
+    "main-63f213f860afdd34eaed.js": {
+      "name": "main-63f213f860afdd34eaed.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-63f213f860afdd34eaed.js"
     },
     "b471f0e10d74fe888137.svg": {
       "name": "b471f0e10d74fe888137.svg",
@@ -32,22 +32,6 @@
     "1bc6946a19d584cb33c7.svg": {
       "name": "1bc6946a19d584cb33c7.svg",
       "path": "/usr/src/app/assets/webpack_bundles/1bc6946a19d584cb33c7.svg"
-    },
-    "vendor-4937af113fc43aa165e2.js": {
-      "name": "vendor-4937af113fc43aa165e2.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-4937af113fc43aa165e2.js"
-    },
-    "main-4937af113fc43aa165e2.js.LICENSE.txt": {
-      "name": "main-4937af113fc43aa165e2.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-4937af113fc43aa165e2.js.LICENSE.txt"
-    },
-    "vendor-4937af113fc43aa165e2.js.LICENSE.txt": {
-      "name": "vendor-4937af113fc43aa165e2.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-4937af113fc43aa165e2.js.LICENSE.txt"
-    },
-    "main-63f213f860afdd34eaed.js": {
-      "name": "main-63f213f860afdd34eaed.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-63f213f860afdd34eaed.js"
     },
     "vendor-63f213f860afdd34eaed.js": {
       "name": "vendor-63f213f860afdd34eaed.js",
