@@ -5,18 +5,17 @@
 {% block body_class %}main-page{% endblock body_class %}
 
 {% block content %}
-  <div class="row">	  
+  <div class="row">
     <div id="main-content">
       <h1>Сравниваем онлайн-курсы в&nbsp;сфере&nbsp;IT</h1>
-      <p class="main-text font-weight-normal" >Чтобы&nbsp;вы с&nbsp;лёгкостью могли подобрать для себя лучший курс из&nbsp;сотен предложений</p>
-      <a href="{% url 'courses:list' %}" class="btn btn-primary main-button">Начать поиск</a>
+      <p class="main-text font-weight-normal">Чтобы&nbsp;вы с&nbsp;лёгкостью могли подобрать для себя лучший курс из&nbsp;сотен предложений</p>
+      <a href="{% url 'courses:list' %}" class="btn btn-primary main-button">Выбрать курс</a>
       <img id="mobile-image" src="{% webpack_static 'img/main-image.png' %}" alt="">
-  	</div>
-	  <div class="main-image">
-		
-	  </div>
-</div>
-  
+    </div>
+    <div class="main-image">
+    </div>
+  </div>
+
 {% endblock content %}
 
 {% block footer %}{% endblock %}

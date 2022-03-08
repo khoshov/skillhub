@@ -34,8 +34,10 @@ def apply_percents(courses, attribute_from, attribute_to, min_value, max_value):
 
 @app.task
 def aggregate_course_price():
-    paid_courses = Course.objects.filter(price__isnull=False)
-    free_courses = Course.objects.filter(price__isnull=True)
+    active_courses = Course.objects.filter(status=Course.PUBLIC)
+
+    paid_courses = active_courses.filter(price__isnull=False)
+    free_courses = active_courses.filter(price__isnull=True)
 
     free_courses.update(price_category=Course.MISSING)
 
@@ -44,13 +46,15 @@ def aggregate_course_price():
 
     apply_categories(paid_courses, 'price', 'price_category', min_price, max_price)
 
+
 @app.task
 def aggregate_course_duration():
-    courses_with_no_duration = Course.objects.filter(duration__isnull=True)
+    active_courses = Course.objects.filter(status=Course.PUBLIC)
+    courses_with_no_duration = active_courses.filter(duration__isnull=True)
     courses_with_no_duration.update(duration_category=None)
 
     for duration_type in (Course.LESSON, Course.MONTH):
-        courses = Course.objects.filter(duration__isnull=False, duration_type=duration_type)
+        courses = active_courses.filter(duration__isnull=False, duration_type=duration_type)
         min_duration = courses.aggregate(Min('duration'))['duration__min']
         max_duration = courses.aggregate(Max('duration'))['duration__max']
         apply_percents(courses, 'duration', 'duration_category', min_duration, max_duration)
