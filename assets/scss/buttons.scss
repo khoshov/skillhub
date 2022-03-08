@@ -33,9 +33,15 @@
   border-color: #773fff !important;
 }
 
-.main-button:not(:disabled):not(.disabled):active:focus {
+main-button:not(:disabled):not(.disabled):active:focus {
   box-shadow: none;
-} 
+}
+
+.show-button:not(:disabled):not(.disabled):active {
+  background-color: #FFF;
+  color: #773fff;
+  border-color: #e0e1e2;
+}
 
 .show-button {
   margin-top: 10px;
@@ -53,4 +59,15 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 45px;
+
+  &:hover {
+    background-color: #FFF;
+    color: #773fff;
+    border-color: #e0e1e2;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    box-shadow: none !important;
+  }
 }
