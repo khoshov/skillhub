@@ -33,7 +33,7 @@
   border-color: #773fff !important;
 }
 
-main-button:not(:disabled):not(.disabled):active:focus {
+.main-button:not(:disabled):not(.disabled):active:focus {
   box-shadow: none;
 }
 
@@ -44,7 +44,8 @@ main-button:not(:disabled):not(.disabled):active:focus {
 }
 
 .show-button {
-  margin-top: 10px;
+  margin-top: 40px;
+  margin-bottom: 35px;
   padding-top: 0;
   box-shadow: none;
   align-items: center;

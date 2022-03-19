@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
+{% load webpack_static from webpack_loader %}
 
 {% block content %}
-  <h1>Такой страницы не существует</h1>
-  <p>Возможно, она была удалена или введён неправильный адрес</p>
-  <a href="" class="btn btn-primary main-button">На главную</a>
+
+    <img class="error-image" src="{% webpack_static 'img/404.png' %}" alt="404">
+     <h1 class="error-title" >Такой страницы не существует</h1>
+     <p class="error-text" >Возможно, она была удалена или введён неправильный адрес</p>
+    <div class="error-button">
+      <a href="/" class="btn main-button">На главную</a>
+    </div>
+
+
 {% endblock content %}

@@ -8,7 +8,13 @@
 
 
 {% block content %}
+    <div class="rating">
+        <div class="rating-text">
+          <div class="r-text">Рейтинг школ сформирован на основе данных из открытых источников</div>
+        </div>
+      </div>
   {% if category %}
+
     <h1>{{ category.name }}</h1>
     {% if category.description %}
       <p>{{ category.description|safe }}</p>
@@ -18,6 +24,7 @@
       <h1>Мы нашли {{ count }} {{ course|agree_with_number:count }} по запросу «{{ request.GET.name }}»</h1>
     {% endwith %}
   {% else %}
+
     <h1>Все курсы</h1>
     <p>В таблице представлен весь список курсов и школ. Чтобы найти нужное - можете воспользоваться поиском или фильтром</p>
   {% endif %}
@@ -71,11 +78,6 @@
     {% include 'courses/table.html' %}
   </div>
 
-  <div class="rating">
-    <div class="rating-text">
-      <div class="r-text">Рейтинг школ сформирован на основе данных из открытых источников</div>
-    </div>
-  </div>
 {% endblock content %}
 
 {% block script %}

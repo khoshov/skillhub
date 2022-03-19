@@ -5,7 +5,7 @@ from django.utils.html import format_html
 
 from .models import Course
 
-ICONS_TEMPLATE = '<span style="white-space: nowrap;">{}<span style="opacity: 0.15; -webkit-filter: grayscale(100%); filter: grayscale(100%);">{}</span></span>'
+ICONS_TEMPLATE = '<span style="white-space: nowrap;">{}<span style="opacity: 0.15;">{}</span></span>'
 
 morph = pymorphy2.MorphAnalyzer(lang='ru')
 
