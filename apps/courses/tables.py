@@ -64,11 +64,16 @@ class CourseTable(tables.Table):
         return format_html(f'{record.school.name}{rating}')
 
     def render_price(self, value, record):
+        if not value:
+            return 'Бесплатно'
+
         icons = '₽' * record.price_category
         missing_icons = '₽' * (5 - record.price_category)
         return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
 
     def render_duration(self, value, record):
+        if not value:
+            return '∞'
         duration_type = dict(Course.DURATION_TYPE)[record.duration_type].lower()
         duration_type = morph.parse(duration_type)[0]
         duration_type = duration_type.make_agree_with_number(record.duration).word

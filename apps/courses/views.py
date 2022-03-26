@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from django.db.models import Count
+from django.db.models import Count, F
 from django.http import Http404
 
 from courses.filters import CourseFilter
@@ -45,7 +45,7 @@ class CourseListView(FilterView, SingleTableView):
             status=Course.PUBLIC,
             school__is_active=True,
         ).annotate(
-            popularity=Count('school__reviews', distinct=True),
+            popularity=Count('school__reviews', distinct=True) + (F('id')*0.1),
         )
 
         slug = self.request.resolver_match.kwargs.get('slug')
