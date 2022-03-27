@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block content %}
+    <h1>Активация</h1>
+    Привет, новый пользователь!
+    <br/>
+    Ваша учетная запись активирована.
+     <a href="{% url 'accounts:login' %}">Войти</a>
+{% endblock %}
