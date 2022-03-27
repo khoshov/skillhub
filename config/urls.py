@@ -16,6 +16,10 @@ urlpatterns = [
     path('500/', TemplateView.as_view(template_name='500.html')),
 
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
+
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('accounts/', include('django_registration.backends.activation.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 handler404 = 'core.views.page_not_found'

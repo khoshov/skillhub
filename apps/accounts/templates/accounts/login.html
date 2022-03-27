@@ -1,0 +1,71 @@
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+
+<style>
+    .login--wrapper {
+        display: flex;
+        height: 80vh;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form {
+        width: 400px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-6">
+        <h4 class="mt-2 ml-4">SkillHub</h4>
+        <h1 class="mt-4 ml-4 display-2">We're compare</h1>
+        <h1 class="ml-4 display-2">IT courses</h1>
+        <img src="/" alt="">
+        <h4 class="ml-4 align-bottom">© SkillHub 2022</h4>
+    </div>
+
+    <div class="col-6 login--wrapper">
+        <div class="container">
+            <h1 class="display-4">Вход</h1>
+            <p>
+                Еще нет аккаунта?
+                <a href="{% url 'accounts:register' %}">Создать</a>
+            </p>
+
+            <!-- Вывод ошибок -->
+            <div>
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <!-- Отображение формы -->
+            <form method="post" class="form">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-3">
+                        {% for error in field.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                        {% endfor %}
+
+                        {{ field }}
+                        {% if field.help_text %}
+                            <div class="form-text">{{ field.help_text|safe }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+            <a href="#">Я не помню пароль</a>
+            <div class="mt-4">
+                <p>Войти с помощью</p>
+                <button class="btn btn-primary">G</button>
+                <button class="btn btn-primary">F</button>
+                <button class="btn btn-primary">V</button>
+            </div>
+        </div>
+    </div>
+</div>

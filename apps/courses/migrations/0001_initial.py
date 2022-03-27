@@ -14,7 +14,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('schools', '0001_initial'),
     ]
 
@@ -60,7 +59,6 @@ class Migration(migrations.Migration):
                 ('course_format', models.CharField(default='Комбинированный', max_length=255, verbose_name='Формат проведения занятий')),
                 ('deferred_payment', models.BooleanField(default=False, verbose_name='Возможен отложенный платёж')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Дата обновлёния')),
-                ('author', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='courses', to=settings.AUTH_USER_MODEL, verbose_name='Автор')),
             ],
             options={
                 'verbose_name': 'Курс',
