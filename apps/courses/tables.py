@@ -14,7 +14,8 @@ class CourseTable(tables.Table):
     name = tables.Column(verbose_name='Название курса', accessor='name')
     rating = tables.Column(verbose_name='Школа', accessor='school__rating', empty_values=())
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
-    duration = tables.Column(verbose_name='Длительность', accessor='duration_category', default='Без ограничений')
+    duration = tables.Column(verbose_name='Длительность', accessor='duration_category', default='Нет данных')
+    recommended = tables.Column(verbose_name='', accessor='recommended', default='')
     popularity = tables.Column(verbose_name='Популярность', accessor='popularity')
     url = tables.Column(verbose_name='Длительность', accessor='url')
 
@@ -30,6 +31,7 @@ class CourseTable(tables.Table):
             'rating',
             'duration',
             'price',
+            'recommended',
             'popularity',
 
             # 'duration_category',
@@ -84,3 +86,9 @@ class CourseTable(tables.Table):
         if record.affiliate_url:
             return record.affiliate_url
         return record.url
+
+    def render_recommended(self, value, record):
+        icon = '<span class="recommended-icon"></span>'
+        classname = 'recommended-achievement'
+        text = 'Рекомендуем'
+        return format_html(f'{icon}<span class="{classname}">{text}</span>')

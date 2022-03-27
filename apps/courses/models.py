@@ -140,6 +140,10 @@ class Course(models.Model):
         _('Гос. поддержка'),
         default=False,
     )
+    recommended = models.BooleanField(
+        _('Рекомендуем'),
+        default=False,
+    )
     created = models.DateTimeField(
         _('Дата создания'),
         auto_now_add=True,
