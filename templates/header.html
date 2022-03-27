@@ -1,7 +1,7 @@
 {% load webpack_static from webpack_loader %}
 
 <nav id="main-nav" class="navbar navbar-expand-xl navbar-dark">
-  <div class="container">
+  <div class="container max-width-container">
     <a class="navbar-brand" href="{% url 'index' %}"><img src="{% webpack_static 'img/logo.svg' %}" alt="logo"></a>
       <div class="navbar-burger collapsed" data-toggle="collapse" data-target="#main_nav">Все курсы<span></span></div>
       {% if not request.user.is_authenticated %}

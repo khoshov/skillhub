@@ -5,7 +5,7 @@ from django.utils.html import format_html
 
 from .models import Course
 
-ICONS_TEMPLATE = '<span style="white-space: nowrap;">{}<span style="opacity: 0.15; -webkit-filter: grayscale(100%); filter: grayscale(100%);">{}</span></span>'
+ICONS_TEMPLATE = '<span style="white-space: nowrap;">{}<span style="opacity: 0.15;">{}</span></span>'
 
 morph = pymorphy2.MorphAnalyzer(lang='ru')
 
@@ -14,7 +14,7 @@ class CourseTable(tables.Table):
     name = tables.Column(verbose_name='Название курса', accessor='name')
     rating = tables.Column(verbose_name='Школа', accessor='school__rating', empty_values=())
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
-    duration = tables.Column(verbose_name='Длительность', accessor='duration_category')
+    duration = tables.Column(verbose_name='Длительность', accessor='duration_category', default='Без ограничений')
     popularity = tables.Column(verbose_name='Популярность', accessor='popularity')
     url = tables.Column(verbose_name='Длительность', accessor='url')
 
@@ -64,6 +64,9 @@ class CourseTable(tables.Table):
         return format_html(f'{record.school.name}{rating}')
 
     def render_price(self, value, record):
+        if not record.price_category:
+            return 'Бесплатно'
+
         icons = '₽' * record.price_category
         missing_icons = '₽' * (5 - record.price_category)
         return format_html(ICONS_TEMPLATE.format(icons, missing_icons))

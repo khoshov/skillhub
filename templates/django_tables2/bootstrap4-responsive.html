@@ -18,7 +18,7 @@
         {% endif %}
       {% endfor %}
 
-    <div class="container t-row">
+    <div class="container max-width-container t-row">
       {% for column, cell in row.items %}
         {% if not forloop.last %}
           <div class="t-cell">{{ cell }}{{ row.items.url }}</div>
@@ -40,7 +40,7 @@
       {% if request.GET.page %}
         <a href="{% querystring table.prefixed_page_field=request.GET.page|next_page %}" id="show-more" class="btn btn-primary show-button">Показать ещё</a>
       {% else %}
-        <a href="{% querystring table.prefixed_page_field=2 %}" id="show-more" class="btn btn-primary show-button">Показать ещё</a>
+        <a href="{% querystring table.prefixed_page_field=2 %}" id="show-more" class="btn show-button">Показать ещё</a>
       {% endif %}
     </div>
   {% endif %}

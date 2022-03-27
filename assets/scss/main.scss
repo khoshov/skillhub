@@ -1,32 +1,16 @@
-.main-page {
-  margin-bottom: 0;
-  @media all and (max-width: 768px) {
-    margin-bottom: 0 !important;
-  }
+* {
+  font-family: "Inter", sans-serif;
 }
 
-.main-title {
-  background-color: red;
-  @media all and (max-width: 768px) {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }	
-}
-
-.container {  
+.container {
   h1 {
-    font-family: "Inter";
-    font-style: normal;
     font-weight: 600;
     font-size: 40px;
     line-height: 120%;
-    margin-top: 80px;
+    margin-top: 42px;
   }
 
   p {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 140%;
     color: #10101A;
@@ -34,19 +18,17 @@
     @media all and (max-width: 1199px) {
       margin-bottom: 0;
     }
-  }	 
+  }
 }
 
-#main-content {
-  padding-left: 30px;
+#main-content {  
   @media all and (max-width: 768px) {
     flex: 0 0 100%;
     max-width: 100%;
     padding-left: 0 !important;
-  }	
+  }
 
   h1 {
-    font-family: "Inter", "Arial", sans-serif;
     font-size: 80px;
     font-weight: bold;
     line-height: 110%;
@@ -58,25 +40,22 @@
       margin-top: 100px;
     }
     @media all and (max-width: 768px) {
-      font-size: 72px !important;		   
-      margin-top: 100px !important;
+      font-size: 72px !important;
       margin: 0 auto;
+      margin-top: 100px !important;
       text-align: center;
     }
     @media all and (max-width: 575px) {
       font-size: 40px !important;
       min-width: 280px !important;
       margin-top: 100px !important;
-      text-align: center;		 
+      text-align: center;
     }
   }
 
   p {
-    font-family: "Inter", "Arial", sans-serif;
     width: 100%;
     font-size: 24px;
-    font-weight: normal;
-    font-style: normal;
     line-height: 120%;
     margin-top: 25px;
     margin-bottom: 55px;
@@ -110,7 +89,7 @@
       margin-bottom: 30px;
       text-align: center;
     }
-  } 
+  }
 }
 
 #mobile-image {
@@ -163,7 +142,7 @@
   }
 }
 
-.bagde-and-select {
+.badge-and-select {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -172,4 +151,16 @@
     margin-top: 25px;
     margin-bottom: 16px;
   }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+  .col-sm-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+.main-page .row {
+  margin-left: 0;
+  margin-right: 0;
 }

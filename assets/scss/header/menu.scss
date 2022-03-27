@@ -11,6 +11,19 @@
     right: 0;
   }
 
+  .navbar-nav {
+    margin: 0 auto;
+    @media all and (max-width: 374px) {
+      width: 90% !important;
+    }
+    @media all and (max-width: 1199px) {
+      margin: 0;
+      width: 100%;
+      margin-top: 20px !important;
+      order: 2;
+    }
+  }
+
   .dropdown-menu {
     width: 208px;
     padding-top: 27px;
@@ -72,19 +85,6 @@
     }
   }
 
-  .navbar-nav {
-    margin: 0 auto;
-    @media all and (max-width: 374px) {
-      width: 90% !important;
-    }
-    @media all and (max-width: 1199px) {
-      margin: 0;
-      width: 100%;
-      margin-top: 20px !important;
-      order: 2;
-    }
-  }
-
   .nav-item {
     padding-right: 24px;
 
@@ -104,19 +104,6 @@
           @media all and (min-width: 575px) and (max-width: 1199px) {
             display: none;
           }
-
-          // @media all and (max-width: 768px) {
-          // 	display: none;
-          // }
-          // @media all and (max-width: 1199px) {
-          //    display: none;
-          // }
-          // @media all and (max-width: 576px) {
-          // 	display: none;
-          // }
-          // @media all and (max-width: 575px) {
-          // 	display: none;
-          // }
         }
 
         &::after {
@@ -130,19 +117,13 @@
         border-bottom: 0 !important;
       }
     }
-
     @media all and (max-width: 1199px) {
       padding-right: 0 !important;
     }
   }
-
-  // .nav-item.active .nav-link::before {
-
-  // }
 }
 
 .dropdown-item {
-  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
@@ -151,14 +132,12 @@
   opacity: 0.5;
   color: #fff;
   @media all and (max-width: 768px) {
-    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: normal;
     font-style: normal;
     line-height: 230%;
   }
   @media all and (max-width: 1199px) {
-    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: normal;
     font-style: normal;

@@ -5,3 +5,10 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+@mixin badge-font {
+  font-size: 16px;
+  font-style: normal;
+  text-align: center;
+  box-shadow: none !important;
+}

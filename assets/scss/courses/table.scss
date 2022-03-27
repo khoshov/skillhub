@@ -1,11 +1,20 @@
-.t-header {
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
+.grid {
+  margin-bottom: 100px;
+}
+
+.t-header,
+.t-col,
+.t-row {
   font-style: normal;
   line-height: 120%;
-  display: flex;
-  max-width: 1328px;
   margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between !important;
+}
+
+.t-header {
+  font-size: 20px;
+  max-width: 1328px;
   padding: 5px 20px 20px;
   justify-content: space-between !important;
   @media all and (max-width: 767px) {
@@ -14,16 +23,10 @@
 }
 
 .t-col {
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  line-height: 120%;
   opacity: 0.3;
   font-size: 1rem;
-  display: flex;
   max-width: 1328px;
-  margin-bottom: 5px;
-  flex: 0 1 20%;
-  justify-content: space-between !important;
+  flex: 0 1 20%;  
 
   &:first-child {
     flex: 0 1 40%;
@@ -34,10 +37,9 @@
 
   &:nth-child(2) {
     @media (min-width: 768px) and (max-width: 1023px) {
-      flex: 0 1 30%;
+      flex: 0 1 30%;  
     }
-
-  }
+  }	
 
   &:last-child {
     display: none;
@@ -45,14 +47,8 @@
 }
 
 .t-row {
-  font-family: "Inter", sans-serif;
-  display: flex;
   font-size: 20px;
-  font-style: normal;
-  line-height: 120%;
-  justify-content: space-between !important;
   padding: 24px;
-  margin-bottom: 5px;
   font-weight: 600;
   color: #101019;
   background-color: #FAFBFC;
@@ -60,23 +56,25 @@
   &:hover {
     background-color: #F3F5F8;
   }
-
   @media all and (max-width: 767px) {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column wrap;  
     border-radius: 12px;
     margin-bottom: 16px;
   }
 }
 
 .t-cell {
-  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 120%;
   flex: 0 1 20%;
   padding-right: 28px;
+
+  span {
+    color: #773FFF;
+  }
   @media all and (max-width: 767px) {
     padding-right: 0 !important;
     flex: 0;
@@ -85,7 +83,6 @@
   &:nth-child(1) {
     @media all and (max-width: 767px) {
       order: 0 !important;
-      font-family: "Inter", sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 20px;
@@ -108,7 +105,7 @@
   &:nth-child(2) {
     line-height: 22px;
     font-style: normal;
-    font-weight: normal;
+    font-weight: normal;  
     color: #773fff;
     @media all and (max-width: 767px) {
       order: -1 !important;

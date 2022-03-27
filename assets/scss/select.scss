@@ -3,11 +3,11 @@
   box-shadow: none;
 }
 
-.form-row > [class*=col-] {
-  padding: 0 !important;  
+.form-margin > [class*=col-] {
+  padding: 0 !important;
 }
 
-.form-row {
+.form-margin {
   margin-right: 0 !important;
   margin-left: 0 !important;
 }
@@ -29,54 +29,40 @@
 /* The container must be positioned relative: */
 .custom-sel {
   position: relative;
-  font-family: "Inter";
-}
 
-.custom-sel select {
-  display: none; /* hide original SELECT element: */
+  select {
+    display: none;
+  }
 }
 
 .select-selected {
   position: relative;
   background-color: #FFF;
   border: 1px solid #E0E1E2;
-  border-radius: 8px;  
-  padding: 8px 15px;  
-  cursor: pointer;  
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    content: "";
+    background-image: url("../img/arrow.svg");
+    transform: rotate(180deg);
+    top: 10px;
+    right: 7px;
+    width: 24px;
+    height: 24px;
+    transition: all .2s ease 0s;
+  }
 }
 
-/* Style the arrow inside the select element: */
-.select-selected::after {
-  position: absolute;
-  content: "";
-  background-image: url("../img/arrow.svg");
-  transform: rotate(180deg);
-  top: 10px;
-  right: 7px;
-  width: 24px;
-  height: 24px;
-  transition: all .2s ease 0s;
-}
-
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active::after {  
+.select-arrow-active::after {
   transform: rotate(0deg);
   top: 10px;
 }
 
-.select-items div {
-  padding: 9px 16px 0;  
-  border-bottom: none;
-  border-top: none;
-  border-radius: 8px;
-  @media all and (max-width: 500px) {
-    width: 100% !important;
-  }
-}
-
-/* Style items (options): */
 .select-items {
-  position: absolute;  
+  position: absolute;
   top: 120%;
   left: 0;
   right: 0;
@@ -92,6 +78,23 @@
   @media (min-width: 500px) and (max-width: 767px) {
     width: 283px
   }
+
+  div {
+    padding: 9px 16px 0;
+    border-bottom: none;
+    border-top: none;
+    border-radius: 8px;
+
+    &:hover {
+      position: relative;
+      background-color: #FFF;
+      color: #773FFF;
+      cursor: pointer;
+    }
+    @media all and (max-width: 500px) {
+      width: 100% !important;
+    }
+  }
 }
 
 /* Hide the items when the select box is closed: */
@@ -99,7 +102,7 @@
   display: none;
 }
 
-.select-items div:hover, .same-as-selected {
+.same-as-selected {
   position: relative;
   background-color: #FFF;
   color: #773FFF;
@@ -108,15 +111,15 @@
 
 .selected {
   position: relative;
-}
 
-.selected::after {
-  position: absolute;
-  content: "";
-  display: block;
-  width: 24px;
-  height: 24px;
-  background-image: url("../img/check.svg");
-  top: 9px;
-  right: 6px;
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/check.svg");
+    top: 9px;
+    right: 6px;
+  }
 }
