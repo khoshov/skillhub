@@ -90,8 +90,8 @@ class CourseTable(tables.Table):
     def render_recommended(self, value, record):
         if record.recommended:
             icon = '<span class="recommended-icon"></span>'
-            classname = 'recommended-achievement'
-            text = 'Рекомендуем'
-            return format_html(f'{icon}<span class="{classname}">{text}</span>')
+            text = '<span class="recommended-text">Рекомендуем</span>'
+            badge = f'<span class="recommended-badge>{icon}{text}</span>'
+            return format_html(badge)
         else:
             return ''
