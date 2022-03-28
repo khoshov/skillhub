@@ -151,6 +151,22 @@
     }
   }
 
+  &:nth-child(5) {
+    display: flex;
+    background-color: #773FFF;
+    max-width: 160px;
+    height: 32px;
+    border-radius: 8px;
+    justify-content: space-between;
+    padding: 5px 11px;
+    flex: 0 1 20%;
+    @media all and (max-width: 767px) {
+      justify-content: space-around;
+      padding: 2px 0;
+      flex: 0;
+    }
+  }
+
   &:last-child {
     display: none;
   }
@@ -158,4 +174,16 @@
 
 .row-link {
   text-decoration: none !important;
+}
+
+.recommended-achievement {
+  display: block;
+  color: #FFF !important;
+  font-weight: 400;
+}
+
+.recommended-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("../img/thumb-up.svg");
 }

@@ -1,9 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "main-cf5371f7fbe02d7994fd.js": {
-      "name": "main-cf5371f7fbe02d7994fd.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-cf5371f7fbe02d7994fd.js"
+    "main-c76b22b7000df2644c18.js": {
+      "name": "main-c76b22b7000df2644c18.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-c76b22b7000df2644c18.js"
     },
     "b471f0e10d74fe888137.svg": {
       "name": "b471f0e10d74fe888137.svg",
@@ -33,25 +33,29 @@
       "name": "1bc6946a19d584cb33c7.svg",
       "path": "/usr/src/app/assets/webpack_bundles/1bc6946a19d584cb33c7.svg"
     },
-    "vendor-cf5371f7fbe02d7994fd.js": {
-      "name": "vendor-cf5371f7fbe02d7994fd.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-cf5371f7fbe02d7994fd.js"
+    "b5d311866f1c9c9d6ea6.svg": {
+      "name": "b5d311866f1c9c9d6ea6.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/b5d311866f1c9c9d6ea6.svg"
     },
-    "main-cf5371f7fbe02d7994fd.js.LICENSE.txt": {
-      "name": "main-cf5371f7fbe02d7994fd.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-cf5371f7fbe02d7994fd.js.LICENSE.txt"
+    "vendor-c76b22b7000df2644c18.js": {
+      "name": "vendor-c76b22b7000df2644c18.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-c76b22b7000df2644c18.js"
     },
-    "vendor-cf5371f7fbe02d7994fd.js.LICENSE.txt": {
-      "name": "vendor-cf5371f7fbe02d7994fd.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-cf5371f7fbe02d7994fd.js.LICENSE.txt"
+    "main-c76b22b7000df2644c18.js.LICENSE.txt": {
+      "name": "main-c76b22b7000df2644c18.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-c76b22b7000df2644c18.js.LICENSE.txt"
+    },
+    "vendor-c76b22b7000df2644c18.js.LICENSE.txt": {
+      "name": "vendor-c76b22b7000df2644c18.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-c76b22b7000df2644c18.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-cf5371f7fbe02d7994fd.js"
+      "main-c76b22b7000df2644c18.js"
     ],
     "vendor": [
-      "vendor-cf5371f7fbe02d7994fd.js"
+      "vendor-c76b22b7000df2644c18.js"
     ]
   }
 }

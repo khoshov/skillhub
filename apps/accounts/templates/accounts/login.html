@@ -1,6 +1,9 @@
+{% load webpack_static from webpack_loader %}
+
 {% load bootstrap4 %}
 
 {% bootstrap_css %}
+
 
 <style>
     .login--wrapper {
@@ -11,17 +14,14 @@
     }
 
     .form {
-        width: 400px;
+        max-width: 400px;
     }
 </style>
 
 <div class="row">
-    <div class="col-6">
-        <h4 class="mt-2 ml-4">SkillHub</h4>
-        <h1 class="mt-4 ml-4 display-2">We're compare</h1>
-        <h1 class="ml-4 display-2">IT courses</h1>
-        <img src="/" alt="">
-        <h4 class="ml-4 align-bottom">© SkillHub 2022</h4>
+    <div class="col-6 image">
+        <a href="{% url 'index' %}"><img src="{% webpack_static 'img/black-logo.svg' %}" alt="logo"></a>
+        <p>© SkillHub 2022</p>
     </div>
 
     <div class="col-6 login--wrapper">
