@@ -93,3 +93,5 @@ class CourseTable(tables.Table):
             classname = 'recommended-achievement'
             text = 'Рекомендуем'
             return format_html(f'{icon}<span class="{classname}">{text}</span>')
+        else:
+            return ''
