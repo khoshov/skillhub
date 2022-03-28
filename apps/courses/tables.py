@@ -91,7 +91,7 @@ class CourseTable(tables.Table):
         if record.recommended:
             icon = '<span class="recommended-icon"></span>'
             text = '<span class="recommended-text">Рекомендуем</span>'
-            badge = f'<span class="recommended-badge>{icon}{text}</span>'
+            badge = f'<span class="recommended-badge">{icon}{text}</span>'
             return format_html(badge)
         else:
             return ''
