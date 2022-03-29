@@ -46,7 +46,7 @@
   <!-- /Yandex.Metrika counter -->
 </head>
 <body class="{% block body_class %}{% endblock body_class %}">
-{% include 'header.html' %}
+{% block header %}{% include 'header.html' %}{% endblock %}
 <div class="container max-width-container">
   {% block content %}
   {% endblock content %}

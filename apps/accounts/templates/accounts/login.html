@@ -1,71 +1,60 @@
+{% extends 'base.html' %}
+
 {% load webpack_static from webpack_loader %}
 
-{% load bootstrap4 %}
-
-{% bootstrap_css %}
-
-
-<style>
-    .login--wrapper {
-        display: flex;
-        height: 80vh;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .form {
-        max-width: 400px;
-    }
-</style>
-
-<div class="row">
-    <div class="col-6 image">
-        <a href="{% url 'index' %}"><img src="{% webpack_static 'img/black-logo.svg' %}" alt="logo"></a>
-        <p>© SkillHub 2022</p>
+{% block header %}{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="col-6">
+      <div class="image"></div>
+      <a href="{% url 'index' %}"><img src="{% webpack_static 'img/black-logo.svg' %}" alt="logo"></a>
+      <p>© SkillHub 2022</p>
     </div>
 
     <div class="col-6 login--wrapper">
-        <div class="container">
-            <h1 class="display-4">Вход</h1>
-            <p>
-                Еще нет аккаунта?
-                <a href="{% url 'accounts:register' %}">Создать</a>
-            </p>
+      <div class="container">
+        <h1 class="display-4">Вход</h1>
+        <p>
+          Еще нет аккаунта?
+          <a href="{% url 'accounts:register' %}">Создать</a>
+        </p>
 
-            <!-- Вывод ошибок -->
-            <div>
-                {% if form.non_field_errors %}
-                    {% for error in form.non_field_errors %}
-                        <p class="text-danger">{{ error }}</p>
-                    {% endfor %}
-                {% endif %}
-            </div>
-
-            <!-- Отображение формы -->
-            <form method="post" class="form">
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="mb-3">
-                        {% for error in field.errors %}
-                            <p class="text-danger">{{ error }}</p>
-                        {% endfor %}
-
-                        {{ field }}
-                        {% if field.help_text %}
-                            <div class="form-text">{{ field.help_text|safe }}</div>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-
-                <button type="submit" class="btn btn-primary">Войти</button>
-            </form>
-            <a href="#">Я не помню пароль</a>
-            <div class="mt-4">
-                <p>Войти с помощью</p>
-                <button class="btn btn-primary">G</button>
-                <button class="btn btn-primary">F</button>
-                <button class="btn btn-primary">V</button>
-            </div>
+        <!-- Вывод ошибок -->
+        <div>
+          {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+              <p class="text-danger">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
         </div>
+
+        <!-- Отображение формы -->
+        <form method="post" class="form">
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="mb-3">
+              {% for error in field.errors %}
+                <p class="text-danger">{{ error }}</p>
+              {% endfor %}
+
+              {{ field }}
+              {% if field.help_text %}
+                <div class="form-text">{{ field.help_text|safe }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+        <a href="#">Я не помню пароль</a>
+        <div class="mt-4">
+          <p>Войти с помощью</p>
+          <button class="btn btn-primary">G</button>
+          <button class="btn btn-primary">F</button>
+          <button class="btn btn-primary">V</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+{% endblock %}
+{% block footer %}{% endblock %}
