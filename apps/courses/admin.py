@@ -12,6 +12,14 @@ class CategoryResource(resources.ModelResource):
 
     class Meta:
         model = Category
+        fields = (
+            'parent_id',
+            'name',
+            'slug',
+            'description',
+            'is_active',
+            'sort_order',
+        )
 
 
 @admin.register(Category)
@@ -39,6 +47,7 @@ class CourseResource(resources.ModelResource):
 
     class Meta:
         model = Course
+        exclude = ('author',)
 
 
 @admin.register(Course)
