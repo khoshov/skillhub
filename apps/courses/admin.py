@@ -1,3 +1,5 @@
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 from mptt.admin import DraggableMPTTAdmin
 
 from django.contrib import admin
@@ -6,8 +8,15 @@ from core.admin import activate, deactivate, make_draft, make_public
 from courses.models import Category, CategoryAlias, Course, CourseCategory
 
 
+class CategoryResource(resources.ModelResource):
+
+    class Meta:
+        model = Category
+
+
 @admin.register(Category)
-class CategoryAdmin(DraggableMPTTAdmin):
+class CategoryAdmin(ImportExportModelAdmin, DraggableMPTTAdmin):
+    resource_class = CategoryResource
     list_display = ('tree_actions', 'indented_title', 'slug', 'is_active', 'sort_order')
     list_filter = ('is_active',)
     prepopulated_fields = {
@@ -26,8 +35,15 @@ class CategoryAliasAdmin(admin.ModelAdmin):
     pass
 
 
+class CourseResource(resources.ModelResource):
+
+    class Meta:
+        model = Course
+
+
 @admin.register(Course)
-class CourseAdmin(admin.ModelAdmin):
+class CourseAdmin(ImportExportModelAdmin):
+    resource_class = CourseResource
     list_display = ('id', 'name', 'school', 'url', 'status', 'author', 'government_support', 'created', 'updated')
     list_filter = ('categories', 'school', 'status', 'author', 'government_support')
     search_fields = ('name', 'url')

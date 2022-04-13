@@ -44,6 +44,30 @@
     "vendor-af199adb5e91a7c69f6f.js.LICENSE.txt": {
       "name": "vendor-af199adb5e91a7c69f6f.js.LICENSE.txt",
       "path": "/usr/src/app/assets/webpack_bundles/vendor-af199adb5e91a7c69f6f.js.LICENSE.txt"
+    },
+    "main-50aa8e889897f77cfbae.js": {
+      "name": "main-50aa8e889897f77cfbae.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-50aa8e889897f77cfbae.js"
+    },
+    "5da8118eee1cd2136cee.svg": {
+      "name": "5da8118eee1cd2136cee.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/5da8118eee1cd2136cee.svg"
+    },
+    "b5d311866f1c9c9d6ea6.svg": {
+      "name": "b5d311866f1c9c9d6ea6.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/b5d311866f1c9c9d6ea6.svg"
+    },
+    "vendor-50aa8e889897f77cfbae.js": {
+      "name": "vendor-50aa8e889897f77cfbae.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-50aa8e889897f77cfbae.js"
+    },
+    "main-50aa8e889897f77cfbae.js.LICENSE.txt": {
+      "name": "main-50aa8e889897f77cfbae.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-50aa8e889897f77cfbae.js.LICENSE.txt"
+    },
+    "vendor-50aa8e889897f77cfbae.js.LICENSE.txt": {
+      "name": "vendor-50aa8e889897f77cfbae.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-50aa8e889897f77cfbae.js.LICENSE.txt"
     }
   },
   "chunks": {
@@ -53,5 +77,7 @@
     "vendor": [
       "vendor-af199adb5e91a7c69f6f.js"
     ]
-  }
+  },
+  "error": "ModuleBuildError",
+  "message": "Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n   ╷\n16 │ @import \"login\";\n   │         ^^^^^^^\n   ╵\n  assets/scss/style.scss 16:9  root stylesheet"
 }
