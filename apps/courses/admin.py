@@ -13,7 +13,7 @@ class CategoryResource(resources.ModelResource):
     class Meta:
         model = Category
         fields = (
-            'parent_id',
+            'parent__id',
             'name',
             'slug',
             'description',
