@@ -12,14 +12,7 @@ class CategoryResource(resources.ModelResource):
 
     class Meta:
         model = Category
-        fields = (
-            'parent_id',
-            'name',
-            'slug',
-            'description',
-            'is_active',
-            'sort_order',
-        )
+        import_id_fields = ('id', 'parent')
 
 
 @admin.register(Category)
