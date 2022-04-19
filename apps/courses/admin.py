@@ -1,4 +1,6 @@
-from import_export import resources
+from import_export import fields, resources
+from import_export.widgets import ForeignKeyWidget
+
 from import_export.admin import ImportExportModelAdmin
 from mptt.admin import DraggableMPTTAdmin
 
@@ -9,12 +11,17 @@ from courses.models import Category, CategoryAlias, Course, CourseCategory
 
 
 class CategoryResource(resources.ModelResource):
+    parent = fields.Field(
+        column_name='parent',
+        attribute='parent',
+        widget=ForeignKeyWidget(Category, 'pk'),
+    )
 
     class Meta:
         model = Category
         fields = (
             'id',
-            'parent__id',
+            'parent',
             'name',
             'slug',
             'description',
