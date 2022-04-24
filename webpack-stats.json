@@ -1,9 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "main-50aa8e889897f77cfbae.js": {
-      "name": "main-50aa8e889897f77cfbae.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-50aa8e889897f77cfbae.js"
+    "main-6fd8e59f3e482c7001db.js": {
+      "name": "main-6fd8e59f3e482c7001db.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-6fd8e59f3e482c7001db.js"
     },
     "b471f0e10d74fe888137.svg": {
       "name": "b471f0e10d74fe888137.svg",
@@ -20,6 +20,14 @@
     "7c54c9fb9412b7b42e81.svg": {
       "name": "7c54c9fb9412b7b42e81.svg",
       "path": "/usr/src/app/assets/webpack_bundles/7c54c9fb9412b7b42e81.svg"
+    },
+    "5bd915c2e7a1af2d4d0a.svg": {
+      "name": "5bd915c2e7a1af2d4d0a.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/5bd915c2e7a1af2d4d0a.svg"
+    },
+    "85cc52f7fbc9881ec4d9.svg": {
+      "name": "85cc52f7fbc9881ec4d9.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/85cc52f7fbc9881ec4d9.svg"
     },
     "05a7a69342d74438c8da.svg": {
       "name": "05a7a69342d74438c8da.svg",
@@ -41,25 +49,25 @@
       "name": "b5d311866f1c9c9d6ea6.svg",
       "path": "/usr/src/app/assets/webpack_bundles/b5d311866f1c9c9d6ea6.svg"
     },
-    "vendor-50aa8e889897f77cfbae.js": {
-      "name": "vendor-50aa8e889897f77cfbae.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-50aa8e889897f77cfbae.js"
+    "vendor-6fd8e59f3e482c7001db.js": {
+      "name": "vendor-6fd8e59f3e482c7001db.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-6fd8e59f3e482c7001db.js"
     },
-    "main-50aa8e889897f77cfbae.js.LICENSE.txt": {
-      "name": "main-50aa8e889897f77cfbae.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-50aa8e889897f77cfbae.js.LICENSE.txt"
+    "main-6fd8e59f3e482c7001db.js.LICENSE.txt": {
+      "name": "main-6fd8e59f3e482c7001db.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-6fd8e59f3e482c7001db.js.LICENSE.txt"
     },
-    "vendor-50aa8e889897f77cfbae.js.LICENSE.txt": {
-      "name": "vendor-50aa8e889897f77cfbae.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-50aa8e889897f77cfbae.js.LICENSE.txt"
+    "vendor-6fd8e59f3e482c7001db.js.LICENSE.txt": {
+      "name": "vendor-6fd8e59f3e482c7001db.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-6fd8e59f3e482c7001db.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-50aa8e889897f77cfbae.js"
+      "main-6fd8e59f3e482c7001db.js"
     ],
     "vendor": [
-      "vendor-50aa8e889897f77cfbae.js"
+      "vendor-6fd8e59f3e482c7001db.js"
     ]
   }
 }
