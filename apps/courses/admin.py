@@ -1,5 +1,5 @@
 from import_export import fields, resources
-from import_export.widgets import ForeignKeyWidget
+from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 
 from import_export.admin import ImportExportModelAdmin
 from mptt.admin import DraggableMPTTAdmin
@@ -8,6 +8,7 @@ from django.contrib import admin
 
 from core.admin import activate, deactivate, make_draft, make_public
 from courses.models import Category, CategoryAlias, Course, CourseCategory
+from schools.models import School
 
 
 class CategoryResource(resources.ModelResource):
@@ -52,6 +53,16 @@ class CategoryAliasAdmin(admin.ModelAdmin):
 
 
 class CourseResource(resources.ModelResource):
+    categories = fields.Field(
+        column_name='categories',
+        attribute='categories',
+        widget=ManyToManyWidget(Category, separator=',', field='pk'),
+    )
+    school = fields.Field(
+        column_name='school',
+        attribute='school',
+        widget=ForeignKeyWidget(School, 'pk'),
+    )
 
     class Meta:
         model = Course
