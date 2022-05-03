@@ -14,7 +14,7 @@
     {% for row in table.paginated_rows %}
       {% for column, cell in row.items %}
         {% if forloop.last %}
-          <a class="row-link col-12 col-sm-4 col-md-12 d-flex" target="_blank" href="{{ cell }}">
+          <a class="row-link col-12 col-sm-4 col-md-12 d-flex" target="_blank" href="{{ cell }}" onclick="ym(86835205,'reachGoal','target'); return true;">
         {% endif %}
       {% endfor %}
 
@@ -25,7 +25,7 @@
         {% endif %}
       {% endfor %}
     </div>
-    </a>  
+    </a>
     {% empty %}
       {% if table.empty_text %}
         <div>
