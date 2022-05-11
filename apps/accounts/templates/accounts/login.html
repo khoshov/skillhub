@@ -49,9 +49,8 @@
                 {% endfor %}
                 <button type="submit" disabled class="login-button">Войти</button>
             </form>
-
             <div class="social-block">
-                <a href="#">Я не помню пароль</a>
+                <a href="{% url 'accounts:password_reset' %}">Я не помню пароль</a>
                 <p class="enter-text">Войти с помощью</p>
                 <ul class="social-list">
                     <li>
