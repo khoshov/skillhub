@@ -4,7 +4,7 @@
 
 {% block header %}{% endblock %}
 {% block content %}
-    <div class="row">
+    <div class="row main-row">
         <div class="col-6 left-side">
             <div class="background"></div>
             <a href="{% url 'index' %}"><img src="{% webpack_static 'img/black-logo.svg' %}" alt="logo"></a>
@@ -33,19 +33,20 @@
                 {% csrf_token %}
                 {% for field in form %}
                     <div class="login-input">
-                    <a href="#" class="eye-input" onclick="return show_hide_password(this);"></a>
+                    {% if forloop.last %}
+                      <a href="#" class="eye-input"></a>
+                    {% endif %}
+
                         {% for error in field.errors %}
                             <p class="text-danger">{{ error }}</p>
                         {% endfor %}
 
                         {{ field }}
+                        <label class="form-control-placeholder">{{ field.label }}</label>
                         {% if field.help_text %}
                             <div class="form-text">{{ field.help_text|safe }}</div>
                         {% endif %}
                     </div>
-
-{#                    <input id="login" name="login" type="text" class="form-control" required="required">#}
-{#                    <label for="login" class="d-block form-control-placeholder" required="required">E-mail</label>#}
                 {% endfor %}
                 <button type="submit" disabled class="login-button">Войти</button>
             </form>
@@ -93,10 +94,12 @@
         const login = document.querySelector('#id_username');
         const pass = document.querySelector('#id_password');
         const button = document.querySelector('.login-button');
+        const label = document.getElementsByName('password');
 
 
         pass.addEventListener('input', changeBackground);
         login.addEventListener('input', changeBackground);
+
 
         function changeBackground() {
             if (pass.value !== '' && login.value !== '') {
@@ -108,17 +111,21 @@
             }
         }
 
-        function show_hide_password(target){
+        function switchPasswordVisibility(e) {
+            e.preventDefault();
             const input = document.getElementById('id_password');
-            if (input.getAttribute('type') == 'password') {
-          target.classList.add('view');
-          input.setAttribute('type', 'text');
-          } else {
-          target.classList.remove('view');
-          input.setAttribute('type', 'password');
-          }
-          return false;
+            if (input.getAttribute('type') === 'password') {
+                e.target.classList.add('view');
+                input.setAttribute('type', 'text');
+            } else {
+                e.target.classList.remove('view');
+                input.setAttribute('type', 'password');
+            }
         }
+
+        const eye = document.querySelector('.eye-input');
+        eye.addEventListener('click', switchPasswordVisibility)
+
 
 
     </script>

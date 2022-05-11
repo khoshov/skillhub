@@ -6,10 +6,12 @@ from django_registration.forms import RegistrationForm
 
 class UserLoginForm(AuthenticationForm):
     username = forms.EmailField(
-        widget=forms.EmailInput(attrs={'placeholder': 'E-mail'}),
+        label='Email',
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
     )
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'})
+        label='Пароль',
+        widget=forms.PasswordInput(attrs={'class': 'form-control'})
     )
 
     class Meta(RegistrationForm.Meta):
@@ -18,13 +20,16 @@ class UserLoginForm(AuthenticationForm):
 
 class UserRegistrationForm(RegistrationForm):
     email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'placeholder': 'E-mail'})
+        label='Email',
+        widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     password1 = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'})
+        label='Пароль',
+        widget=forms.PasswordInput(attrs={'class': 'form-control'})
     )
     password2 = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Подтвердите пароль'})
+        label='Подтвердите пароль',
+        widget=forms.PasswordInput(attrs={'class': 'form-control'})
     )
 
     class Meta(RegistrationForm.Meta):

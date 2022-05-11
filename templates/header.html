@@ -30,7 +30,7 @@
         {% endfor %}
       </ul>
       <form id="search-form" class="form-inline" action="{% url 'courses:list' %}">
-        <input class="form-control mr-sm-2 " name="name" placeholder="Поиск" autocomplete="off" aria-label="Search" value="{{ request.GET.name__icontains }}">
+        <input class="form-control-search mr-sm-2 " name="name" placeholder="Поиск" autocomplete="off" aria-label="Search" value="{{ request.GET.name__icontains }}">
       </form>
     </div>
   </div>

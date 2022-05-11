@@ -5,22 +5,22 @@
     width: 100%;
   }
 
-  .form-control {
+  .form-control-search {
     width: 180px;
-    padding: 10px 20px 10px 40px;
+    padding: 8px 20px 8px 40px;
     color: #fff;
     border: 1px solid rgb(224 225 226 / 0.2);
     border-radius: 12px;
     background-color: #10101A;
     background-image: url("../img/search.svg");
     background-repeat: no-repeat;
-    background-position: 9px 6px;
+    background-position: 9px 8px;
     caret-color: #773fff;
 
     &:focus {
       background-color: #10101A;
       box-shadow: none;
-      border-color: none;
+      outline: none;
     }
     @media all and (max-width: 1199px) {
       width: 100%;

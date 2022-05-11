@@ -4,7 +4,7 @@
 
 {% block header %}{% endblock %}
 {% block content %}
-  <div class="row">
+  <div class="row main-row">
     <div class="col-6 left-side">
       <div class="background"></div>
       <a href="{% url 'index' %}"><img src="{% webpack_static 'img/black-logo.svg' %}" alt="logo"></a>
@@ -33,11 +33,11 @@
           {% csrf_token %}
           {% for field in form %}
             <div class="login-input">
-              {% for error in field.errors %}
-                <p class="text-danger">{{ error }}</p>
-              {% endfor %}
+
+                <p class="text-danger">{{ field.errors.0 }}</p>
 
               {{ field }}
+              <label class="form-control-placeholder">{{ field.label }}</label>
               {% if field.help_text %}
                 <div class="form-text">{{ field.help_text|safe }}</div>
               {% endif %}
@@ -79,5 +79,30 @@
       </div>
     </div>
   </div>
+    <script>
+
+        const email = document.querySelector('#id_email');
+        const pass = document.querySelector('#id_password1');
+        const pass2 = document.querySelector('#id_password2');
+        const checkbox = document.querySelector('#check');
+        const button = document.querySelector('.login-button');
+
+
+        email.addEventListener('input', changeBackground1);
+        pass.addEventListener('input', changeBackground1);
+        pass2.addEventListener('input', changeBackground1);
+        checkbox.addEventListener('change', changeBackground1)
+
+        function changeBackground1() {
+            if (email.value !== '' && pass.value !== '' && pass2.value !== '' && checkbox.checked) {
+                button.classList.add('active');
+                button.disabled = false;
+            } else {
+                button.classList.remove('active');
+                button.disabled = true;
+            }
+        }
+
+    </script>
 {% endblock %}
 {% block footer %}{% endblock %}
