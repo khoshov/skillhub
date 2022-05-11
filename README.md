@@ -1,15 +1,11 @@
 # Skillhub #
 
-## Сайт-агрегатор онлайн-курсов по IT ##
+## Сайт-агрегатор онлайн-курсов ##
 
 ### Установка ###
-
-`docker -v`
-`docker-compose -v`
-`make createsuperuser`
-`make migrate`
-`make build`
-
-
-
-
+```
+make build
+make migrate
+make createsuperuser
+make up
+```

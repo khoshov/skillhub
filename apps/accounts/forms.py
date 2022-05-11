@@ -9,7 +9,7 @@ class UserLoginForm(AuthenticationForm):
         widget=forms.EmailInput(attrs={'placeholder': 'E-mail'}),
     )
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
+        widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'})
     )
 
     class Meta(RegistrationForm.Meta):
@@ -21,10 +21,10 @@ class UserRegistrationForm(RegistrationForm):
         widget=forms.EmailInput(attrs={'placeholder': 'E-mail'})
     )
     password1 = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
+        widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'})
     )
     password2 = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Confirm password'})
+        widget=forms.PasswordInput(attrs={'placeholder': 'Подтвердите пароль'})
     )
 
     class Meta(RegistrationForm.Meta):
