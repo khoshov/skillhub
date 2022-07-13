@@ -21,6 +21,10 @@ class School(models.Model):
         _('Рейтинг'),
         default=0,
     )
+    epc = models.FloatField(
+        _('Средний зароботок с перехода'),
+        default=0
+    )
     is_active = models.BooleanField(
         _('Активный'),
         default=False,
