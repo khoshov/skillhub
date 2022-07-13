@@ -145,6 +145,10 @@ class Course(models.Model):
         _('Рекомендуем'),
         default=False,
     )
+    epc = models.FloatField(
+        _('Средний зароботок с перехода'),
+        default=0
+    )
     created = models.DateTimeField(
         _('Дата создания'),
         auto_now_add=True,

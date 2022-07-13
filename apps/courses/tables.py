@@ -17,6 +17,7 @@ class CourseTable(tables.Table):
     duration = tables.Column(verbose_name='Длительность', accessor='duration_category', default='Нет данных')
     recommended = tables.Column(verbose_name='', accessor='recommended', default='')
     popularity = tables.Column(verbose_name='Популярность', accessor='popularity')
+    epc = tables.Column(verbose_name='EPC', accessor='epc')
     url = tables.Column(verbose_name='Длительность', accessor='url')
 
     # duration_category = tables.Column(verbose_name='Длительность баллы')
@@ -25,7 +26,7 @@ class CourseTable(tables.Table):
     class Meta:
         model = Course
         template_name = 'django_tables2/bootstrap4-responsive.html'
-        order_by = '-popularity'
+        order_by = ('-recommended', '-epc')
         fields = (
             'name',
             'rating',
@@ -33,6 +34,7 @@ class CourseTable(tables.Table):
             'price',
             'recommended',
             'popularity',
+            'epc',
 
             # 'duration_category',
             # 'popularity',
