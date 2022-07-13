@@ -51,13 +51,15 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_extensions',
     'django_filters',
-    'django_tables2',
     'django_registration',
+    'django_tables2',
     'drf_yasg',
     'import_export',
+    'meta',
     'mptt',
     'rest_framework',
     'rest_framework_api_key',
+    'solo',
     'webpack_loader',
 
     # Project apps
@@ -211,3 +213,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = 'supprot@skillhub.ru'
+
+# django meta
+# https://django-meta.readthedocs.io/en/latest/index.html
+META_USE_TITLE_TAG = True

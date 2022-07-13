@@ -1,4 +1,5 @@
 from ckeditor.fields import RichTextField
+from meta.models import ModelMeta
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
@@ -162,7 +163,7 @@ class Course(models.Model):
         return self.name
 
 
-class Category(MPTTModel):
+class Category(ModelMeta, MPTTModel):
     parent = TreeForeignKey(
         'self',
         models.CASCADE,
@@ -191,6 +192,21 @@ class Category(MPTTModel):
         _('Сортировка'),
         default=0,
     )
+
+    meta_title = models.CharField(
+        _('Meta title'),
+        max_length=255,
+        blank=True, null=True,
+    )
+    meta_description = models.TextField(
+        _('Meta description'),
+        blank=True, null=True,
+    )
+
+    _metadata = {
+        'title': 'meta_title',
+        'description': 'meta_description',
+    }
 
     class Meta:
         db_table = 'category'

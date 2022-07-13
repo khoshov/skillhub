@@ -29,10 +29,13 @@ class CourseListView(FilterView, SingleTableView):
         slug = self.request.resolver_match.kwargs.get('slug')
         if slug:
             try:
-                data['category'] = Category.objects.get(slug=slug)
+                category = Category.objects.get(slug=slug)
+                data['category'] = category
+                data['meta'] = category.as_meta(self.request)
             except Category.DoesNotExist:
                 pass
         data['schools'] = School.objects.all()
+
         return data
 
     def get_template_names(self):

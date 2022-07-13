@@ -1,15 +1,17 @@
+{% load meta %}
 {% load render_bundle from webpack_loader %}
 {% load webpack_static from webpack_loader %}
 
 <!doctype html>
 <html lang="en">
-<head>
+<head {% meta_namespaces %}>
+  {% include "meta/meta.html" %}
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="verify-admitad" content="408817ee2c"/>
-  <title>Skillhub - Сравниваем курсы в сфере IT</title>
+{#  <title>Skillhub - Сравниваем курсы в сфере IT</title>#}
   <link rel="apple-touch-icon" sizes="180x180" href="{% webpack_static 'img/apple-touch-icon.png' %}">
   <link rel="icon" type="image/png" sizes="32x32" href="{% webpack_static 'img/favicon-32x32.png' %}">
   <link rel="icon" type="image/png" sizes="16x16" href="{% webpack_static 'img/favicon-16x16.png' %}">
