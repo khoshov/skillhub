@@ -15,7 +15,7 @@
       </div>
   {% if category %}
 
-    <h1>{{ category.name }}</h1>
+    <h1>{{ category.title }}</h1>
     {% if category.description %}
       <p>{{ category.description|safe }}</p>
     {% endif %}
@@ -25,8 +25,8 @@
     {% endwith %}
   {% else %}
 
-    <h1>Все курсы</h1>
-    <p>В таблице представлен весь список курсов и школ. Чтобы найти нужное - можете воспользоваться поиском или фильтром</p>
+    <h1>{{ config.title }}</h1>
+    <p>{{ config.description }}</p>
   {% endif %}
 
   <div class="line"></div>

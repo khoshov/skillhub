@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from django.db.models import Count, F
 from django.http import Http404
 
+from core.models import AllCoursesPageConfig
 from courses.filters import CourseFilter
 from courses.models import Category, Course
 from courses.paginators import CustomPaginator
@@ -34,6 +35,11 @@ class CourseListView(FilterView, SingleTableView):
                 data['meta'] = category.as_meta(self.request)
             except Category.DoesNotExist:
                 pass
+        else:
+            config = AllCoursesPageConfig.get_solo()
+            data['config'] = config
+            data['meta'] = config.as_meta(self.request)
+
         data['schools'] = School.objects.all()
 
         return data

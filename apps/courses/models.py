@@ -180,6 +180,11 @@ class Category(ModelMeta, MPTTModel):
         populate_from='name',
         unique=True,
     )
+    title = models.CharField(
+        _('Заголовок'),
+        max_length=255,
+        blank=True, null=True,
+    )
     description = RichTextField(
         _('Описание'),
         blank=True, null=True,
