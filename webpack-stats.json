@@ -1,9 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "main-e2593df79ec45290775d.js": {
-      "name": "main-e2593df79ec45290775d.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-e2593df79ec45290775d.js"
+    "main-3fecd8a1c9b5ae68ab92.js": {
+      "name": "main-3fecd8a1c9b5ae68ab92.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-3fecd8a1c9b5ae68ab92.js"
     },
     "b471f0e10d74fe888137.svg": {
       "name": "b471f0e10d74fe888137.svg",
@@ -49,25 +49,25 @@
       "name": "b5d311866f1c9c9d6ea6.svg",
       "path": "/usr/src/app/assets/webpack_bundles/b5d311866f1c9c9d6ea6.svg"
     },
-    "vendor-e2593df79ec45290775d.js": {
-      "name": "vendor-e2593df79ec45290775d.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-e2593df79ec45290775d.js"
+    "vendor-3fecd8a1c9b5ae68ab92.js": {
+      "name": "vendor-3fecd8a1c9b5ae68ab92.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-3fecd8a1c9b5ae68ab92.js"
     },
-    "main-e2593df79ec45290775d.js.LICENSE.txt": {
-      "name": "main-e2593df79ec45290775d.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-e2593df79ec45290775d.js.LICENSE.txt"
+    "main-3fecd8a1c9b5ae68ab92.js.LICENSE.txt": {
+      "name": "main-3fecd8a1c9b5ae68ab92.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-3fecd8a1c9b5ae68ab92.js.LICENSE.txt"
     },
-    "vendor-e2593df79ec45290775d.js.LICENSE.txt": {
-      "name": "vendor-e2593df79ec45290775d.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-e2593df79ec45290775d.js.LICENSE.txt"
+    "vendor-3fecd8a1c9b5ae68ab92.js.LICENSE.txt": {
+      "name": "vendor-3fecd8a1c9b5ae68ab92.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-3fecd8a1c9b5ae68ab92.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-e2593df79ec45290775d.js"
+      "main-3fecd8a1c9b5ae68ab92.js"
     ],
     "vendor": [
-      "vendor-e2593df79ec45290775d.js"
+      "vendor-3fecd8a1c9b5ae68ab92.js"
     ]
   }
 }
