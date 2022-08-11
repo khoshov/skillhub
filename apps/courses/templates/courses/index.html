@@ -8,13 +8,13 @@
 
 
 {% block content %}
-    <div class="rating">
-        <div class="rating-text">
-          <div class="r-text">Рейтинг школ сформирован на основе данных из открытых источников</div>
-        </div>
-      </div>
-  {% if category %}
+  <div class="rating">
+    <div class="rating-text">
+      <div class="r-text">Рейтинг школ сформирован на основе данных из открытых источников</div>
+    </div>
+  </div>
 
+  {% if category %}
     <h1>{{ category.title }}</h1>
     {% if category.description %}
       <p>{{ category.description|safe }}</p>
@@ -24,7 +24,6 @@
       <h1>Мы нашли {{ count }} {{ course|agree_with_number:count }} по запросу «{{ request.GET.name }}»</h1>
     {% endwith %}
   {% else %}
-
     <h1>{{ config.title }}</h1>
     <p>{{ config.description }}</p>
   {% endif %}
@@ -49,7 +48,7 @@
         </div>
       {% endif %}
     {% endif %}
-    <form id="filter-form" class="filter" >
+    <form id="filter-form" class="filter">
       {#    {% if category %}#}
       {#      <input type="hidden" name="categories" value="{{ category.id }}">#}
       {#    {% endif %}#}
@@ -77,6 +76,14 @@
   <div id='table'>
     {% include 'courses/table.html' %}
   </div>
+
+  {% if category.extra_title %}
+    <h2>{{ category.extra_title }}</h2>
+  {% endif %}
+
+  {% if category.extra_text %}
+    <h2>{{ category.extra_text|safe }}</h2>
+  {% endif %}
 
 {% endblock content %}
 

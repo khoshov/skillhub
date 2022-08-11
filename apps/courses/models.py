@@ -198,6 +198,16 @@ class Category(ModelMeta, MPTTModel):
         default=0,
     )
 
+    extra_title = models.CharField(
+        _('Дополнительный заголовок'),
+        max_length=255,
+        blank=True, null=True,
+    )
+    extra_text = RichTextField(
+        _('Дополнительный текст'),
+        blank=True, null=True,
+    )
+
     meta_title = models.CharField(
         _('Meta title'),
         max_length=255,
