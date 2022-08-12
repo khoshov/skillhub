@@ -77,13 +77,17 @@
     {% include 'courses/table.html' %}
   </div>
 
-  {% if category.extra_title %}
-    <h2>{{ category.extra_title }}</h2>
+    <div class="add-text">
+
+    {% if category.extra_title %}
+    <h2 class="extra_title">{{ category.extra_title }}</h2>
   {% endif %}
 
   {% if category.extra_text %}
-    <h2>{{ category.extra_text|safe }}</h2>
+    <h2 class="extra_text">{{ category.extra_text|safe }}</h2>
   {% endif %}
+
+    </div>
 
 {% endblock content %}
 
