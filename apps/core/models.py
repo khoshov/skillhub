@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from meta.models import ModelMeta
 from solo.models import SingletonModel
@@ -14,6 +15,14 @@ class MainPageConfig(ModelMeta, SingletonModel):
     description = models.TextField(
         _('Описание'),
         blank=True, null=True,
+    )
+    created = models.DateTimeField(
+        _('created'),
+        auto_now_add=True,
+    )
+    updated = models.DateTimeField(
+        _('updated'),
+        auto_now=True,
     )
 
     meta_title = models.CharField(
@@ -33,6 +42,9 @@ class MainPageConfig(ModelMeta, SingletonModel):
 
     def __str__(self):
         return 'Главная страница'
+
+    def get_absolute_url(self):
+        return reverse('core:index')
 
     class Meta:
         verbose_name = _('Главная страница')
