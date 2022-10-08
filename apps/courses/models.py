@@ -1,4 +1,5 @@
 from ckeditor.fields import RichTextField
+from django.urls import reverse
 from meta.models import ModelMeta
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
@@ -197,6 +198,14 @@ class Category(ModelMeta, MPTTModel):
         _('Сортировка'),
         default=0,
     )
+    created = models.DateTimeField(
+        _('created'),
+        auto_now_add=True,
+    )
+    updated = models.DateTimeField(
+        _('updated'),
+        auto_now=True,
+    )
 
     extra_title = models.CharField(
         _('Дополнительный заголовок'),
@@ -230,6 +239,9 @@ class Category(ModelMeta, MPTTModel):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('courses:category', kwargs={'slug': self.slug})
 
 
 class CourseCategory(models.Model):
