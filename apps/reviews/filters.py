@@ -10,4 +10,5 @@ class ReviewFilter(django_filters.FilterSet):
         model = Review
         fields = [
             'school__name',
+            'text_sentiment',
         ]
