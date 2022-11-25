@@ -19,10 +19,11 @@ class SchoolSerializer(serializers.ModelSerializer):
 
     def get_name(self, obj):
         request = self.context.get('request')
-        query_params = request.query_params if request else {}
-        source = query_params.get('source')
-        alias = SchoolAlias.objects.filter(school=obj).filter(
-            Q(source__name__icontains=source) |
-            Q(source__url__icontains=source)
-        ).first()
+        source = request.query_params.get('source')
+        alias = None
+        if source:
+            alias = SchoolAlias.objects.filter(school=obj).filter(
+                Q(source__name__icontains=source) |
+                Q(source__url__icontains=source)
+            ).first()
         return alias.name if alias else obj.name

@@ -55,6 +55,10 @@ class SchoolAlias(models.Model):
         models.CASCADE,
         verbose_name=_('Источник данных'),
     )
+    disabled = models.BooleanField(
+        _('Отключен'),
+        default=False,
+    )
 
     class Meta:
         verbose_name = _('Псевдоним школы')
