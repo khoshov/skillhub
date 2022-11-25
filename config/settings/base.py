@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'courses',
     'reviews',
     'schools',
+    'sources',
     'tags',
 ]
 
