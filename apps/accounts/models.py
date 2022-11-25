@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 from .managers import CustomUserManager
 
@@ -17,8 +18,8 @@ class User(AbstractUser):
         permissions = (
             ('can_change_user_permissions', "Can change user permissions"),
         )
-        verbose_name = 'user'
-        verbose_name_plural = 'users'
+        verbose_name = _('Пользователь')
+        verbose_name_plural = _('Пользователи')
 
     def __str__(self):
         return f'{self.email}'

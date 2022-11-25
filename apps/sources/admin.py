@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from sources.models import DataSource
+
+
+@admin.register(DataSource)
+class DataSourceAdmin(admin.ModelAdmin):
+    pass

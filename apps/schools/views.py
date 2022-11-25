@@ -4,8 +4,8 @@ from rest_framework.permissions import AllowAny
 from django.db.models import OuterRef, Subquery
 
 from reviews.models import Review
-from schools.models import School
-from schools.serializers import SchoolSerializer
+from schools.models import School, SchoolAlias
+from schools.serializers import SchoolAliasSerializer, SchoolSerializer
 
 
 class SchoolListAPIView(ListAPIView):
@@ -23,3 +23,9 @@ class SchoolListAPIView(ListAPIView):
         ),
     )
     serializer_class = SchoolSerializer
+
+
+class SchoolAliasListAPIView(ListAPIView):
+    permission_classes = [AllowAny]
+    queryset = SchoolAlias
+    serializer_class = SchoolAliasSerializer

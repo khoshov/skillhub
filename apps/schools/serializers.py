@@ -14,3 +14,12 @@ class SchoolSerializer(serializers.ModelSerializer):
             'latest_review_url',
             'latest_review_published',
         )
+
+
+class SchoolAliasSerializer(serializers.ModelSerializer):
+    school = serializers.CharField(source='school.name')
+    source = serializers.CharField(source='source.name')
+
+    class Meta:
+        model = School
+        fields = '__all__'

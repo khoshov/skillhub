@@ -47,11 +47,6 @@ class CourseCategoryInline(admin.TabularInline):
     extra = 1
 
 
-@admin.register(CategoryAlias)
-class CategoryAliasAdmin(admin.ModelAdmin):
-    pass
-
-
 class CourseResource(resources.ModelResource):
     categories = fields.Field(
         column_name='categories',
