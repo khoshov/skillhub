@@ -3,7 +3,6 @@ from rest_framework.generics import ListAPIView
 from rest_framework.permissions import AllowAny
 
 from reviews.models import Review
-from schools.filters import SchoolFilter
 from schools.models import School
 from schools.serializers import SchoolSerializer
 
