@@ -47,6 +47,7 @@ class SchoolAlias(models.Model):
     school = models.ForeignKey(
         'schools.School',
         models.CASCADE,
+        related_name='aliases',
         verbose_name=_('Школа'),
     )
     source = models.ForeignKey(
@@ -58,6 +59,9 @@ class SchoolAlias(models.Model):
     class Meta:
         verbose_name = _('Псевдоним школы')
         verbose_name_plural = _('Псевдонимы школ')
+        unique_together = (
+            ('school', 'source'),
+        )
 
     def __str__(self):
         return self.name
