@@ -44,6 +44,16 @@ class SchoolAlias(models.Model):
         _('Имя'),
         max_length=255,
     )
+    school = models.ForeignKey(
+        'schools.School',
+        models.CASCADE,
+        verbose_name=_('Школа'),
+    )
+    source = models.ForeignKey(
+        'sources.DataSource',
+        models.CASCADE,
+        verbose_name=_('Источник данных'),
+    )
 
     class Meta:
         verbose_name = _('Псевдоним школы')
