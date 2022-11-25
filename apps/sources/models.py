@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 class DataSource(models.Model):
     name = models.CharField(
         _('Имя'),
+        max_length=255,
     )
     url = models.URLField(
         _('Адрес'),

@@ -37,3 +37,17 @@ class School(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class SchoolAlias(models.Model):
+    name = models.CharField(
+        _('Имя'),
+        max_length=255,
+    )
+
+    class Meta:
+        verbose_name = _('Псевдоним школы')
+        verbose_name_plural = _('Псевдонимы школ')
+
+    def __str__(self):
+        return self.name

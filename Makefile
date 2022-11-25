@@ -18,6 +18,9 @@ build-no-cache:
 collectstatic:
 	$(PYTHON) manage.py collectstatic --noi -c
 
+startapp:
+	$(PYTHON) manage.py startapp ${app}
+
 makemigrations:
 	$(PYTHON) manage.py makemigrations ${app}
 
