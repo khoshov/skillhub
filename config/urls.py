@@ -20,6 +20,7 @@ urlpatterns = [
     path('courses/', include('courses.urls', namespace='courses')),
     path('reviews/', include('reviews.urls', namespace='reviews')),
     path('schools/', include('schools.urls', namespace='schools')),
+    path('tags/', include('tags.urls', namespace='tags')),
 
     path('404/', TemplateView.as_view(template_name='404.html')),
     path('500/', TemplateView.as_view(template_name='500.html')),
