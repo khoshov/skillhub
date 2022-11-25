@@ -22,7 +22,7 @@ class School(models.Model):
         default=0,
     )
     epc = models.FloatField(
-        _('Средний зароботок с перехода'),
+        _('Средний заработок с перехода'),
         default=0
     )
     is_active = models.BooleanField(
