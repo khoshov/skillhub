@@ -23,6 +23,7 @@ class TagOption(models.Model):
     tag = models.ForeignKey(
         'tags.Tag',
         models.CASCADE,
+        related_name='options',
         verbose_name=_('Метка'),
     )
 
