@@ -21,7 +21,7 @@
     <div class="container max-width-container t-row">
       {% for column, cell in row.items %}
         {% if forloop.counter < 7 %}
-          <div class="t-cell">{{ cell }}{{ row.items.url }}</div>
+          <div class="t-cell">{{ cell|safe }}{{ row.items.url }}</div>
         {% endif %}
       {% endfor %}
     </div>

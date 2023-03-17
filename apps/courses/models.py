@@ -56,9 +56,8 @@ class Course(models.Model):
         (LESSON, _("Урок")),
     )
 
-    name = models.CharField(
+    name = RichTextField(
         _('Название'),
-        max_length=255,
     )
     url = models.URLField(
         _('Ссылка на страницу курса'),
