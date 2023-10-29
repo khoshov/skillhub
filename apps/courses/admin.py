@@ -24,6 +24,7 @@ class CategoryResource(resources.ModelResource):
             'id',
             'parent',
             'name',
+            'title',
             'slug',
             'description',
             'is_active',
