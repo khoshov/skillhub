@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ course.name|safe }}</h1>
+    <p>{{ course.description|safe }}</p>
+    <a href="{{ course.affiliate_url }}" class="btn btn-primary main-button mt-3">Перейти на страницу курса</a>
+{% endblock content %}

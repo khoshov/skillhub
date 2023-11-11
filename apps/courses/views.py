@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 
 from django.db.models import Count, F
 from django.http import Http404
+from django.views.generic import DetailView
 
 from core.models import AllCoursesPageConfig
 from courses.filters import CourseFilter
@@ -68,6 +69,13 @@ class CourseListView(FilterView, SingleTableView):
                 raise Http404()
 
         return qs
+
+
+class CourseDetailView(DetailView):
+    model = Course
+    context_object_name = 'course'
+    slug_url_kwarg = 'slug'
+    template_name = 'courses/detail.html'
 
 
 class UploadCourseAPIView(APIView):

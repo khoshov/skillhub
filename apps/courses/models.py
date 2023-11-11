@@ -59,6 +59,15 @@ class Course(models.Model):
     name = RichTextField(
         _('Название'),
     )
+    slug = AutoSlugField(
+        _('Слаг'),
+        populate_from='name',
+        # unique=True,
+    )
+    description = RichTextField(
+        _('Описание'),
+        blank=True, null=True,
+    )
     url = models.URLField(
         _('Ссылка на страницу курса'),
     )
@@ -161,6 +170,9 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('courses:detail', kwargs={"slug": self.slug})
 
 
 class Category(ModelMeta, MPTTModel):

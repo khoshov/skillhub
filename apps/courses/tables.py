@@ -85,9 +85,7 @@ class CourseTable(tables.Table):
         return record.duration_category
 
     def render_url(self, value, record):
-        if record.affiliate_url:
-            return record.affiliate_url
-        return record.url
+        return record.get_absolute_url()
 
     def render_recommended(self, value, record):
         if record.recommended:
