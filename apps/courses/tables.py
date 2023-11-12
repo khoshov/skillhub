@@ -5,8 +5,6 @@ from django.utils.html import format_html
 
 from .models import Course
 
-ICONS_TEMPLATE = '<span style="white-space: nowrap;">{}<span style="opacity: 0.15;">{}</span></span>'
-
 morph = pymorphy2.MorphAnalyzer(lang='ru')
 
 
@@ -68,12 +66,7 @@ class CourseTable(tables.Table):
         return format_html(f'{record.school.name}{rating}')
 
     def render_price(self, value, record):
-        if not record.price_category:
-            return 'Бесплатно'
-
-        icons = '₽' * record.price_category
-        missing_icons = '₽' * (5 - record.price_category)
-        return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
+        return record.price_formatted
 
     def render_duration(self, value, record):
         duration_type = dict(Course.DURATION_TYPE)[record.duration_type].lower()

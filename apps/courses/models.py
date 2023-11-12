@@ -1,5 +1,6 @@
 from ckeditor.fields import RichTextField
 from django.urls import reverse
+from django.utils.html import format_html
 from meta.models import ModelMeta
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
@@ -9,6 +10,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from core.fields import AutoSlugField
+from courses.constants import ICONS_TEMPLATE
 
 
 class Course(models.Model):
@@ -173,6 +175,15 @@ class Course(models.Model):
 
     def get_absolute_url(self):
         return reverse('courses:detail', kwargs={"slug": self.slug})
+
+    @property
+    def price_formatted(self):
+        if not self.price_category:
+            return 'Бесплатно'
+
+        icons = '₽' * self.price_category
+        missing_icons = '₽' * (5 - self.price_category)
+        return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
 
 
 class Category(ModelMeta, MPTTModel):
