@@ -17,7 +17,9 @@
   {% if category %}
     <h1>{{ category.title }}</h1>
     {% if category.description %}
-      <p>{{ category.description|safe }}</p>
+      <div class="category-description">
+      {{ category.description|safe }}
+      </div>
     {% endif %}
   {% elif request.GET.name %}
     {% with count=table.rows|length course="курс" %}
@@ -25,7 +27,7 @@
     {% endwith %}
   {% else %}
     <h1>{{ config.title }}</h1>
-    <p>{{ config.description }}</p>
+    <p class="category-description">{{ config.description|safe }}</p>
   {% endif %}
 
   <div class="line"></div>

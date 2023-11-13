@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>{{ course.school.name }}</p>
-    <h1>{{ course.name|safe }}</h1>
-    <p>{{ course.price_formatted }}</p>
-    <p>{{ course.description|safe }}</p>
-    <a href="{{ course.affiliate_url }}" class="btn btn-primary main-button mt-3">Перейти на страницу курса</a>
+<div class="content">
+    <p class="content_school-name">{{ course.school.name }}</p>
+    <h1 class="content_course-name">{{ course.name|safe }}</h1>
+    <p class="content_course-price">{{ course.price_formatted }}</p>
+    <p class="content_course-description">{{ course.description|safe }} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis beatae pariatur aut cum molestias explicabo minus. Blanditiis nobis non ut beatae cumque esse laudantium. Dolore commodi aperiam tempora veniam necessitatibus. Possimus natus quas error officia accusamus eveniet quam eos quod est quaerat debitis molestias adipisci mollitia aliquam, ut eaque ab cum nostrum animi quia labore soluta molestiae, consequuntur impedit. Possimus placeat officiis aliquid quo repellat error ullam quibusdam. Natus, soluta consequuntur. Iste ipsam esse, excepturi quis rerum quisquam placeat et iusto animi cum ea veritatis quae aut voluptate perferendis, quasi maxime nihil repudiandae consequuntur laudantium voluptatibus quia quaerat eligendi ipsa?</p>
+    <a href="{{ course.affiliate_url }}" class="btn btn-primary main-button mt-3 content-button">Перейти на страницу курса</a>
+</div>
 {% endblock content %}
