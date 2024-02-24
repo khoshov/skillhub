@@ -4,18 +4,24 @@
 <div class="content">
     <h2><strong>
         {% if course.school.rating %}
-        {{ rating_html|safe }}</strong>
+        {{ course.school.rating_formatted|safe }}</strong>
     {% endif %}
     </h2>
     <div class="container">
       <div class="row">
           <div class='col-md-6'>
-            <h1 class="content_course-name">{{ course.name|safe }}</h1>
+            <h2 class="content_course-name">{{ course.name|safe }}</h2>
             <p class="content_course-price">{{ course.price_formatted }}</p>
-            <p class="content_course-description">{{ course.description|safe }} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis beatae pariatur aut cum molestias explicabo minus. Blanditiis nobis non ut beatae cumque esse laudantium. Dolore commodi aperiam tempora veniam necessitatibus. Possimus natus quas error officia accusamus eveniet quam eos quod est quaerat debitis molestias adipisci mollitia aliquam, ut eaque ab cum nostrum animi quia labore soluta molestiae, consequuntur impedit. Possimus placeat officiis aliquid quo repellat error ullam quibusdam. Natus, soluta consequuntur. Iste ipsam esse, excepturi quis rerum quisquam placeat et iusto animi cum ea veritatis quae aut voluptate perferendis, quasi maxime nihil repudiandae consequuntur laudantium voluptatibus quia quaerat eligendi ipsa?</p>
+            {% if course.description %}
+            <p class="content_course-description">{{ course.description|safe }}</p>
+            {% else %}
+            <p class="content_course-description">Описание пока отсутствует</p>
+            {% endif %}
           </div>
           <div class='col-md-6'>
-            <h1 class="content_course-name">Отзывы о школе</h1>
+            <h2 class="content_course-name">Отзывы о школе: 
+              <a href="{% url 'schools:detail' pk=course.school.pk %}" class="content_course-name change-color-on-hover">{{ course.school.name|safe }}</a>
+            </h2>
             <h5 class="content_course-name"><strong>Преимущества школы:</strong></h5>
               {% if course.school.advantages.all %}
                 {% for advantage in course.school.advantages.all %}
@@ -49,7 +55,7 @@
         <tbody>
           <tr>
             
-            <td>{{ duration_html }}</td>
+            <td>{{ course.duration_formatted }}</td>
             
             <td>{{ course.get_difficulty_display }}</td>
             

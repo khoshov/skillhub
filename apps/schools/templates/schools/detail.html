@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <h2><strong>
+        {% if school.rating %}
+        {{ school.rating_formatted|safe }}</strong>
+        {% endif %}
+    </h2>
+    <div class="container">
+      <div class="row">
+          <div class='col-md-6'>
+            
+            {% if school.description %}
+            <h1 class="content_course-name">О школе</h1>
+            <p class="content_course-description">{{ school.description|safe }}</p>
+            {% else %}
+            <p class="content_course-description">Описание пока отсутствует</p>
+            {% endif %}
+            <h1>Аккредитованное учебное заведение</h1>
+            {% if school.accredited %}
+            <p class="content_course-description">Имеет аккредитацию</p>
+            {% else %}
+            <p class="content_course-description">Не имеет аккредитацию</p>
+            {% endif %}
+          </div>
+          <div class='col-md-6'>
+            <h1 class="content_course-name">Отзывы о школе</h1>
+            <h5 class="content_course-name"><strong>Преимущества школы:</strong></h5>
+              {% if school.advantages.all %}
+                {% for advantage in school.advantages.all %}
+                <p class="content_course-description"><strong>{{ advantage.title }}: </strong> <!-- Показать преимущества школы -->
+                  {{ advantage.description }}</p>
+                {% endfor %}
+              {% else %}
+              <p class="content_course-description">Отзывы о преимуществах школы пока отсутствуют</p>
+              {% endif %}
+          
+
+              <h5 class="content_course-name"><strong>Недостатки школы:</strong></h5>
+            {% if school.advantages.all %}
+                {% for advantage in school.advantages.all %}
+                <p class="content_course-description"><strong>{{ advantage.title }}: </strong> <!-- Показать преимущества школы -->
+                  {{ advantage.description }}</p>
+                {% endfor %}
+            {% else %}
+              <p class="content_course-description">Отзывы о недостатках школы пока отсутствуют</p>
+            {% endif %}    
+            </div>
+        </div>
+      </div>
+      <div>
+        {% if courses %}
+        <table class="table table-hover">
+            <h1 class="content_course-name">Все курсы школы</h1>
+            <thead>
+                <tr class='clickable-row' data-href='#'>
+                    
+                    <th scope="col">Название</th>
+                    <th scope="col">Категория</th>
+                
+                    <th scope="col">Уровень</th>
+
+                    <th scope="col">Описание</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for course in courses %}
+                    
+                        <tr>
+                            
+                            <a href="#"><td>{{ course.name|safe }}</td></a>
+
+                            <td>{% for category in course.categories.all %} {{ category.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{{ course.get_difficulty_display }}</td>
+                            
+                            <td>{% if course.description %}
+                                {{ course.description|safe }}
+                                {% else %}
+                                Описание пока отсутствует
+                                {% endif %}
+                            </td>
+                        
+                        </tr>
+                         
+                {% endfor %}
+            
+            </tbody>
+        </table>
+    {% endif %}
+    
+    {{ course.get_duration_display }}
+    </div>
+    
+  <a href="{{ course.affiliate_url }}" target="_blank" class="btn btn-primary main-button mt-3 content-button">Перейти на страницу курса</a>
+</div>
+{% endblock content %}
