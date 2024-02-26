@@ -42,8 +42,8 @@ class School(models.Model):
         rating_icon_style = 'low-rating-icon' if rating_points < 4 else 'high-rating-icon'
         rating_icon = f'<span class="{rating_icon_style}"></span>'
         rating_tag = f'<span class="{rating_points_style}">{rating_points}</span>'
-        rating = f'{rating_icon}{rating_tag}' if rating_points else ''
-        return format_html(f'{self.name}{rating}')
+        rating = format_html(f'{rating_icon}{rating_tag}') if rating_points else ''
+        return rating
 
 
     def __str__(self):

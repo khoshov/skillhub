@@ -1,6 +1,5 @@
 from django_filters.views import FilterView
 from django_tables2 import SingleTableView
-import pymorphy2
 from rest_framework.parsers import JSONParser
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
@@ -18,8 +17,6 @@ from courses.paginators import CustomPaginator
 from courses.serializers import CourseUploadSerializer
 from courses.tables import CourseTable
 from schools.models import School
-
-morph = pymorphy2.MorphAnalyzer(lang="ru")
 
 
 class CourseListView(FilterView, SingleTableView):
