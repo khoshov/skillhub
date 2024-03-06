@@ -14,7 +14,7 @@ class CategoryResource(resources.ModelResource):
 
 @admin.register(School)
 class SchoolAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'name', 'is_active')
+    list_display = ('id', 'name', 'is_active','slug')
     list_filter = ('is_active',)
     actions = [activate, deactivate]
 

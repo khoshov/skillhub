@@ -19,33 +19,37 @@
                 </div>
                 
                 <div class='col-md-6'>
-                    <h2 class="content_course-name">
-                        Отзывы о школе: <a href="{% url 'schools:detail' pk=course.school.pk %}" class="content_course-name change-color-on-hover">{{ course.school.name|safe }}</a>
-                    </h2>
-                    <h5 class="content_course-name">
-                        <strong>Преимущества школы:</strong>
-                    </h5>
-                    {% if course.school.advantages.all %}
-                        {% for advantage in course.school.advantages.all %}
-                            <p class="content_course-description">
-                                <strong>{{ advantage.title }}: </strong>{{ advantage.description }}
-                            </p>
-                        {% endfor %}
-                    {% else %}
-                        <p class="content_course-description">Отзывов пока нет</p>
-                    {% endif %}
-                    <h5 class="content_course-name">
-                        <strong>Недостатки школы:</strong>
-                    </h5>
-                    {% if course.school.disadvantages.all %}
-                        {% for advantage in course.school.advantages.all %}
-                            <p class="content_course-description">
-                                <strong>{{ advantage.title }}: </strong>{{ advantage.description }}
-                            </p>
-                        {% endfor %}
-                    {% else %}
-                        <p class="content_course-description">Отзывов пока нет</p>
-                    {% endif %} 
+                    
+                        <h2 class="content_course-name">
+                            Отзывы о школе: <a href="{% url 'schools:detail' pk=course.school.pk %}" class="content_course-name change-color-on-hover">{{ course.school.name|safe }}</a>
+                        </h2>
+                        <div class='ml-3 mt-3'>
+                        <h5 class="content_course-name">
+                            <strong>Преимущества школы:</strong>
+                        </h5>
+                        {% if course.school.advantages.all %}
+                            {% for advantage in course.school.advantages.all %}
+                                <p class="content_course-description">
+                                    <strong>{{ advantage.title }}: </strong>{{ advantage.description }}
+                                </p>
+                            {% endfor %}
+                        {% else %}
+                            <p class="content_course-description">Отзывов пока нет</p>
+                        {% endif %}
+                        <h5 class="content_course-name">
+                            <strong>Недостатки школы:</strong>
+                        </h5>
+                        {% if course.school.disadvantages.all %}
+                            {% for advantage in course.school.advantages.all %}
+                                <p class="content_course-description">
+                                    <strong>{{ advantage.title }}: </strong>{{ advantage.description }}
+                                </p>
+                            {% endfor %}
+                        {% else %}
+                            <p class="content_course-description">Отзывов пока нет</p>
+                        {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

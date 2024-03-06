@@ -1,15 +1,20 @@
 from ckeditor.fields import RichTextField
+from core.fields import AutoSlugField
 
 from django.db import models
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
 
-
 class School(models.Model):
     name = models.CharField(
         _("Название"),
         max_length=255,
+    )
+    slug = AutoSlugField(
+        _("Слаг"),
+        populate_from="name",
+        # unique=True,
     )
     description = RichTextField(
         _("Описание"),
@@ -38,13 +43,20 @@ class School(models.Model):
     @property
     def rating_formatted(self):
         rating_points = self.rating or 0
-        rating_points_style = 'low-rating' if rating_points < 4 else 'high-rating'
-        rating_icon_style = 'low-rating-icon' if rating_points < 4 else 'high-rating-icon'
+        rating_points_style = (
+            "low-rating" if rating_points < 4 else "high-rating"
+        )
+        rating_icon_style = (
+            "low-rating-icon" if rating_points < 4 else "high-rating-icon"
+        )
         rating_icon = f'<span class="{rating_icon_style}"></span>'
-        rating_tag = f'<span class="{rating_points_style}">{rating_points}</span>'
-        rating = format_html(f'{rating_icon}{rating_tag}') if rating_points else ''
+        rating_tag = (
+            f'<span class="{rating_points_style}">{rating_points}</span>'
+        )
+        rating = (
+            format_html(f"{rating_icon}{rating_tag}") if rating_points else ""
+        )
         return rating
-
 
     def __str__(self):
         return self.name
