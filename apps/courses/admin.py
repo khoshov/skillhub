@@ -37,9 +37,7 @@ class CategoryAdmin(ImportExportModelAdmin, DraggableMPTTAdmin):
     resource_class = CategoryResource
     list_display = ('tree_actions', 'indented_title', 'slug', 'is_active', 'sort_order')
     list_filter = ('is_active',)
-    prepopulated_fields = {
-        'slug': ('name',)
-    }
+    readonly_fields = ('slug',)
     actions = [activate, deactivate]
 
 
@@ -72,7 +70,7 @@ class CourseAdmin(ImportExportModelAdmin):
     list_filter = ('categories', 'school', 'status', 'author', 'government_support')
     search_fields = ('name', 'url')
     inlines = [CourseCategoryInline]
-    readonly_fields = ['author']
+    readonly_fields = ('author', 'slug')
     actions = [make_public, make_draft]
 
     def save_model(self, request, obj, form, change):
