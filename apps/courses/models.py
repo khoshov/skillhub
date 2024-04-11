@@ -14,29 +14,29 @@ from pytils.translit import slugify
 
 from courses.constants import ICONS_TEMPLATE
 
-morph = pymorphy2.MorphAnalyzer(lang='ru')
+morph = pymorphy2.MorphAnalyzer(lang="ru")
 
 
 class Course(models.Model):
     DRAFT = 1
     PUBLIC = 2
     STATUSES = (
-        (DRAFT, _('Черновик')),
-        (PUBLIC, _('Опубликован')),
+        (DRAFT, _("Черновик")),
+        (PUBLIC, _("Опубликован")),
     )
 
     ONLINE = 1
     OFFLINE = 2
     TYPE = (
-        (ONLINE, _('Онлайн')),
-        (OFFLINE, _('Оффлайн')),
+        (ONLINE, _("Онлайн")),
+        (OFFLINE, _("Оффлайн")),
     )
 
     BEGINNER = 1
     ADVANCED = 2
     DIFFICULTY = (
-        (BEGINNER, _('С нуля')),
-        (ADVANCED, _('Продвинутый')),
+        (BEGINNER, _("С нуля")),
+        (ADVANCED, _("Продвинутый")),
     )
 
     MISSING = 0
@@ -47,273 +47,291 @@ class Course(models.Model):
     HIGH = 5
 
     PRICE = (
-        (MISSING, _('Бесплатно')),
-        (LOW, _('Низкая цена')),
-        (INSIGNIFICANT, _('Невысокая цена')),
-        (AVERAGE, _('Средняя цена')),
-        (SIGNIFICANT, _('Значительная цена')),
-        (HIGH, _('Высокая цена')),
+        (MISSING, _("Бесплатно")),
+        (LOW, _("Низкая цена")),
+        (INSIGNIFICANT, _("Невысокая цена")),
+        (AVERAGE, _("Средняя цена")),
+        (SIGNIFICANT, _("Значительная цена")),
+        (HIGH, _("Высокая цена")),
     )
 
     MONTH = 1
     LESSON = 2
     DURATION_TYPE = (
-        (MONTH, _("Месяц")), 
+        (MONTH, _("Месяц")),
         (LESSON, _("Урок")),
     )
 
     name = RichTextField(
-        _('Название'),
+        _("Название"),
     )
     slug = AutoSlugField(
-        _('Слаг'),
-        populate_from='name',
+        _("Слаг"),
+        populate_from="name",
         slugify_function=slugify,
+        blank=True,
+        null=True,
         # unique=True,
     )
     description = RichTextField(
-        _('Описание'),
-        blank=True, null=True,
+        _("Описание"),
+        blank=True,
+        null=True,
     )
     url = models.URLField(
-        _('Ссылка на страницу курса'),
+        _("Ссылка на страницу курса"),
     )
     affiliate_url = models.URLField(
-        _('Партнёрская ссылка'),
-        blank=True, null=True
+        _("Партнёрская ссылка"), blank=True, null=True
     )
     categories = models.ManyToManyField(
-        'courses.Category',
-        through='courses.CourseCategory',
-        verbose_name=_('Категория'),
+        "courses.Category",
+        through="courses.CourseCategory",
+        verbose_name=_("Категория"),
     )
     school = models.ForeignKey(
-        'schools.School',
+        "schools.School",
         models.CASCADE,
-        verbose_name=_('Школа'),
+        verbose_name=_("Школа"),
     )
     type = models.PositiveIntegerField(
-        _('Тип'),
+        _("Тип"),
         choices=TYPE,
         default=ONLINE,
     )
     difficulty = models.PositiveIntegerField(
-        _('Уровень сложности'),
+        _("Уровень сложности"),
         choices=DIFFICULTY,
         default=BEGINNER,
     )
     price = models.IntegerField(
-        _('Цена ₽'),
-        blank=True, null=True,
+        _("Цена ₽"),
+        blank=True,
+        null=True,
     )
     price_category = models.PositiveIntegerField(
-        _('Категория цены'),
+        _("Категория цены"),
         choices=PRICE,
         default=AVERAGE,
     )
     duration = models.PositiveIntegerField(
-        _('Длительность курсов'),
-        blank=True, null=True,
+        _("Длительность курсов"),
+        blank=True,
+        null=True,
     )
     duration_type = models.PositiveSmallIntegerField(
-        _('Единицы измерения длительности курсов'),
+        _("Единицы измерения длительности курсов"),
         choices=DURATION_TYPE,
         default=MONTH,
     )
     duration_category = models.PositiveIntegerField(
-        _('Категория продолжительности'),
-        blank=True, null=True,
+        _("Категория продолжительности"),
+        blank=True,
+        null=True,
     )
     status = models.PositiveSmallIntegerField(
-        _('Статус'),
+        _("Статус"),
         choices=STATUSES,
         default=DRAFT,
     )
     author = models.ForeignKey(
         get_user_model(),
         models.CASCADE,
-        verbose_name=_('Автор'),
-        related_name='courses',
-        blank=True, null=True,
+        verbose_name=_("Автор"),
+        related_name="courses",
+        blank=True,
+        null=True,
     )
     start_date = models.DateTimeField(
-        _('Дата начала курсов'),
-        blank=True, null=True,
+        _("Дата начала курсов"),
+        blank=True,
+        null=True,
     )
     installment = models.BooleanField(
-        _('Возможна рассрочка'),
+        _("Возможна рассрочка"),
         default=False,
     )
     course_format = models.CharField(
-        _('Формат проведения занятий'),
+        _("Формат проведения занятий"),
         max_length=255,
-        default="Комбинированный"
+        default="Комбинированный",
     )
     deferred_payment = models.BooleanField(
-        _('Возможен отложенный платёж'),
+        _("Возможен отложенный платёж"),
         default=False,
     )
     government_support = models.BooleanField(
-        _('Гос. поддержка'),
+        _("Гос. поддержка"),
         default=False,
     )
     recommended = models.BooleanField(
-        _('Рекомендуем'),
+        _("Рекомендуем"),
         default=False,
     )
     created = models.DateTimeField(
-        _('Дата создания'),
+        _("Дата создания"),
         auto_now_add=True,
     )
     updated = models.DateTimeField(
-        _('Дата обновлёния'),
+        _("Дата обновлёния"),
         auto_now=True,
     )
 
     class Meta:
-        db_table = 'course'
-        verbose_name = _('Курс')
-        verbose_name_plural = _('Курсы')
+        db_table = "course"
+        verbose_name = _("Курс")
+        verbose_name_plural = _("Курсы")
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('courses:detail', kwargs={"slug": self.slug})
+        return reverse("courses:detail", kwargs={"slug": self.slug})
 
     @property
     def price_formatted(self):
         if not self.price_category:
-            return 'Бесплатно'
+            return "Бесплатно"
 
-        icons = '₽' * self.price_category
-        missing_icons = '₽' * (5 - self.price_category)
+        icons = "₽" * self.price_category
+        missing_icons = "₽" * (5 - self.price_category)
         return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
-    
+
     @property
     def duration_formatted(self):
         duration_type = dict(Course.DURATION_TYPE)[self.duration_type].lower()
         duration_type = morph.parse(duration_type)[0]
-        duration_type = duration_type.make_agree_with_number(self.duration).word
-        duration_html = f'{self.duration} {duration_type}'
+        duration_type = duration_type.make_agree_with_number(
+            self.duration
+        ).word
+        duration_html = f"{self.duration} {duration_type}"
         return format_html(duration_html)
 
 
 class Category(ModelMeta, MPTTModel):
     parent = TreeForeignKey(
-        'self',
+        "self",
         models.CASCADE,
-        related_name='children',
-        verbose_name=_('Родительская категория'),
-        blank=True, null=True,
+        related_name="children",
+        verbose_name=_("Родительская категория"),
+        blank=True,
+        null=True,
     )
     name = models.CharField(
-        _('Имя'),
+        _("Имя"),
         max_length=255,
     )
     slug = AutoSlugField(
-        _('Слаг'),
-        populate_from='name',
+        _("Слаг"),
+        populate_from="name",
         slugify_function=slugify,
         unique=True,
     )
     title = models.CharField(
-        _('Заголовок'),
+        _("Заголовок"),
         max_length=255,
-        blank=True, null=True,
+        blank=True,
+        null=True,
     )
     description = RichTextField(
-        _('Описание'),
-        blank=True, null=True,
+        _("Описание"),
+        blank=True,
+        null=True,
     )
     is_active = models.BooleanField(
-        _('Активный'),
+        _("Активный"),
         default=False,
     )
     sort_order = models.IntegerField(
-        _('Сортировка'),
+        _("Сортировка"),
         default=0,
     )
     created = models.DateTimeField(
-        _('created'),
+        _("created"),
         auto_now_add=True,
     )
     updated = models.DateTimeField(
-        _('updated'),
+        _("updated"),
         auto_now=True,
     )
 
     extra_title = models.CharField(
-        _('Дополнительный заголовок'),
+        _("Дополнительный заголовок"),
         max_length=255,
-        blank=True, null=True,
+        blank=True,
+        null=True,
     )
     extra_text = RichTextField(
-        _('Дополнительный текст'),
-        blank=True, null=True,
+        _("Дополнительный текст"),
+        blank=True,
+        null=True,
     )
 
     meta_title = models.CharField(
-        _('Meta title'),
+        _("Meta title"),
         max_length=255,
-        blank=True, null=True,
+        blank=True,
+        null=True,
     )
     meta_description = models.TextField(
-        _('Meta description'),
-        blank=True, null=True,
+        _("Meta description"),
+        blank=True,
+        null=True,
     )
 
     _metadata = {
-        'title': 'meta_title',
-        'description': 'meta_description',
+        "title": "meta_title",
+        "description": "meta_description",
     }
 
     class Meta:
-        db_table = 'category'
-        verbose_name = _('Категория')
-        verbose_name_plural = _('Категории')
+        db_table = "category"
+        verbose_name = _("Категория")
+        verbose_name_plural = _("Категории")
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('courses:category', kwargs={'slug': self.slug})
+        return reverse("courses:category", kwargs={"slug": self.slug})
 
 
 class CourseCategory(models.Model):
     course = models.ForeignKey(
-        'courses.Course',
+        "courses.Course",
         models.CASCADE,
     )
     category = models.ForeignKey(
-        'courses.Category',
+        "courses.Category",
         models.CASCADE,
     )
 
     class Meta:
-        db_table = 'course_category'
+        db_table = "course_category"
 
     @property
     def course_count(self):
-        categories = self.category.get_root().get_descendants(include_self=True)
+        categories = self.category.get_root().get_descendants(
+            include_self=True
+        )
         return Course.objects.filter(category__in=categories).count()
 
 
 class CategoryAlias(models.Model):
     alias = models.CharField(
-        _('Псевдоним категории'),
+        _("Псевдоним категории"),
         max_length=255,
         unique=True,
     )
     category = models.ForeignKey(
-        'Category',
+        "Category",
         on_delete=models.PROTECT,
-        verbose_name=_('категория'),
+        verbose_name=_("категория"),
     )
 
     class Meta:
-        verbose_name = _('Псевдоним категории')
-        verbose_name_plural = _('Псевдонимы категорий')
+        verbose_name = _("Псевдоним категории")
+        verbose_name_plural = _("Псевдонимы категорий")
 
     def __str__(self):
-        return f'{self.alias} – {self.category.name}'
+        return f"{self.alias} – {self.category.name}"

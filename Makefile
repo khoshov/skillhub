@@ -21,6 +21,9 @@ collectstatic:
 startapp:
 	$(PYTHON) manage.py startapp ${app}
 
+makemigrations-empty-courses:
+	$(PYTHON) manage.py makemigrations --empty courses 
+
 makemigrations:
 	$(PYTHON) manage.py makemigrations ${app}
 
