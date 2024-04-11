@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from django.db.models import Count, F
 from django.http import Http404
 from django.views.generic import DetailView
+from django.utils.html import format_html
 
 from core.models import AllCoursesPageConfig
 from courses.filters import CourseFilter
@@ -21,33 +22,33 @@ from schools.models import School
 class CourseListView(FilterView, SingleTableView):
     model = Course
     table_class = CourseTable
-    template_name = 'courses/index.html'
+    template_name = "courses/index.html"
     filterset_class = CourseFilter
     paginator_class = CustomPaginator
     paginate_by = 10
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        slug = self.request.resolver_match.kwargs.get('slug')
+        slug = self.request.resolver_match.kwargs.get("slug")
         if slug:
             try:
                 category = Category.objects.get(slug=slug)
-                data['category'] = category
-                data['meta'] = category.as_meta(self.request)
+                data["category"] = category
+                data["meta"] = category.as_meta(self.request)
             except Category.DoesNotExist:
                 pass
         else:
             config = AllCoursesPageConfig.get_solo()
-            data['config'] = config
-            data['meta'] = config.as_meta(self.request)
+            data["config"] = config
+            data["meta"] = config.as_meta(self.request)
 
-        data['schools'] = School.objects.all()
+        data["schools"] = School.objects.all()
 
         return data
 
     def get_template_names(self):
-        if self.request.is_ajax() or self.request.GET.get('ajax_partial'):
-            return 'courses/table.html'
+        if self.request.is_ajax() or self.request.GET.get("ajax_partial"):
+            return "courses/table.html"
         return super().get_template_names()
 
     def get_queryset(self):
@@ -55,10 +56,11 @@ class CourseListView(FilterView, SingleTableView):
             status=Course.PUBLIC,
             school__is_active=True,
         ).annotate(
-            popularity=Count('school__reviews', distinct=True) + (F('id')*0.1),
+            popularity=Count("school__reviews", distinct=True)
+            + (F("id") * 0.1),
         )
 
-        slug = self.request.resolver_match.kwargs.get('slug')
+        slug = self.request.resolver_match.kwargs.get("slug")
 
         if slug:
             try:
@@ -73,9 +75,9 @@ class CourseListView(FilterView, SingleTableView):
 
 class CourseDetailView(DetailView):
     model = Course
-    context_object_name = 'course'
-    slug_url_kwarg = 'slug'
-    template_name = 'courses/detail.html'
+    context_object_name = "course"
+    slug_url_kwarg = "slug"
+    template_name = "courses/detail.html"
 
 
 class UploadCourseAPIView(APIView):

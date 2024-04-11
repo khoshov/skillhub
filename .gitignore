@@ -23,7 +23,8 @@ media
 
 # C extensions
 *.so
-
+# Some local testing data
+data/
 # Distribution / packaging
 .Python
 build/

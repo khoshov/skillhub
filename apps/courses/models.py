@@ -1,16 +1,20 @@
 from ckeditor.fields import RichTextField
 from django.urls import reverse
 from django.utils.html import format_html
+from django_extensions.db.fields import AutoSlugField
 from meta.models import ModelMeta
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
+import pymorphy2
 
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from pytils.translit import slugify
 
-from core.fields import AutoSlugField
 from courses.constants import ICONS_TEMPLATE
+
+morph = pymorphy2.MorphAnalyzer(lang='ru')
 
 
 class Course(models.Model):
@@ -64,6 +68,7 @@ class Course(models.Model):
     slug = AutoSlugField(
         _('Слаг'),
         populate_from='name',
+        slugify_function=slugify,
         # unique=True,
     )
     description = RichTextField(
@@ -184,6 +189,14 @@ class Course(models.Model):
         icons = '₽' * self.price_category
         missing_icons = '₽' * (5 - self.price_category)
         return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
+    
+    @property
+    def duration_formatted(self):
+        duration_type = dict(Course.DURATION_TYPE)[self.duration_type].lower()
+        duration_type = morph.parse(duration_type)[0]
+        duration_type = duration_type.make_agree_with_number(self.duration).word
+        duration_html = f'{self.duration} {duration_type}'
+        return format_html(duration_html)
 
 
 class Category(ModelMeta, MPTTModel):
@@ -201,6 +214,7 @@ class Category(ModelMeta, MPTTModel):
     slug = AutoSlugField(
         _('Слаг'),
         populate_from='name',
+        slugify_function=slugify,
         unique=True,
     )
     title = models.CharField(
