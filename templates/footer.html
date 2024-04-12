@@ -1,13 +1,22 @@
 {% load static %}
 
-<footer class="footer">
-  <div class="container">
-    <div class="d-flex flex-column flex-sm-row justify-content-sm-between">
-      <div class="footer-text">Связаться с нами: <a href="mailto:hello@skillhub.ru">hello@skillhub.ru</a></div>
-      <div class="footer-text copyright">© {% now "Y" %} SkillHub</div>
-		{#<img src="{% static 'core/img/Made with ♥ from Russia.svg' %}" alt="Made with love">#}
-{#      <div>Terms of Use & Privacy Policy</div>#}
-      
+<div class="fund-information pb-5">
+    <div class="container">
+        <div class="font-weight-light text-muted text-center">
+            Проект реализован при поддержке <a href="https://online.fasie.ru/">Российского&nbsp;фонда&nbsp;содействия&nbsp;инновациям</a><br />
+            в&nbsp;рамках федерального проекта &laquo;Платформа университетского технологического предпринимательства&raquo;
+        </div>
     </div>
-  </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="d-flex flex-column flex-sm-row justify-content-sm-between">
+            <div class="footer-text">Связаться с нами: <a href="mailto:hello@skillhub.ru">hello@skillhub.ru</a></div>
+            <div class="footer-text copyright">© {% now "Y" %} SkillHub</div>
+            {#<img src="{% static 'core/img/Made with ♥ from Russia.svg' %}" alt="Made with love">#}
+            {#      <div>Terms of Use & Privacy Policy</div>#}
+
+        </div>
+    </div>
 </footer>
