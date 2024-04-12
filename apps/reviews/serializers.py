@@ -28,3 +28,19 @@ class ReviewSerializer(serializers.Serializer):
             rating=validated_data.get('rating'),
         )
         return validated_data
+
+
+class ReviewUpdateSerializer(serializers.ModelSerializer):
+    school = serializers.CharField(source='school.name')
+
+    class Meta:
+        model = Review
+        fields = '__all__'
+
+
+class ReviewListSerializer(serializers.ModelSerializer):
+    school = serializers.CharField(source='school.name')
+
+    class Meta:
+        model = Review
+        fields = '__all__'

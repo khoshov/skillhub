@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /?page=*
+Disallow: /?categories=*
+Sitemap: https://skillhub.ru/sitemap.xml

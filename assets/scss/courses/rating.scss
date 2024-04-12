@@ -1,0 +1,81 @@
+.high-rating-icon, .low-rating-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+
+  //margin-left: 10px;
+  vertical-align: bottom;
+  background-image: url("../img/star.svg");
+  @media all and (max-width: 767px) {
+    margin-top: -4px;
+  }
+}
+
+.low-rating-icon {
+  background-image: url("../img/gray-star.svg");
+}
+
+.low-rating, .high-rating {
+  display: inline-block;
+}
+
+.low-rating {
+  color: #B7B7BA !important;
+}
+
+.rating {
+  height: 50px;
+  background-color: #F1ECFF;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  @media all and (max-width: 767px) {
+    margin-top: 16px auto;
+  }
+  @media all and (min-width: 767px) {
+    margin-top: 25px;
+  }
+}
+
+.rating-text {
+  height: auto;
+  margin: 0 auto;
+}
+
+.r-text {
+  max-width: 600px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 120%;
+  color: #4F26B5 !important;
+  opacity: 0.7 !important;
+  text-align: center;
+  padding: 17px;
+  margin: 0 auto;
+  position: relative;
+  @media all and (max-width: 1199px) {
+    margin-top: 90px;
+  }
+  @media all and (max-width: 650px) {
+    max-width: 300px;
+    font-size: 12px;
+    padding-top: 11px;
+  }
+  @media all and (max-width: 374px) {
+    font-size: 12px !important;
+  }
+}
+
+.r-text::before {
+  content: "";
+  background-image: url("../img/star.svg");
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 24px; 
+  top: 13px;
+  left: 22px;
+  @media all and (max-width: 650px) {
+    left: 0;
+  }
+}

@@ -1,4 +1,7 @@
 from ckeditor.fields import RichTextField
+from django.urls import reverse
+from django.utils.html import format_html
+from meta.models import ModelMeta
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
@@ -7,6 +10,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from core.fields import AutoSlugField
+from courses.constants import ICONS_TEMPLATE
 
 
 class Course(models.Model):
@@ -54,9 +58,17 @@ class Course(models.Model):
         (LESSON, _("Урок")),
     )
 
-    name = models.CharField(
+    name = RichTextField(
         _('Название'),
-        max_length=255,
+    )
+    slug = AutoSlugField(
+        _('Слаг'),
+        populate_from='name',
+        # unique=True,
+    )
+    description = RichTextField(
+        _('Описание'),
+        blank=True, null=True,
     )
     url = models.URLField(
         _('Ссылка на страницу курса'),
@@ -140,6 +152,10 @@ class Course(models.Model):
         _('Гос. поддержка'),
         default=False,
     )
+    recommended = models.BooleanField(
+        _('Рекомендуем'),
+        default=False,
+    )
     created = models.DateTimeField(
         _('Дата создания'),
         auto_now_add=True,
@@ -157,8 +173,20 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('courses:detail', kwargs={"slug": self.slug})
 
-class Category(MPTTModel):
+    @property
+    def price_formatted(self):
+        if not self.price_category:
+            return 'Бесплатно'
+
+        icons = '₽' * self.price_category
+        missing_icons = '₽' * (5 - self.price_category)
+        return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
+
+
+class Category(ModelMeta, MPTTModel):
     parent = TreeForeignKey(
         'self',
         models.CASCADE,
@@ -175,6 +203,11 @@ class Category(MPTTModel):
         populate_from='name',
         unique=True,
     )
+    title = models.CharField(
+        _('Заголовок'),
+        max_length=255,
+        blank=True, null=True,
+    )
     description = RichTextField(
         _('Описание'),
         blank=True, null=True,
@@ -187,6 +220,39 @@ class Category(MPTTModel):
         _('Сортировка'),
         default=0,
     )
+    created = models.DateTimeField(
+        _('created'),
+        auto_now_add=True,
+    )
+    updated = models.DateTimeField(
+        _('updated'),
+        auto_now=True,
+    )
+
+    extra_title = models.CharField(
+        _('Дополнительный заголовок'),
+        max_length=255,
+        blank=True, null=True,
+    )
+    extra_text = RichTextField(
+        _('Дополнительный текст'),
+        blank=True, null=True,
+    )
+
+    meta_title = models.CharField(
+        _('Meta title'),
+        max_length=255,
+        blank=True, null=True,
+    )
+    meta_description = models.TextField(
+        _('Meta description'),
+        blank=True, null=True,
+    )
+
+    _metadata = {
+        'title': 'meta_title',
+        'description': 'meta_description',
+    }
 
     class Meta:
         db_table = 'category'
@@ -195,6 +261,9 @@ class Category(MPTTModel):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('courses:category', kwargs={'slug': self.slug})
 
 
 class CourseCategory(models.Model):

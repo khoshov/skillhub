@@ -1,0 +1,229 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  h1 {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 120%;
+    margin-top: 42px;
+  }
+
+}
+
+.category-description {
+  font-size: 16px;
+  line-height: 140%;
+  color: #10101a;
+  max-width: 650px;
+  @media all and (max-width: 1199px) {
+    margin-bottom: 0;
+  }
+}
+
+#main-content {
+  @media all and (max-width: 768px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0 !important;
+  }
+
+  h1 {
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 110%;
+    max-width: 650px;
+    margin-top: 125px;
+    @media all and (max-width: 767px) {
+      font-size: 72px;
+      text-align: center;
+      margin-top: 100px;
+    }
+    @media all and (max-width: 768px) {
+      font-size: 72px !important;
+      margin: 0 auto;
+      margin-top: 100px !important;
+      text-align: center;
+    }
+    @media all and (max-width: 575px) {
+      font-size: 40px !important;
+      min-width: 280px !important;
+      margin-top: 100px !important;
+      text-align: center;
+    }
+  }
+
+  p {
+    width: 100%;
+    font-size: 24px;
+    line-height: 120%;
+    margin-top: 25px;
+    margin-bottom: 55px;
+    max-width: 400px;
+    @media all and (max-width: 767px) {
+      font-size: 16px !important;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    @media all and (max-width: 768px) {
+      max-width: 450px !important;
+      margin: 30px auto;
+      text-align: center;
+    }
+    @media all and (max-width: 374px) {
+      margin-bottom: 30px !important;
+      text-align: center;
+    }
+    @media all and (min-width: 767px) {
+      margin-right: auto;
+      margin-bottom: 30px;
+    }
+    @media all and (max-width: 576px) {
+      margin-bottom: 30px;
+      text-align: center;
+      max-width: 300px !important;
+    }
+    @media all and (max-width: 575px) {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+  }
+}
+
+#mobile-image {
+  display: none;
+  @media all and (max-width: 767px) {
+    display: block;
+    width: 100%;
+  }
+  @media all and (max-width: 768px) {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+  }
+  @media all and (max-width: 575px) {
+    display: block;
+    width: 100%;
+  }
+}
+
+.main-image {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/main-image.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: bottom;
+  background-size: 60%;
+  @media all and (max-width: 768px) {
+    position: absolute;
+    z-index: -1;
+    top: -78px !important;
+    background-position-x: center !important;
+    background-size: 60% !important;
+    background-image: none !important;
+  }
+  @media all and (max-width: 575px) {
+    background-size: 100% !important;
+  }
+}
+
+.line {
+  border-bottom: 1px solid #e0e1e2;
+  margin-bottom: -10px;
+  margin-top: 38px;
+  @media all and (max-width: 1199px) {
+    display: none;
+  }
+}
+
+.badge-and-select {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 45px;
+  @media all and (max-width: 1199px) {
+    margin-top: 25px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+  .col-sm-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 899px) {
+  .col-md-12 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1023px) {
+  .col-md-12 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+.main-page .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.add-text {
+  max-width: 662px;
+  margin-bottom: 130px;
+}
+
+.extra_title {
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101019;
+}
+
+.extra_text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  opacity: 0.5;
+}
+
+.content {
+  margin-top: 80px !important;
+}
+
+.content_school-name {
+  font-size: 20px;
+}
+
+.content_course-description {
+  max-width: 650px;
+  margin-bottom: 50px;
+}
+
+@media all and (max-width: 500px) {
+  .content_course-name {
+    font-size: 26px !important;
+  }
+  
+  .content-button {
+    width: 100% !important;
+  }
+  
+  .footer {
+    bottom: -100px !important;
+  }
+}

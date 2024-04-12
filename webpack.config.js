@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const BundleTracker = require('webpack-bundle-tracker');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     context: __dirname,
@@ -14,7 +15,8 @@ module.exports = {
         clean: true
     },
     plugins: [
-        new BundleTracker({filename: './webpack-stats.json'})
+        new BundleTracker({filename: './webpack-stats.json'}),
+        new StylelintPlugin({fix: true, failOnError: false})
     ],
     module: {
         rules: [

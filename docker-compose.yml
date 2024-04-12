@@ -7,6 +7,8 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
   redis:
     image: "redis:alpine"
     ports:
@@ -38,5 +40,9 @@ services:
       dockerfile: Dockerfile.node
     command: npx webpack --config webpack.config.js --watch
     volumes:
-      - .:/usr/src/app
+      - ./assets:/usr/src/app/assets
+      - ./webpack.config.js:/usr/src/app/webpack.config.js
+      - ./.stylelintrc.json:/usr/src/app/.stylelintrc.json
+      - ./.prettierrc:/usr/src/app/.prettierrc
+      - ./webpack-stats.json:/usr/src/app/webpack-stats.json
       - /usr/src/app/node_modules

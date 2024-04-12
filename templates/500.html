@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load webpack_static from webpack_loader %}
+
+{% block content %}
+
+    <img class="error-image"  src="{% webpack_static 'img/500.png' %}" alt="500">
+     <h1 class="error-title" >Ошибка на сервере</h1>
+     <p class="error-text" >Мы уже пытаемся её починить, попробуйте зайти позже</p>
+    <div class="error-button">
+    <a href="{% url 'courses:list' %}" class="btn main-button">К списку курсов</a>
+    </div>
+
+
+{% endblock content %}

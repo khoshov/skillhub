@@ -1,4 +1,17 @@
 from django.contrib import admin
+from solo.admin import SingletonModelAdmin
+
+from .models import MainPageConfig, AllCoursesPageConfig
+
+
+@admin.register(MainPageConfig)
+class MainPageConfigAdmin(SingletonModelAdmin):
+    pass
+
+
+@admin.register(AllCoursesPageConfig)
+class AllCoursesPageConfigAdmin(SingletonModelAdmin):
+    pass
 
 
 @admin.action(description='Установить статус опубликовано')

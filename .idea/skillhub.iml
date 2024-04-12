@@ -4,7 +4,7 @@
     <facet type="django" name="Django">
       <configuration>
         <option name="rootFolder" value="$MODULE_DIR$" />
-        <option name="settingsModule" value="config/settings.py" />
+        <option name="settingsModule" value="config/settings/dev.py" />
         <option name="manageScript" value="$MODULE_DIR$/manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
         <option name="doNotUseTestRunner" value="false" />
@@ -18,7 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/static" />
     </content>
-    <orderEntry type="jdk" jdkName="Remote Python 3.9.0 Docker Compose (web at [/Users/stanislavkhoshov/PycharmProjects/skillhub/docker-compose.yml])" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Remote Python 3.9.10 Docker Compose (django at [/Users/stanislavkhoshov/PycharmProjects/skillhub/docker-compose.yml])" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">
@@ -31,6 +31,7 @@
       <list>
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/apps/courses/templates" />
+        <option value="$MODULE_DIR$/apps/accounts/templates" />
       </list>
     </option>
   </component>

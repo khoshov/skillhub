@@ -1,10 +1,13 @@
+from rest_framework.generics import ListAPIView, UpdateAPIView
 from rest_framework.parsers import JSONParser
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_api_key.permissions import HasAPIKey
 
-from reviews.serializers import ReviewSerializer
+from reviews.filters import ReviewFilter
+from reviews.models import Review
+from reviews.serializers import ReviewListSerializer, ReviewSerializer, ReviewUpdateSerializer
 
 
 class ReviewAPIView(APIView):
@@ -18,3 +21,16 @@ class ReviewAPIView(APIView):
             return Response(serializer.data, status=201)
         else:
             return Response(serializer.errors, status=400)
+
+
+class ReviewUpdateAPIView(UpdateAPIView):
+    permission_classes = [AllowAny]
+    serializer_class = ReviewUpdateSerializer
+    queryset = Review.objects.all()
+
+
+class ReviewListAPIView(ListAPIView):
+    permission_classes = [AllowAny]
+    serializer_class = ReviewListSerializer
+    queryset = Review.objects.all()
+    filterset_class = ReviewFilter

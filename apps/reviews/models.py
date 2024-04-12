@@ -19,6 +19,18 @@ class Review(models.Model):
         (FIVE, _('Пять звёзд')),
     )
 
+    UNKNOWN = 1
+    NEGATIVE = 2
+    NEUTRAL = 3
+    POSITIVE = 4
+
+    SENTIMENT = (
+        (UNKNOWN, _('Неизвестен')),
+        (NEGATIVE, _('Негативный')),
+        (NEUTRAL, _('Нейтральный')),
+        (POSITIVE, _('Позитивный')),
+    )
+
     school = models.ForeignKey(
         'schools.School',
         models.CASCADE,
@@ -51,6 +63,11 @@ class Review(models.Model):
     text = models.TextField(
         _('Основной текст отзыва'),
         blank=True, null=True,
+    )
+    text_sentiment = models.IntegerField(
+        _('Тональность текста отзыва'),
+        choices=SENTIMENT,
+        default=UNKNOWN,
     )
 
     class Meta:

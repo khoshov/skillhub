@@ -5,8 +5,6 @@ from django.utils.html import format_html
 
 from .models import Course
 
-ICONS_TEMPLATE = '<span style="white-space: nowrap;">{}<span style="opacity: 0.15; -webkit-filter: grayscale(100%); filter: grayscale(100%);">{}</span></span>'
-
 morph = pymorphy2.MorphAnalyzer(lang='ru')
 
 
@@ -14,8 +12,10 @@ class CourseTable(tables.Table):
     name = tables.Column(verbose_name='Название курса', accessor='name')
     rating = tables.Column(verbose_name='Школа', accessor='school__rating', empty_values=())
     price = tables.Column(verbose_name='Цена', accessor='price_category', default='Бесплатно')
-    duration = tables.Column(verbose_name='Длительность', accessor='duration_category')
+    duration = tables.Column(verbose_name='Длительность', accessor='duration_category', default='Нет данных')
+    recommended = tables.Column(verbose_name='', accessor='recommended', default='')
     popularity = tables.Column(verbose_name='Популярность', accessor='popularity')
+    epc = tables.Column(verbose_name='EPC', accessor='school__epc')
     url = tables.Column(verbose_name='Длительность', accessor='url')
 
     # duration_category = tables.Column(verbose_name='Длительность баллы')
@@ -24,13 +24,15 @@ class CourseTable(tables.Table):
     class Meta:
         model = Course
         template_name = 'django_tables2/bootstrap4-responsive.html'
-        order_by = '-popularity'
+        order_by = ('-recommended', '-epc')
         fields = (
             'name',
             'rating',
             'duration',
             'price',
+            'recommended',
             'popularity',
+            'epc',
 
             # 'duration_category',
             # 'popularity',
@@ -64,9 +66,7 @@ class CourseTable(tables.Table):
         return format_html(f'{record.school.name}{rating}')
 
     def render_price(self, value, record):
-        icons = '₽' * record.price_category
-        missing_icons = '₽' * (5 - record.price_category)
-        return format_html(ICONS_TEMPLATE.format(icons, missing_icons))
+        return record.price_formatted
 
     def render_duration(self, value, record):
         duration_type = dict(Course.DURATION_TYPE)[record.duration_type].lower()
@@ -78,6 +78,13 @@ class CourseTable(tables.Table):
         return record.duration_category
 
     def render_url(self, value, record):
-        if record.affiliate_url:
-            return record.affiliate_url
-        return record.url
+        return record.get_absolute_url()
+
+    def render_recommended(self, value, record):
+        if record.recommended:
+            icon = '<span class="recommended-icon"></span>'
+            text = '<span class="recommended-text">Рекомендуем</span>'
+            badge = f'<span class="recommended-badge">{icon}{text}</span>'
+            return format_html(badge)
+        else:
+            return ''

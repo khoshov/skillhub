@@ -1,0 +1,35 @@
+.badges {
+  max-width: 600px;
+  margin-top: 3rem;
+  margin-right: 10px;
+  @media all and (max-width: 1199px) {
+    margin-top: 0;
+  }
+}
+
+.badge {
+  width: auto;
+  height: 32px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-bottom: 9px;
+}
+
+.badge-primary {
+  @include badge-font;
+
+  font-weight: normal;
+  margin-bottom: 9px;
+  color: black !important;
+  border: 1px solid #e0e1e2;
+  background-color: #fff !important;
+}
+
+.badge-dark {
+  @include badge-font;
+
+  font-weight: 600;
+  line-height: 120%;
+  color: #fff !important;
+  background-color: #773fff !important;
+}
