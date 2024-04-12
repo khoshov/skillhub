@@ -14,10 +14,10 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', include('courses.urls', namespace='courses')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('django_registration.backends.activation.urls')),
+    path('courses', include('courses.urls', namespace='courses')),
     path('reviews/', include('reviews.urls', namespace='reviews')),
     path('schools/', include('schools.urls', namespace='schools')),
     path('tags/', include('tags.urls', namespace='tags')),
