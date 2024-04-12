@@ -1,57 +1,57 @@
 {
   "status": "done",
   "assets": {
-    "main-d538607125cb8a4f2948.js": {
-      "name": "main-d538607125cb8a4f2948.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-d538607125cb8a4f2948.js"
-    },
-    "b471f0e10d74fe888137.svg": {
-      "name": "b471f0e10d74fe888137.svg",
-      "path": "/usr/src/app/assets/webpack_bundles/b471f0e10d74fe888137.svg"
-    },
-    "87fc0c5c3ba8bfbab372.svg": {
-      "name": "87fc0c5c3ba8bfbab372.svg",
-      "path": "/usr/src/app/assets/webpack_bundles/87fc0c5c3ba8bfbab372.svg"
-    },
-    "7c54c9fb9412b7b42e81.svg": {
-      "name": "7c54c9fb9412b7b42e81.svg",
-      "path": "/usr/src/app/assets/webpack_bundles/7c54c9fb9412b7b42e81.svg"
-    },
-    "05a7a69342d74438c8da.svg": {
-      "name": "05a7a69342d74438c8da.svg",
-      "path": "/usr/src/app/assets/webpack_bundles/05a7a69342d74438c8da.svg"
-    },
     "1c8a2597e9ac9d1b91dc.png": {
       "name": "1c8a2597e9ac9d1b91dc.png",
       "path": "/usr/src/app/assets/webpack_bundles/1c8a2597e9ac9d1b91dc.png"
     },
-    "b669f1af019ab0656614.svg": {
-      "name": "b669f1af019ab0656614.svg",
-      "path": "/usr/src/app/assets/webpack_bundles/b669f1af019ab0656614.svg"
+    "382365c91ba2487ccd74.svg": {
+      "name": "382365c91ba2487ccd74.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/382365c91ba2487ccd74.svg"
     },
-    "1bc6946a19d584cb33c7.svg": {
-      "name": "1bc6946a19d584cb33c7.svg",
-      "path": "/usr/src/app/assets/webpack_bundles/1bc6946a19d584cb33c7.svg"
+    "4dd72fec4a1b9c1f5976.svg": {
+      "name": "4dd72fec4a1b9c1f5976.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/4dd72fec4a1b9c1f5976.svg"
     },
-    "vendor-d538607125cb8a4f2948.js": {
-      "name": "vendor-d538607125cb8a4f2948.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-d538607125cb8a4f2948.js"
+    "676392cbccf703c4687c.svg": {
+      "name": "676392cbccf703c4687c.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/676392cbccf703c4687c.svg"
     },
-    "main-d538607125cb8a4f2948.js.LICENSE.txt": {
-      "name": "main-d538607125cb8a4f2948.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-d538607125cb8a4f2948.js.LICENSE.txt"
+    "7686f89d8428cbce593f.svg": {
+      "name": "7686f89d8428cbce593f.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/7686f89d8428cbce593f.svg"
     },
-    "vendor-d538607125cb8a4f2948.js.LICENSE.txt": {
-      "name": "vendor-d538607125cb8a4f2948.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-d538607125cb8a4f2948.js.LICENSE.txt"
+    "83b2e2cce17eca2c900d.svg": {
+      "name": "83b2e2cce17eca2c900d.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/83b2e2cce17eca2c900d.svg"
+    },
+    "85719bc55d21054c11a3.svg": {
+      "name": "85719bc55d21054c11a3.svg",
+      "path": "/usr/src/app/assets/webpack_bundles/85719bc55d21054c11a3.svg"
+    },
+    "main-c4c854ee404189ba4505.js": {
+      "name": "main-c4c854ee404189ba4505.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-c4c854ee404189ba4505.js"
+    },
+    "main-c4c854ee404189ba4505.js.LICENSE.txt": {
+      "name": "main-c4c854ee404189ba4505.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-c4c854ee404189ba4505.js.LICENSE.txt"
+    },
+    "vendor-c4c854ee404189ba4505.js": {
+      "name": "vendor-c4c854ee404189ba4505.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-c4c854ee404189ba4505.js"
+    },
+    "vendor-c4c854ee404189ba4505.js.LICENSE.txt": {
+      "name": "vendor-c4c854ee404189ba4505.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-c4c854ee404189ba4505.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-d538607125cb8a4f2948.js"
+      "main-c4c854ee404189ba4505.js"
     ],
     "vendor": [
-      "vendor-d538607125cb8a4f2948.js"
+      "vendor-c4c854ee404189ba4505.js"
     ]
   }
 }
