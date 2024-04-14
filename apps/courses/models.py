@@ -174,7 +174,11 @@ class Course(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('courses:detail', kwargs={"slug": self.slug})
+        # TODO: Костыль который убирает ошибку в случае если slug пустой.
+        #  Сделать slug обязательным и заполнить в миграции для всех курсов
+        if self.slug:
+            return reverse('courses:detail', kwargs={"slug": self.slug})
+        return reverse('core:index')
 
     @property
     def price_formatted(self):
