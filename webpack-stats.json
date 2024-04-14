@@ -45,29 +45,29 @@
       "name": "e718c12621f208927a82.svg",
       "path": "/usr/src/app/assets/webpack_bundles/e718c12621f208927a82.svg"
     },
-    "main-0068f925dea30ac9c000.js": {
-      "name": "main-0068f925dea30ac9c000.js",
-      "path": "/usr/src/app/assets/webpack_bundles/main-0068f925dea30ac9c000.js"
+    "main-853666353ee71aa51ab8.js": {
+      "name": "main-853666353ee71aa51ab8.js",
+      "path": "/usr/src/app/assets/webpack_bundles/main-853666353ee71aa51ab8.js"
     },
-    "main-0068f925dea30ac9c000.js.LICENSE.txt": {
-      "name": "main-0068f925dea30ac9c000.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/main-0068f925dea30ac9c000.js.LICENSE.txt"
+    "main-853666353ee71aa51ab8.js.LICENSE.txt": {
+      "name": "main-853666353ee71aa51ab8.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/main-853666353ee71aa51ab8.js.LICENSE.txt"
     },
-    "vendor-0068f925dea30ac9c000.js": {
-      "name": "vendor-0068f925dea30ac9c000.js",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-0068f925dea30ac9c000.js"
+    "vendor-853666353ee71aa51ab8.js": {
+      "name": "vendor-853666353ee71aa51ab8.js",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-853666353ee71aa51ab8.js"
     },
-    "vendor-0068f925dea30ac9c000.js.LICENSE.txt": {
-      "name": "vendor-0068f925dea30ac9c000.js.LICENSE.txt",
-      "path": "/usr/src/app/assets/webpack_bundles/vendor-0068f925dea30ac9c000.js.LICENSE.txt"
+    "vendor-853666353ee71aa51ab8.js.LICENSE.txt": {
+      "name": "vendor-853666353ee71aa51ab8.js.LICENSE.txt",
+      "path": "/usr/src/app/assets/webpack_bundles/vendor-853666353ee71aa51ab8.js.LICENSE.txt"
     }
   },
   "chunks": {
     "main": [
-      "main-0068f925dea30ac9c000.js"
+      "main-853666353ee71aa51ab8.js"
     ],
     "vendor": [
-      "vendor-0068f925dea30ac9c000.js"
+      "vendor-853666353ee71aa51ab8.js"
     ]
   }
 }

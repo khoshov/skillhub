@@ -8,108 +8,111 @@
 
 
 {% block content %}
-  <div class="rating">
-    <div class="rating-text">
-      <div class="r-text">Рейтинг школ сформирован на основе данных из открытых источников</div>
-    </div>
-  </div>
-
-  {% if category %}
-    <h1>{{ category.title }}</h1>
-    {% if category.description %}
-      <div class="category-description">
-      {{ category.description|safe }}
-      </div>
-    {% endif %}
-  {% elif request.GET.name %}
     {% with count=table.rows|length course="курс" %}
-      <h1>Мы нашли {{ count }} {{ course|agree_with_number:count }} по запросу «{{ request.GET.name }}»</h1>
-    {% endwith %}
-  {% else %}
-    <h1>{{ config.title }}</h1>
-    <p class="category-description">{{ config.description|safe }}</p>
-  {% endif %}
-
-  <div class="line"></div>
-
-  <div class="badge-and-select">
-    {% if category %}
-      {% if category.get_root == category %}
-        <div class="badges">
-          <a href="{% url 'courses:category' slug=category.slug %}" class="badge badge-dark">{{ category.name }} ({{ category.get_family|count_courses }})</a>
-          {% for child in category.get_children %}
-            <a href="{% url 'courses:category' slug=child.slug %}" class="badge badge-primary">{{ child.name }} ({{ child.course_set.count }})</a>
-          {% endfor %}
-        </div>
-      {% else %}
-        <div class="badges">
-          <a href="{% url 'courses:category' slug=category.get_root.slug %}" class="badge badge-primary">{{ category.get_root.name }} ({{ category.get_root.get_family|count_courses }})</a>
-          {% for child in category.get_root.get_children %}
-            <a href="{% url 'courses:category' slug=child.slug %}" class="badge {% if request.resolver_match.kwargs.slug == child.slug %}badge-dark{% else %}badge-primary{% endif %}">{{ child.name }} ({{ child.course_set.count }})</a>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endif %}
-    <form id="filter-form" class="filter">
-      {#    {% if category %}#}
-      {#      <input type="hidden" name="categories" value="{{ category.id }}">#}
-      {#    {% endif %}#}
-      <input id="free" type="hidden" name="free">
-      <div>
-        <div class="form-row form-margin align-items-center">
-          <div class="col-lg">
-            <div class="custom-sel">
-              <select id="filter-select" class="form-control" name="sort">
-                <option></option>
-                <option value="" {% if not request.GET.free and not request.GET.sort %}selected{% endif %} data-free="">Популярные</option>
-                <option value="" {% if request.GET.free == 'true' %}selected{% endif %} data-free="true">Бесплатные</option>
-                <option value="price" {% if request.GET.sort == 'price' %}selected{% endif %} data-free="false">Сначала дешевые</option>
-                <option value="-price" {% if request.GET.sort == '-price' %}selected{% endif %} data-free="false">Сначала дорогие</option>
-                <option value="duration" {% if request.GET.sort == 'duration' %}selected{% endif %} data-free="">Сначала короткие</option>
-                <option value="-duration" {% if request.GET.sort == '-duration' %}selected{% endif %} data-free="">Сначала долгие</option>
-                <option value="-rating" {% if request.GET.sort == '-rating' %}selected{% endif %} data-free="">С высоким рейтингом</option>
-              </select>
+        <div class="rating">
+            <div class="rating-text">
+                <div class="r-text">Рейтинг школ сформирован на основе данных из открытых источников</div>
             </div>
-          </div>
         </div>
-      </div>
-    </form>
-  </div>
-  <div id='table'>
-    {% include 'courses/table.html' %}
-  </div>
-    
-{% if category.extra_title or category.extra_text %}
-  <div class="add-text">
-    {% if category.extra_title %}
-      <h2 class="extra_title">{{ category.extra_title }}</h2>
-    {% endif %}
 
-    {% if category.extra_text %}
-      <p class="extra_text">{{ category.extra_text|safe }}</p>
-    {% endif %}
-  </div>
-{% endif %}
+        {% if category %}
+            <h1>{{ category.title }}</h1>
+            {% if category.description %}
+                <div class="category-description">
+                    {{ category.description|safe }}
+                </div>
+            {% endif %}
+        {% elif request.GET.name %}
+            {% if count %}
+                <h1>Мы нашли {{ count }} {{ course|agree_with_number:count }} по запросу «{{ request.GET.name }}»</h1>
+            {% else %}
+                <h1>Мы не нашли курсов по запросу «{{ request.GET.name }}»</h1>
+            {% endif %}
+        {% else %}
+            <h1>{{ config.title }}</h1>
+            <p class="category-description">{{ config.description|safe }}</p>
+        {% endif %}
 
+        <div class="line"></div>
+
+        <div class="badge-and-select">
+            {% if category %}
+                {% if category.get_root == category %}
+                    <div class="badges">
+                        <a href="{% url 'courses:category' slug=category.slug %}" class="badge badge-dark">{{ category.name }} ({{ category.get_family|count_courses }})</a>
+                        {% for child in category.get_children %}
+                            <a href="{% url 'courses:category' slug=child.slug %}" class="badge badge-primary">{{ child.name }} ({{ child.course_set.count }})</a>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="badges">
+                        <a href="{% url 'courses:category' slug=category.get_root.slug %}" class="badge badge-primary">{{ category.get_root.name }} ({{ category.get_root.get_family|count_courses }})</a>
+                        {% for child in category.get_root.get_children %}
+                            <a href="{% url 'courses:category' slug=child.slug %}" class="badge {% if request.resolver_match.kwargs.slug == child.slug %}badge-dark{% else %}badge-primary{% endif %}">{{ child.name }} ({{ child.course_set.count }})</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endif %}
+            <form id="filter-form" class="filter">
+                {#    {% if category %}#}
+                {#      <input type="hidden" name="categories" value="{{ category.id }}">#}
+                {#    {% endif %}#}
+                <input id="free" type="hidden" name="free">
+                <div>
+                    <div class="form-row form-margin align-items-center">
+                        <div class="col-lg">
+                            <div class="custom-sel">
+                                <select id="filter-select" class="form-control" name="sort">
+                                    <option></option>
+                                    <option value="" {% if not request.GET.free and not request.GET.sort %}selected{% endif %} data-free="">Популярные</option>
+                                    <option value="" {% if request.GET.free == 'true' %}selected{% endif %} data-free="true">Бесплатные</option>
+                                    <option value="price" {% if request.GET.sort == 'price' %}selected{% endif %} data-free="false">Сначала дешевые</option>
+                                    <option value="-price" {% if request.GET.sort == '-price' %}selected{% endif %} data-free="false">Сначала дорогие</option>
+                                    <option value="duration" {% if request.GET.sort == 'duration' %}selected{% endif %} data-free="">Сначала короткие</option>
+                                    <option value="-duration" {% if request.GET.sort == '-duration' %}selected{% endif %} data-free="">Сначала долгие</option>
+                                    <option value="-rating" {% if request.GET.sort == '-rating' %}selected{% endif %} data-free="">С высоким рейтингом</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id='table'>
+            {% include 'courses/table.html' %}
+        </div>
+
+        {% if category.extra_title or category.extra_text %}
+            <div class="add-text">
+                {% if category.extra_title %}
+                    <h2 class="extra_title">{{ category.extra_title }}</h2>
+                {% endif %}
+
+                {% if category.extra_text %}
+                    <p class="extra_text">{{ category.extra_text|safe }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endwith %}
 {% endblock content %}
 
 {% block script %}
-  <script>
-      function nextPageHandler(e) {
-          e.preventDefault();
+    <script>
+        function nextPageHandler(e) {
+            e.preventDefault();
 
-          const $obj = $(this);
-          const urlLink = $obj.attr("href");
+            const $obj = $(this);
+            const urlLink = $obj.attr("href");
 
-          $obj.unbind("click", nextPageHandler);
+            $obj.unbind("click", nextPageHandler);
 
-          $.get(urlLink, function (data) {
-              $('#table').html(data)
-          }).done(function () {
-              $('#show-more').bind("click", nextPageHandler);
-          });
-      }
+            $.get(urlLink, function (data) {
+                $('#table').html(data)
+            }).done(function () {
+                $('#show-more').bind("click", nextPageHandler);
+            });
+        }
 
-      $('#show-more').click(nextPageHandler);
-  </script>
+        $('#show-more').click(nextPageHandler);
+    </script>
 {% endblock %}
