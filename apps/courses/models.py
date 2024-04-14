@@ -178,7 +178,7 @@ class Course(models.Model):
         #  Сделать slug обязательным и заполнить в миграции для всех курсов
         if self.slug:
             return reverse('courses:detail', kwargs={"slug": self.slug})
-        return self.affiliate_url
+        return self.affiliate_url or self.url
 
     @property
     def price_formatted(self):
