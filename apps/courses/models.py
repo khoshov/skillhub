@@ -1,6 +1,7 @@
 from ckeditor.fields import RichTextField
 from django.urls import reverse
 from django.utils.html import format_html
+from django_extensions.db.fields import AutoSlugField
 from meta.models import ModelMeta
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
@@ -9,7 +10,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from core.fields import AutoSlugField
+from core.utils import slugify_reach_text
 from courses.constants import ICONS_TEMPLATE
 
 
@@ -63,8 +64,9 @@ class Course(models.Model):
     )
     slug = AutoSlugField(
         _('Слаг'),
+        max_length=255,
         populate_from='name',
-        # unique=True,
+        slugify_function=slugify_reach_text,
     )
     description = RichTextField(
         _('Описание'),

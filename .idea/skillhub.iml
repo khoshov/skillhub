@@ -18,7 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/static" />
     </content>
-    <orderEntry type="jdk" jdkName="Remote Python 3.9.10 Docker Compose (django at [/Users/stanislavkhoshov/PycharmProjects/skillhub/docker-compose.yml])" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (skillhub)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

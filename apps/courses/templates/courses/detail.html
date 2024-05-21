@@ -1,11 +1,74 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="content">
-    <p class="content_school-name">{{ course.school.name }}</p>
-    <h1 class="content_course-name">{{ course.name|safe }}</h1>
-    <p class="content_course-price">{{ course.price_formatted }}</p>
-    <p class="content_course-description">{{ course.description|safe }} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis beatae pariatur aut cum molestias explicabo minus. Blanditiis nobis non ut beatae cumque esse laudantium. Dolore commodi aperiam tempora veniam necessitatibus. Possimus natus quas error officia accusamus eveniet quam eos quod est quaerat debitis molestias adipisci mollitia aliquam, ut eaque ab cum nostrum animi quia labore soluta molestiae, consequuntur impedit. Possimus placeat officiis aliquid quo repellat error ullam quibusdam. Natus, soluta consequuntur. Iste ipsam esse, excepturi quis rerum quisquam placeat et iusto animi cum ea veritatis quae aut voluptate perferendis, quasi maxime nihil repudiandae consequuntur laudantium voluptatibus quia quaerat eligendi ipsa?</p>
-    <a href="{{ course.affiliate_url }}" class="btn btn-primary main-button mt-3 content-button">Перейти на страницу курса</a>
-</div>
+    <div class="content">
+        <h2>
+            <strong>
+                {{ course.school.name }}
+                {{ course.school.rating_formatted }}
+            </strong>
+        </h2>
+        <div class="container">
+            <div class="row">
+                <div class='col-md-6'>
+                    <h2 class="content_course-name">{{ course.name|safe }}</h2>
+                    <p class="content_course-price">{{ course.price_formatted }}</p>
+                    {% if course.description %}
+                        <p class="content_course-description">{{ course.description|safe }}</p>
+                    {% endif %}
+                </div>
+
+                <div class='col-md-6'>
+
+                    <h2 class="content_course-name">
+                        Отзывы о школе: <a href="{% url 'schools:detail' pk=course.school.pk %}"
+                                           class="content_course-name change-color-on-hover">{{ course.school.name|safe }}</a>
+                    </h2>
+                    <div class='ml-3 mt-3'>
+                        <h5 class="content_course-name">
+                            <strong>Преимущества школы:</strong>
+                        </h5>
+                        {% if course.school.advantages.all %}
+                            {% for advantage in course.school.advantages.all %}
+                                <p class="content_course-description">
+                                    <strong>{{ advantage.title }}: </strong>{{ advantage.description }}
+                                </p>
+                            {% endfor %}
+                        {% else %}
+                            <p class="content_course-description">Отзывов пока нет</p>
+                        {% endif %}
+                        <h5 class="content_course-name">
+                            <strong>Недостатки школы:</strong>
+                        </h5>
+                        {% if course.school.disadvantages.all %}
+                            {% for advantage in course.school.advantages.all %}
+                                <p class="content_course-description">
+                                    <strong>{{ advantage.title }}: </strong>{{ advantage.description }}
+                                </p>
+                            {% endfor %}
+                        {% else %}
+                            <p class="content_course-description">Отзывов пока нет</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">продолжительность</th>
+                <th scope="col">уровень</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ course.duration_formatted }}</td>
+                <td>{{ course.get_difficulty_display }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ course.affiliate_url }}" target="_blank" class="btn btn-primary main-button mt-3 content-button">Перейти
+            на страницу курса</a>
+    </div>
 {% endblock content %}
